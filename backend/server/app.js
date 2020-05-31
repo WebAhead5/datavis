@@ -1,10 +1,6 @@
 const express = require('express');
-const dashboardRouter = require('./routes/dashboard');
-const tablesRouter = require('./routes/tables');
-const chartsRouter = require('./routes/charts');
-const userRouter = require('./routes/user');
-const { route404, route500 } = require('./routes/error');
-
+const { route404, route500 } = require('./routes/errorRoutes');
+const cors = require("cors");
 
 // require('dotenv').config();
 
@@ -14,15 +10,23 @@ const app = express();
 //set port
 app.set('port', process.env.PORT || 4000);
 
-//set routers
-app.use('/dashboard', dashboardRouter);
-app.use('/tables', tablesRouter);
-app.use('/charts', chartsRouter);
-app.use('/user', userRouter);
+
+//middleware
+const checkJWT = require("./middleware/checkJWT");
+app.use(cors());
+app.use(express.json());
+
+
+//set API routes (for example /auth/login or /table/43)
+app.use('/dashboard', checkJWT, require('./routes/dashboardRoutes'));
+app.use('/table', checkJWT, require('./routes/tableRoutes'));
+app.use('/chart', checkJWT, require('./routes/chartRoute'));
+app.use('/user', checkJWT, require('./routes/userRoutes'));
+app.use('/auth', require('./routes/authRoutes'));;
 
 
 app.get('/', (req, res) => {
-    res.send('API Home, please query /dashboard, /tables, /charts, /user');
+    res.send('API Home, please query /dashboard, /table, /chart, /user');
 });
 
 app.use(route404);
