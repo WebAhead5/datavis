@@ -53,35 +53,31 @@ const Login = ({ setLoggedIn }) => {
 
     return (
         <Fragment>
-            <div className="row">
-                <div className="col-2"></div>
 
-                <div className="col-8">
-                    <h1 className="mt-5 text-center">Login</h1>
-                    <form onSubmit={onSubmitForm}>
-                        <input
-                            type="text"
-                            name="email"
-                            placeholder="email"
-                            value={email}
-                            onChange={(e) => onChange(e)}
-                            className="form-control my-3"
-                        />
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            value={password}
-                            onChange={(e) => onChange(e)}
-                            className="form-control my-3"
-                        />
-                        <button className="btn btn-info btn-block">Submit</button>
-                    </form>
-                    <Link to="/register">register</Link>
-                </div>
 
-                <div className="col-2"></div>
-            </div>
+            <h1 className="mt-1 text-center">Login</h1>
+            <form onSubmit={onSubmitForm} className="mt-1 mx-1">
+                <input
+                    type="text"
+                    name="email"
+                    placeholder="email"
+                    value={email}
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    value={password}
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                />
+                <button className="btn btn-info btn-block">Log In</button>
+            </form>
+
+
+
         </Fragment>
     );
 };
