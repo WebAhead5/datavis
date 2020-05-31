@@ -1,8 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Popup from "reactjs-popup";
 //components
 
 import Login from "./components/Login";
@@ -10,7 +15,6 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import NavBar from "./components/NavBar";
-
 
 //for log in & log out pop ups
 toast.configure({
@@ -20,23 +24,21 @@ toast.configure({
   closeOnClick: true,
   pauseOnHover: true,
   draggable: true,
-  progress: undefined
+  progress: undefined,
 });
 
-
 function App() {
-
   //state for if logged in or not
   const [loggedIn, setLoggedIn] = useState(false);
 
   //Function to check if user has a valid JWT token already
   const CheckLoggedIn = async () => {
     try {
-      console.log("checkAuthRun")
+      console.log("checkAuthRun");
       //Send JWT to server to check if valid
       const res = await fetch("http://localhost:4000/auth/verify", {
         method: "POST",
-        headers: { jwt_token: localStorage.token }
+        headers: { jwt_token: localStorage.token },
       });
 
       //response from server (only if JWT token is valid, else error)
@@ -44,7 +46,6 @@ function App() {
 
       //if valid JWT, set Auth to true
       parseRes === true ? setLoggedIn(true) : setLoggedIn(false);
-
     } catch (err) {
       console.error(err.message);
     }
@@ -55,56 +56,50 @@ function App() {
     CheckLoggedIn();
   }, []);
 
-
-
-
   //Render
   return (
     <Fragment>
       <NavBar />
       <div>
         <Router>
-
           <Switch>
-
-            <Route exact path="/"
-              render={Home} />
-
             <Route
-              exact path="/login"
-              render={props =>
+              exact
+              path="/"
+              render={(props) =>
                 !loggedIn ? (
-                  <Login {...props} setLoggedIn={setLoggedIn} />
+                  <Home {...props} setLoggedIn={setLoggedIn} />
                 ) : (
-                    <Redirect to="/dashboard" />
-                  )
+                  <Redirect to="/dashboard" />
+                )
               }
             />
             <Route
-              exact path="/register"
-              render={props =>
+              exact
+              path="/register"
+              render={(props) =>
                 !loggedIn ? (
                   <Register {...props} setLoggedIn={setLoggedIn} />
                 ) : (
-                    <Redirect to="/dashboard" />
-                  )
+                  <Redirect to="/dashboard" />
+                )
               }
             />
             <Route
-              exact path="/dashboard"
-              render={props =>
+              exact
+              path="/dashboard"
+              render={(props) =>
                 loggedIn ? (
                   <Dashboard {...props} setLoggedIn={setLoggedIn} />
                 ) : (
-                    <Redirect to="/" />
-                  )
+                  <Redirect to="/" />
+                )
               }
             />
             <Route path="/*">
               <h2 className="text-center mt-5">404 page not found</h2>
             </Route>
           </Switch>
-
         </Router>
       </div>
     </Fragment>
@@ -112,4 +107,3 @@ function App() {
 }
 
 export default App;
-
