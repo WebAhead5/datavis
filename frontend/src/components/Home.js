@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from "react-router-dom";
+import Slideshow from "./SlideShow"
 
 function Home() {
 
@@ -10,6 +11,7 @@ function Home() {
             <h4><Link to="/login">login</Link></h4>
             <h4><Link to="/register">register</Link></h4>
 
+            <Slideshow />
         </div>
     )
 }
