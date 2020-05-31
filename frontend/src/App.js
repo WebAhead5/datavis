@@ -7,14 +7,12 @@ import {
 } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Popup from "reactjs-popup";
 //components
 
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Home from "./components/Home";
-import Dashboard from "./components/Dashboard";
-import NavBar from "./components/NavBar";
+import Register from "./components/Auth/Register";
+import Home from "./components/Welcome/Home";
+import Dashboard from "./components/Dashboard/Dashboard";
+
 
 //for log in & log out pop ups
 toast.configure({
@@ -63,49 +61,49 @@ function App() {
   //Render
   return (
     <Fragment>
-      <NavBar />
-      <div>
-        <Router>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) =>
-                !loggedIn ? (
-                  <Home {...props} setLoggedIn={setLoggedIn} />
-                ) : (
-                    <Redirect to="/dashboard" />
-                  )
-              }
-            />
-            <Route
-              exact
-              path="/register"
-              render={(props) =>
-                !loggedIn ? (
-                  <Register {...props} setLoggedIn={setLoggedIn} />
-                ) : (
-                    <Redirect to="/dashboard" />
-                  )
-              }
-            />
-            <Route
-              exact
-              path="/dashboard"
-              render={(props) =>
-                loggedIn ? (
-                  <Dashboard {...props} setLoggedIn={setLoggedIn} />
-                ) : (
-                    <Redirect to="/" />
-                  )
-              }
-            />
-            <Route path="/*">
-              <h2 className="text-center mt-5" style={{ color: "white" }}>404 page not found</h2>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+
+      <Router>
+
+        <Switch>
+
+          <Route
+            exact
+            path="/"
+            render={(props) =>
+              !loggedIn ? (
+                <Home {...props} setLoggedIn={setLoggedIn} />
+              ) : (
+                  <Redirect to="/dashboard" />
+                )
+            }
+          />
+          <Route
+            exact
+            path="/register"
+            render={(props) =>
+              !loggedIn ? (
+                <Register {...props} setLoggedIn={setLoggedIn} />
+              ) : (
+                  <Redirect to="/dashboard" />
+                )
+            }
+          />
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) =>
+              loggedIn ? (
+                <Dashboard {...props} setLoggedIn={setLoggedIn} />
+              ) : (
+                  <Redirect to="/" />
+                )
+            }
+          />
+          <Route path="/*">
+            <h2 className="text-center mt-5" style={{ color: "white" }}>404 page not found</h2>
+          </Route>
+        </Switch>
+      </Router>
     </Fragment>
 
   );

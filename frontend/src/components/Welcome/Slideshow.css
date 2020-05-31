@@ -1,16 +1,28 @@
 .slide-container {
-    width: 40%;
+    width: 40VW;
     margin-left:5%;
-    margin-top: 10% }
+    margin-top: 30VH
+     ;}
   
   h3 {
     text-align: center; }
 
 .tagline {
-
+    width: 92%;
     color: white;
-    font-size: 32px !important;
+    font-size: 2VW;
     text-align: center;
+    margin-right: 4%;
+    margin-left: 4%;
+}
+
+
+.join {
+
+  color: white;
+  font-size: 1.4VW;
+  text-align: center;
+  margin: auto;
 }
   
   .each-slide > div {
@@ -18,14 +30,30 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: 300px;
+    height: 30VH;
+    border-radius: 5px;;
+    position: relative;
+    margin: 1vw;
+
+
+  
+   
   }
   
   .each-slide span {
     padding: 20px;
     font-size: 20px;
-    background: #efefef;
+    background:rgba(255, 255, 255, 0.829);
+    border-radius: 5px;
     text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: rgb(21, 10, 83)
+  
+
+    
   }
   
   .each-fade {
@@ -49,3 +77,5 @@
     margin: 0;
     background: #adceed;
   }
+
+ 
