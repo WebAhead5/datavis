@@ -12,6 +12,7 @@ import Login from "./Login";
 function Home({ setLoggedIn }) {
     return (
         <div>
+            a41bedb1c8b014d2809e2d6eceb
             <h1 className="mt-5 text-center">Home</h1>
             <Popup trigger={<button> Login</button>} position="right center">
                 <div>
@@ -28,10 +29,6 @@ function Home({ setLoggedIn }) {
                 </div>
             </Popup>
 
-            <h4>login</h4>
-            <h4>
-                <Link to="/register">register</Link>
-            </h4>
         </div>
     );
 }
