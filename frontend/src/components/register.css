@@ -1,0 +1,139 @@
+:root {
+    --color-white: white;
+    --border-radius: 8px;
+    --height-input-fields: 50px;
+  }
+  
+  html {
+    height: 100%;
+    background-image: url("../assets/images/charts.png");
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+  
+  form {
+    /* animation: formAnimation 1s; */
+    margin-top: 150px;
+    overflow: hidden;
+    float: none;
+  
+  }
+  
+  .formContainer {
+    width: auto;
+    display: flexbox;
+    text-align: center;
+    position: relative;
+  }
+  
+  .firstName,
+  .lastName,
+  .password,
+  .confirmPassword {
+    width: 8%;
+    height: var(--height-input-fields);
+    opacity: 0.8;
+    font-size: larger;
+  }
+  
+  .email {
+    width: 42% !important;
+    opacity: 0.8;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: var(--height-input-fields);
+    font-size: larger;
+  }
+  
+  .firstName,
+  .password {
+    margin-right: 7.5px;
+  }
+  
+  .submit {
+    color: var(--color-white);
+  
+    background-color: #131545;
+    border-radius: var(--border-radius);
+    width: 12% !important;
+    height: 50px;
+    border: solid var(--color-white) thin;
+    font-size: large;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+    box-shadow: 5px 5px 20px var(--color-white);
+    margin-top: 55px;
+  }
+  
+  /* Form animation */
+  @keyframes formAnimation {
+    from {
+      transform: scaleY(0);
+      overflow: hidden;
+    }
+    to {
+      transition: ease-in;
+    }
+  }
+  /*//////*/
+  
+  
+  
+  @media only screen and (max-width: 850px) {
+    .email {
+      width: 43% !important;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .firstName,
+    .lastName,
+    .password,
+    .confirmPassword {
+      width: 20%;
+    }
+  
+    html {
+      /* height: 200%; */
+      background-image: url("../assets/images/charts.png");
+      background-repeat: repeat-y;
+      /* background-repeat: no-repeat; */
+      
+      background-size: 450%;
+      background-attachment: fixed;
+      /* background-position: center; */
+    }
+    .email {
+      width: 46.9% !important;
+    }
+  
+    .submit {
+      width: 30% !important;
+    }
+    body {
+      background-size: 100%;
+    }
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .firstName,
+    .lastName,
+    .password,
+    .confirmPassword {
+      width: 20%;
+    }
+  
+    body {
+      background-size: 100%;
+    }
+  
+    .email {
+      width: 42.5%;
+    }
+    .submit {
+      width: 18%;
+    }
+  }
+  

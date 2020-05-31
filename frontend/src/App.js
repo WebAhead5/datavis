@@ -62,9 +62,7 @@ function App() {
   return (
     <Fragment>
       <NavBar />
-      <div className="container">
-
-
+      <div>
         <Router>
 
           <Switch>
