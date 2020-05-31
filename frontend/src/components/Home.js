@@ -10,30 +10,27 @@ import Popup from "reactjs-popup";
 import Login from "./Login";
 
 function Home({ setLoggedIn }) {
-  return (
-    <div>
-      <h1 className="mt-5 text-center">Home</h1>
-      <Popup trigger={<button> Login</button>} position="right center">
+    return (
         <div>
-<
+            a41bedb1c8b014d2809e2d6eceb
             <h1 className="mt-5 text-center">Home</h1>
+            <Popup trigger={<button> Login</button>} position="right center">
+                <div>
 
-            <h4><Link to="/login">login</Link></h4>
-            <h4><Link to="/register">register</Link></h4>
+                    <h1 className="mt-5 text-center">Home</h1>
 
-            <Slideshow />
+                    <h4><Link to="/login">login</Link></h4>
+                    <h4><Link to="/register">register</Link></h4>
 
-          <Login setLoggedIn={setLoggedIn} />
+                    <Slideshow />
+
+                    <Login setLoggedIn={setLoggedIn} />
+
+                </div>
+            </Popup>
 
         </div>
-      </Popup>
-
-      <h4>login</h4>
-      <h4>
-        <Link to="/register">register</Link>
-      </h4>
-    </div>
-  );
+    );
 }
 
 export default Home;
