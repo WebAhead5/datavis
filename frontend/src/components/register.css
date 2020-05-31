@@ -4,7 +4,7 @@
     --height-input-fields: 50px;
   }
   
-  html {
+  .bg {
     height: 100%;
     background-image: url("../assets/images/charts.png");
     background-repeat: no-repeat;

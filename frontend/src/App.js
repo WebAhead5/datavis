@@ -27,6 +27,10 @@ toast.configure({
   progress: undefined,
 });
 
+
+//fixes bootstrap issue with background
+document.body.style = 'background: inherit;';
+
 function App() {
   //state for if logged in or not
   const [loggedIn, setLoggedIn] = useState(false);
@@ -70,8 +74,8 @@ function App() {
                 !loggedIn ? (
                   <Home {...props} setLoggedIn={setLoggedIn} />
                 ) : (
-                  <Redirect to="/dashboard" />
-                )
+                    <Redirect to="/dashboard" />
+                  )
               }
             />
             <Route
@@ -81,8 +85,8 @@ function App() {
                 !loggedIn ? (
                   <Register {...props} setLoggedIn={setLoggedIn} />
                 ) : (
-                  <Redirect to="/dashboard" />
-                )
+                    <Redirect to="/dashboard" />
+                  )
               }
             />
             <Route
@@ -92,17 +96,18 @@ function App() {
                 loggedIn ? (
                   <Dashboard {...props} setLoggedIn={setLoggedIn} />
                 ) : (
-                  <Redirect to="/" />
-                )
+                    <Redirect to="/" />
+                  )
               }
             />
             <Route path="/*">
-              <h2 className="text-center mt-5">404 page not found</h2>
+              <h2 className="text-center mt-5" style={{ color: "white" }}>404 page not found</h2>
             </Route>
           </Switch>
         </Router>
       </div>
     </Fragment>
+
   );
 }
 
