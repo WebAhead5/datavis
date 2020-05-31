@@ -3,8 +3,10 @@ import React from 'react'
 
 export default function NavBar() {
     return (
+
+
         <div>
-            <nav className="navbar navbar-dark" style={{ backgroundColor: "#47567d" }}>
+            <nav className="navbar navbar-light bg-light">
                 <a className="navbar-brand" href="/">
                     <img src={""} width="40" height="30" className="d-inline-block align-center" alt="" />
                     <span className="mx-2">datavis</span>

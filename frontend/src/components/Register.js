@@ -59,7 +59,7 @@ const Register = ({ setLoggedIn }) => {
   };
 
   return (
-    <div>
+    <div className="bg">
       <form className="formContainer" onSubmit={onSubmitForm}>
         <div className="names">
           <label htmlFor="firstName" />
@@ -111,6 +111,7 @@ const Register = ({ setLoggedIn }) => {
         </div>
         <label htmlFor="submit" />
         <input type="submit" className="submit" value="Register" />
+        <h4 ><Link to="/">Home</Link></h4>
       </form>
     </div>
   );

@@ -15,9 +15,9 @@ const properties = {
     indicators: true,
     arrows: true,
     pauseOnHover: true,
-    onChange: (oldIndex, newIndex) => {
-        console.log(`slide transition from ${oldIndex} to ${newIndex}`);
-    }
+    // onChange: (oldIndex, newIndex) => {
+    //     console.log(`slide transition from ${oldIndex} to ${newIndex}`);
+    // }
 }
 
 const Slideshow = () => {
