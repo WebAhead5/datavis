@@ -2,7 +2,9 @@ import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./register.css";
-import { useForm } from "./useForm";
+// import { useForm } from "../Dashboard/useForm";
+import NavBar from "../Welcome/NavBar";
+import Footer from '../Welcome/Footer'
 
 const Register = ({ setLoggedIn }) => {
   //state for current inuts in register fields
@@ -59,7 +61,8 @@ const Register = ({ setLoggedIn }) => {
   };
 
   return (
-    <div>
+    <div className="bg">
+      <NavBar setLoggedIn={setLoggedIn} />
       <form className="formContainer" onSubmit={onSubmitForm}>
         <div className="names">
           <label htmlFor="firstName" />
@@ -111,7 +114,9 @@ const Register = ({ setLoggedIn }) => {
         </div>
         <label htmlFor="submit" />
         <input type="submit" className="submit" value="Register" />
+        <h4 ><Link to="/">Home</Link></h4>
       </form>
+      <Footer />
     </div>
   );
 };

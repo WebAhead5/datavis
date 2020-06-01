@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import UserBar from './UserBar'
 
 const Dashboard = ({ setLoggedIn }) => {
 
@@ -36,25 +36,15 @@ const Dashboard = ({ setLoggedIn }) => {
     }, []);
 
     //Logout - deletes JWT token from local storage
-    const logout = async e => {
-        e.preventDefault();
-        try {
-            localStorage.removeItem("token");
-            setLoggedIn(false);
-            toast.info("Logout successfully");
-        } catch (err) {
-            console.error(err.message);
-        }
-    };
+
 
     //render
     return (
         <div>
+            <UserBar name={name} setLoggedIn={setLoggedIn} />
             <h1 className="mt-5">Dashboard</h1>
             <h2>Welcome {name.first_name} {name.last_name}</h2>
-            <button onClick={e => logout(e)} className="btn btn-primary">
-                Logout
-      </button>
+
         </div>
     );
 };

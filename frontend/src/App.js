@@ -7,14 +7,13 @@ import {
 } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Popup from "reactjs-popup";
 //components
 
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Home from "./components/Home";
-import Dashboard from "./components/Dashboard";
-import NavBar from "./components/NavBar";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
+import Home from "./components/Welcome/Home";
+import Dashboard from "./components/Dashboard/Dashboard";
+import NavBar from "./components/Welcome/NavBar";
 import { SideBar } from "./components/NavBar/NavBar";
 
 //for log in & log out pop ups
@@ -27,6 +26,10 @@ toast.configure({
   draggable: true,
   progress: undefined,
 });
+
+
+//fixes bootstrap issue with background
+document.body.style = 'background: inherit;';
 
 function App() {
   //state for if logged in or not
@@ -59,8 +62,7 @@ function App() {
 
   //Render
   return (
-    <Fragment>
-      <NavBar />
+      <Fragment>
       <SideBar />
       <div style={{height: '100vh'}}>
         <Router>
@@ -74,37 +76,38 @@ function App() {
                 ) : (
                   <Redirect to="/dashboard" />
                 )
-              }
-            />
-            <Route
-              exact
-              path="/register"
-              render={(props) =>
-                !loggedIn ? (
-                  <Register {...props} setLoggedIn={setLoggedIn} />
-                ) : (
+            }
+          />
+          <Route
+            exact
+            path="/register"
+            render={(props) =>
+              !loggedIn ? (
+                <Register {...props} setLoggedIn={setLoggedIn} />
+              ) : (
                   <Redirect to="/dashboard" />
                 )
-              }
-            />
-            <Route
-              exact
-              path="/dashboard"
-              render={(props) =>
-                loggedIn ? (
-                  <Dashboard {...props} setLoggedIn={setLoggedIn} />
-                ) : (
+            }
+          />
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) =>
+              loggedIn ? (
+                <Dashboard {...props} setLoggedIn={setLoggedIn} />
+              ) : (
                   <Redirect to="/" />
                 )
-              }
-            />
-            <Route path="/*">
-              <h2 className="text-center mt-5">404 page not found</h2>
-            </Route>
-          </Switch>
-        </Router>
+            }
+          />
+          <Route path="/*" >
+            <h2 className="text-center mt-5" style={{ color: "white" }}>404 page not found</h2>
+          </Route>
+        </Switch>
+      </Router>
       </div>
-    </Fragment>
+       </Fragment>
+
   );
 }
 

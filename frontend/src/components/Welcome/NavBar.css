@@ -1,0 +1,15 @@
+.pointer {
+    cursor: pointer;
+}
+
+.pop {
+
+    width: 40%;
+}
+
+.popup-wrapper {
+    width: 100%;
+  }
+  .popup-wrapper > * {
+    width: 50%;
+  }
