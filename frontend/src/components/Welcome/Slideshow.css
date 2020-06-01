@@ -1,16 +1,18 @@
 .slide-container {
-    width: 40VW;
+    width: 35VW;
     margin-left:5%;
-    margin-top: 30VH
+    margin-top: 24VH;
+    border-radius: 5px;
      ;}
   
   h3 {
     text-align: center; }
 
+
 .tagline {
     width: 92%;
     color: white;
-    font-size: 2VW;
+    font-size: 1.6VW;
     text-align: center;
     margin-right: 4%;
     margin-left: 4%;
@@ -20,31 +22,33 @@
 .join {
 
   color: white;
-  font-size: 1.4VW;
+  font-size: 1.2VW;
   text-align: center;
   margin: auto;
 }
   
+/* the image */
   .each-slide > div {
     display: flex;
     align-items: center;
     justify-content: center;
     background-size: cover;
     height: 30VH;
-    border-radius: 5px;;
+    border-radius: 20px;
     position: relative;
     margin: 1vw;
-
-
-  
+    opacity: 0.85;
    
   }
   
+  /* the text */
   .each-slide span {
     padding: 20px;
     font-size: 20px;
     background:rgba(255, 255, 255, 0.829);
-    border-radius: 5px;
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     text-align: center;
     width: 100%;
     position: absolute;
@@ -77,5 +81,11 @@
     margin: 0;
     background: #adceed;
   }
+
+  .react-slideshow-container + div.indicators > .each-slideshow-indicator.active {
+
+    background:rgb(7, 157, 207)!important;
+  }
+  
 
  

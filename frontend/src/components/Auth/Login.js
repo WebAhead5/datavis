@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import "./Login.css"
 import { Link, Redirect } from "react-router-dom";
 
 import { toast } from "react-toastify";
@@ -54,27 +55,29 @@ const Login = ({ setLoggedIn }) => {
     return (
         <Fragment>
 
-
-            <h1 className="mt-1 text-center">Login</h1>
-            <form onSubmit={onSubmitForm} className="mt-1 mx-1">
-                <input
-                    type="text"
-                    name="email"
-                    placeholder="email"
-                    value={email}
-                    onChange={(e) => onChange(e)}
-                    className="form-control my-3"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="password"
-                    value={password}
-                    onChange={(e) => onChange(e)}
-                    className="form-control my-3"
-                />
-                <button className="btn btn-info btn-block">Log In</button>
-            </form>
+            <div className="login">
+                <h1 className="mt-1 text-center">Login</h1>
+                <form onSubmit={onSubmitForm} className="mt-1 mx-1">
+                    <input
+                        type="text"
+                        name="email"
+                        placeholder="email"
+                        value={email}
+                        onChange={(e) => onChange(e)}
+                        className="form-control my-3"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="password"
+                        value={password}
+                        onChange={(e) => onChange(e)}
+                        className="form-control my-3"
+                    />
+                    <button className="loginBtn">Log In</button>
+                </form>
+                <div className="text-center mt-4" ><Link to="/" style={{ color: "#47567d" }}>Forgotten Password?</Link></div>
+            </div>
 
         </Fragment>
     );
