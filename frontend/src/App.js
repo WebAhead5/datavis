@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 //components
 
 import Login from "./components/Auth/Login";
@@ -14,6 +15,7 @@ import Register from "./components/Auth/Register";
 import Home from "./components/Welcome/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NavBar from "./components/Welcome/NavBar";
+import Table from "./components/Table/Table"
 
 
 //for log in & log out pop ups
@@ -34,6 +36,9 @@ document.body.style = 'background: inherit;';
 function App() {
   //state for if logged in or not
   const [loggedIn, setLoggedIn] = useState(false);
+
+  //states for current user
+  const [name, setName] = useState({ first_name: "", last_name: "" });
 
   //Function to check if user has a valid JWT token already
   const CheckLoggedIn = async () => {
@@ -59,6 +64,8 @@ function App() {
   useEffect(() => {
     CheckLoggedIn();
   }, []);
+
+  console.log("logged in", loggedIn)
 
   //Render
   return (
@@ -94,7 +101,18 @@ function App() {
               path="/dashboard"
               render={(props) =>
                 loggedIn ? (
-                  <Dashboard {...props} setLoggedIn={setLoggedIn} />
+                  <Dashboard {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} />
+                ) : (
+                    <Redirect to="/" />
+                  )
+              }
+            />
+            <Route
+              exact
+              path="/tables"
+              render={(props) =>
+                loggedIn ? (
+                  <Table {...props} setLoggedIn={setLoggedIn} name={name} />
                 ) : (
                     <Redirect to="/" />
                   )
