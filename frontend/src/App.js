@@ -15,6 +15,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import NavBar from "./components/NavBar";
+import { SideBar } from "./components/NavBar/NavBar";
 
 //for log in & log out pop ups
 toast.configure({
@@ -60,7 +61,8 @@ function App() {
   return (
     <Fragment>
       <NavBar />
-      <div>
+      <SideBar />
+      <div style={{height: '100vh'}}>
         <Router>
           <Switch>
             <Route
