@@ -23,7 +23,7 @@ export default function UserBar({ name, setLoggedIn }) {
                     <ul class="navbar-nav mr-auto">
                         <img />
                         <li class="nav-item">
-                            <a class="nav-link" href="/"><b>datavis</b></a>
+                            <a class="nav-link" href="/" style={{ fontSize: "24px" }}>>data<b>vis</b></a>
                         </li>
 
                     </ul>

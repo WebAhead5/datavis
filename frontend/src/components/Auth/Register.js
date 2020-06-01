@@ -62,7 +62,9 @@ const Register = ({ setLoggedIn }) => {
 
   return (
     <div className="bg">
+
       <NavBar setLoggedIn={setLoggedIn} />
+      <h1 className="mt-5 text-center title">Register a Free Account with <b>datavis</b></h1>
       <form className="formContainer" onSubmit={onSubmitForm}>
         <div className="names">
           <label htmlFor="firstName" />
@@ -113,9 +115,9 @@ const Register = ({ setLoggedIn }) => {
           />
         </div>
         <label htmlFor="submit" />
-        <input type="submit" className="submit" value="Register" />
-        <h4 ><Link to="/">Home</Link></h4>
+        <input type="submit" className="submit my-4" value="Register" />
       </form>
+      <div className="text-center mt-4"><span><Link to="/">Already have an account?</Link>  <Link to="/"> | To Homepage</Link></span></div>
       <Footer />
     </div>
   );

@@ -34,7 +34,7 @@ const Slideshow = () => {
 
                     <div className="each-slide">
                         <div style={{ 'backgroundImage': `url(${chart1})` }}>
-                            <span className="words">Make Beautiful Charts</span>
+                            <span>Make Beautiful Charts</span>
                         </div>
 
                     </div>

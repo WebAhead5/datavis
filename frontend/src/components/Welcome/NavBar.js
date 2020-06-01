@@ -15,7 +15,7 @@ export default function NavBar({ setLoggedIn }) {
                     <ul class="navbar-nav mr-auto">
                         <img />
                         <li class="nav-item">
-                            <a class="nav-link" href="/"><b>datavis</b></a>
+                            <a class="nav-link" href="/" style={{ fontSize: "24px", color: "#47567d" }}>data<b>vis</b></a>
                         </li>
 
                     </ul>

@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Footer from './Footer'
 
 import Slideshow from "./SlideShow"
+import Register from "../Auth/Register";
 
 
 function Home({ setLoggedIn }) {
@@ -13,6 +14,7 @@ function Home({ setLoggedIn }) {
             <NavBar setLoggedIn={setLoggedIn} />
             <Slideshow />
             <Footer />
+
 
         </div>
     );
