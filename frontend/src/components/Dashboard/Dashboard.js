@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import UserBar from './UserBar'
 
-const Dashboard = ({ setLoggedIn }) => {
+const Dashboard = ({ setLoggedIn, name, setName }) => {
 
-    //states for current user
-    const [name, setName] = useState({ first_name: "", last_name: "" });
+
 
     //function to get info for dashboard based on ID in JWT token
     const getProfile = async () => {
