@@ -3,9 +3,10 @@
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 10px;
     background-color: #131545;
     border-radius: var(--border-radius);
-    width: 20% !important;
+    width: 14% !important;
     height: 50px;
     border: solid var(--color-white) thin;
     font-size: large;

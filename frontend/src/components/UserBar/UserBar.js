@@ -46,7 +46,7 @@ export default function UserBar({ name, setName, setLoggedIn }) {
                             <a class="nav-link" href="/user"><b>{name}</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="" onClick={e => logout(e)}>Logout</a>
+                            <a class="nav-link" href="/" onClick={e => logout(e)}>Logout</a>
                         </li>
                     </ul>
                 </div>

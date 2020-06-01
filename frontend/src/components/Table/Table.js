@@ -6,10 +6,9 @@ import './Table.css'
 
 
 
-const Table = ({ props, setLoggedIn, name, setName, data, setData }) => {
+const Table = ({ props, setLoggedIn, name, setName, data, setData, cols, setCols }) => {
 
 
-    const [cols, setCols] = React.useState()
 
     const dataVars = { data, setData, cols, setCols }
 
@@ -17,6 +16,7 @@ const Table = ({ props, setLoggedIn, name, setName, data, setData }) => {
         if (data) {
             let keys = Object.keys(data[0]);
             setCols(keys)
+            localStorage.setItem("cols", JSON.stringify(keys))
         }
     }, [data]);
 
@@ -28,7 +28,7 @@ const Table = ({ props, setLoggedIn, name, setName, data, setData }) => {
             <FileUpload {...dataVars} />
             {cols && data ?
                 <div>
-                    <a href="/createChart" className="genChartBtn">Generate Chart!</a>
+                    <a href="/createChart" ><button className="genChartBtn">Generate Chart!</button></a>
                     <RenderTable {...dataVars} />
 
                 </div>

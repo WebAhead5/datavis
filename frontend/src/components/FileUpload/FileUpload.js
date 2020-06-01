@@ -18,6 +18,7 @@ const FileUpload = ({ data, setData }) => {
 
     const updateData = (result) => {
         setData(result.data.slice(0, -1))
+        localStorage.setItem("tabledata", JSON.stringify(result.data.slice(0, -1)));
     };
 
     return (

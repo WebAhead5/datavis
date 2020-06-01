@@ -4,28 +4,26 @@ import RenderChart from './RenderChart'
 
 
 
-export default function CreateChart({ setLoggedIn, name, setName, data, setData }) {
+export default function CreateChart({ setLoggedIn, name, setName, data, setData, cols, setCols }) {
 
-    const [cols, setCols] = React.useState()
-
-    const dataVars = { data, setData, cols, setCols }
 
     const [x, setX] = React.useState("")
     const [y, setY] = React.useState("")
 
     const chartVars = { x, y, setX, setY }
 
+    const dataVars = { data, setData, cols, setCols }
 
 
-    React.useEffect(() => {
-        if (data) {
-            let keys = Object.keys(data[0]);
-            setCols(keys)
-            setX("")
-            setY("")
-            console.log("Latest Uploaded data is:")
-        }
-    }, [data]);
+    // React.useEffect(() => {
+    //     if (data) {
+    //         let keys = Object.keys(data[0]);
+    //         setCols(keys)
+    //         setX("")
+    //         setY("")
+    //         console.log("Latest Uploaded data is:")
+    //     }
+    // }, [data]);
 
 
     return (

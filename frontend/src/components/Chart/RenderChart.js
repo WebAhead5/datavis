@@ -4,7 +4,7 @@ import CustomizeChart from './CustomizeChart'
 import ChooseData from './ChooseData'
 import Sort from './Sort'
 
-const RenderChart = ({ data, cols, x, y, setX, setY }) => {
+const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
     //Set the data on the X (labels) and Y (data) axis states
     const [arrayLabels, setArrayLabels] = React.useState([["test", "test2", "test3"]])
@@ -25,7 +25,15 @@ const RenderChart = ({ data, cols, x, y, setX, setY }) => {
     const [ytitle, setyTitle] = React.useState("")
 
 
+    //get current table data
+    React.useEffect(() => {
+        setData(JSON.parse(localStorage.getItem("tabledata")))
+        setCols(JSON.parse(localStorage.getItem("cols")))
+    }, [])
 
+    React.useEffect(() => {
+        console.log("data is currently", data, "cols currently", cols)
+    }, [data])
 
     //Map ther correct data to the Axis in the right format for chart JS (on x or y axis change)
     React.useEffect(() => {
@@ -38,7 +46,7 @@ const RenderChart = ({ data, cols, x, y, setX, setY }) => {
 
             console.log("array data", arrayData, "label data", arrayLabels)
         }
-    }, [x, y]);
+    }, [data, x, y]);
 
     //Theme of Chart state - defaults below
     const [theme, setTheme] = React.useState({
@@ -155,7 +163,7 @@ const RenderChart = ({ data, cols, x, y, setX, setY }) => {
 
     return (
         <div>
-
+            render chart
             <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
             <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />

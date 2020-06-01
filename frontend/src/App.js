@@ -41,6 +41,9 @@ function App() {
 
   //core data for sleected table
   const [data, setData] = React.useState()
+  const [cols, setCols] = React.useState([1, 2, 3])
+
+  const dataVars = { data, setData, cols, setCols }
 
   //Function to check if user has a valid JWT token already
   const CheckLoggedIn = async () => {
@@ -115,7 +118,7 @@ function App() {
               render={(props) =>
                 // loggedIn ?
                 (
-                  <Table {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} data={data} setData={setData} />
+                  <Table {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
                 )
                 // : (
                 //   <Redirect to="/" />
@@ -128,7 +131,7 @@ function App() {
               render={(props) =>
                 // loggedIn ?
                 (
-                  <CreateChart {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} data={data} setData={setData} />
+                  <CreateChart {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
                 )
                 // : (
                 //   <Redirect to="/" />
