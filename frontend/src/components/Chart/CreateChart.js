@@ -29,7 +29,7 @@ export default function CreateChart({ setLoggedIn, name, setName, data, setData,
     return (
         <div>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
-            <h1>Create Chart</h1>
+            <h1 className="text-center mt-5">Create Chart</h1>
             <RenderChart {...dataVars} {...chartVars} />
         </div>
     )

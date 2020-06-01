@@ -163,7 +163,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
     return (
         <div>
-            render chart
+
             <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
             <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />

@@ -44,8 +44,8 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
     return (
         <div>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
-            <h1 className="mt-5">Dashboard</h1>
-            <h2>Welcome {name}</h2>
+            <h1 className="mt-5 text-center">Dashboard</h1>
+            <h2 className="mt-5 text-center">Welcome {name}</h2>
 
         </div>
     );
