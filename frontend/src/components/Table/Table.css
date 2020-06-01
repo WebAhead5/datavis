@@ -1,0 +1,22 @@
+.genChartBtn {
+    color: var(--color-white);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #131545;
+    border-radius: var(--border-radius);
+    width: 20% !important;
+    height: 50px;
+    border: solid var(--color-white) thin;
+    font-size: large;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+
+    transition: 0.4s ease-out
+  }
+
+  .genChartBtn:hover {
+
+transform: scale(1.05);
+box-shadow: 5px 5px 20px grey;
+
+  }
