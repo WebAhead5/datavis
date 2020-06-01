@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./register.css";
-import { useForm } from "../Dashboard/useForm";
+// import { useForm } from "../Dashboard/useForm";
 import NavBar from "../Welcome/NavBar";
 import Footer from '../Welcome/Footer'
 

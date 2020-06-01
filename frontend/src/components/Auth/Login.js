@@ -79,8 +79,6 @@ const Login = ({ setLoggedIn }) => {
                 <div className="text-center mt-4" ><Link to="/" style={{ color: "#47567d" }}>Forgotten Password?</Link></div>
             </div>
 
-
-
         </Fragment>
     );
 };
