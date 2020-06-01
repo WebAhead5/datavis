@@ -63,7 +63,6 @@ function App() {
   //Render
   return (
       <Fragment>
-      <SideBar />
       <div style={{height: '100vh'}}>
         <Router>
           <Switch>
