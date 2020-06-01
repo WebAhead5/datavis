@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import UserBar from './UserBar'
+import UserBar from '../UserBar/UserBar'
 
 const Dashboard = ({ setLoggedIn, name, setName }) => {
 
-
+    let username = ""
 
     //function to get info for dashboard based on ID in JWT token
     const getProfile = async () => {
@@ -20,7 +20,10 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
             console.log("dashboard data", parseData)
 
             //use info to set states - such as name
-            setName({ ...name, first_name: parseData.first_name, last_name: parseData.last_name });
+
+            username = `${parseData.first_name} ${parseData.last_name}`
+            localStorage.setItem("username", username);
+            setName(username)
 
             //setTables (that belong to current user, by table ID)
 
@@ -40,9 +43,9 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
     //render
     return (
         <div>
-            <UserBar name={name} setLoggedIn={setLoggedIn} />
+            <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="mt-5">Dashboard</h1>
-            <h2>Welcome {name.first_name} {name.last_name}</h2>
+            <h2>Welcome {name}</h2>
 
         </div>
     );
