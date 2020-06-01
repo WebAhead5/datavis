@@ -1,5 +1,6 @@
 import React from 'react'
 import { toast } from "react-toastify";
+import { SideBar } from '../SideBar/SideBar'
 
 // import logo from "../assets/images/logo1.png"
 
@@ -18,12 +19,14 @@ export default function UserBar({ name, setLoggedIn }) {
     return (
 
         <div>
+            <SideBar />
             <nav class="navbar navbar-expand-md navbar-dark" style={{ backgroundColor: "#47567d" }}>
+
                 <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                     <ul class="navbar-nav mr-auto">
                         <img />
                         <li class="nav-item">
-                            <a class="nav-link" href="/" style={{ fontSize: "24px" }}>>data<b>vis</b></a>
+                            <a class="nav-link" href="/" style={{ fontSize: "24px" }}>data<b>vis</b></a>
                         </li>
 
                     </ul>
