@@ -12,29 +12,29 @@ import historyIcon from "../../assets/images/time-machine.png";
 const SideContent = props => {
   return (
     <nav>
-        <div className={`sideContent ${props.visible ? 'active' : ''}`}>
-      <a className="menu-item" href="/">
-      <img className='inner-bar-icon' src={homeIcon} />
+      <div className={`sideContent ${props.visible ? 'active' : ''}`}>
+        <a className="menu-item" href="/">
+          <img className='inner-bar-icon' src={homeIcon} />
         Dashboard
       </a>
-      
-      <a className="menu-item" href="/addTable">
-      <img className='inner-bar-icon' src={addIcon} />
+
+        <a className="menu-item" href="/addTable">
+          <img className='inner-bar-icon' src={addIcon} />
         Add New Table
       </a>
 
-      <a className="menu-item" href="/tables">
-      <img className='inner-bar-icon' src={tableIcon} />
+        <a className="menu-item" href="/tables">
+          <img className='inner-bar-icon' src={tableIcon} />
         Tables
       </a>
 
-      <a className="menu-item" href="/history">
-      <img className='inner-bar-icon' src={historyIcon} />
+        <a className="menu-item" href="/history">
+          <img className='inner-bar-icon' src={historyIcon} />
         Chart History
       </a>
 
-      <a className="menu-item" href="/userpage">
-      <img className='inner-bar-icon' src={dashboardIcon} />
+        <a className="menu-item" href="/user">
+          <img className='inner-bar-icon' src={dashboardIcon} />
         User Page
       </a>
       </div>

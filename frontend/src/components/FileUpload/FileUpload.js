@@ -24,7 +24,7 @@ const FileUpload = ({ data, setData }) => {
     return (
         <div>
 
-            <h2>Import CSV File!</h2>
+            <h2 className="text-center mt-5">Import Table - please upload a CSV file</h2>
             <input
                 className="csv-input"
                 type="file"

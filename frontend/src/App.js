@@ -15,6 +15,9 @@ import Home from "./components/Welcome/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Table from "./components/Table/Table"
 import CreateChart from './components/Chart/CreateChart'
+import User from './components/User/User'
+import Tables from './components/Table/Tables'
+import History from './components/History/History'
 
 
 //for log in & log out pop ups
@@ -127,11 +130,50 @@ function App() {
             />
             <Route
               exact
+              path="/Tables"
+              render={(props) =>
+                // loggedIn ?
+                (
+                  <Tables {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                )
+                // : (
+                //   <Redirect to="/" />
+                // )
+              }
+            />
+            <Route
+              exact
               path="/createChart"
               render={(props) =>
                 // loggedIn ?
                 (
                   <CreateChart {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                )
+                // : (
+                //   <Redirect to="/" />
+                // )
+              }
+            />
+            <Route
+              exact
+              path="/user"
+              render={(props) =>
+                // loggedIn ?
+                (
+                  <User {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                )
+                // : (
+                //   <Redirect to="/" />
+                // )
+              }
+            />
+            <Route
+              exact
+              path="/history"
+              render={(props) =>
+                // loggedIn ?
+                (
+                  <History {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
                 )
                 // : (
                 //   <Redirect to="/" />

@@ -27,14 +27,18 @@ export default function UserBar({ name, setName, setLoggedIn }) {
     return (
 
         <div>
-            <SideBar />
+
             <nav class="navbar navbar-expand-md navbar-dark" style={{ backgroundColor: "#47567d" }}>
 
                 <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                     <ul class="navbar-nav mr-auto">
-                        <img />
+                        <li class="nav-item" style={{ minWidth: "35px" }}>
+                            <SideBar />
+
+                        </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="/" style={{ fontSize: "24px" }}>data<b>vis</b></a>
+                            <a class="nav-link" href="/dashboard" style={{ fontSize: "24px" }}>data<b>vis</b></a>
                         </li>
 
                     </ul>
