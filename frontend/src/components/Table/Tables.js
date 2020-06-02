@@ -84,7 +84,11 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             </fieldset>
 
 
-            {data ? <RenderTable {...dataVars} />
+            {data ?
+                <div>
+                    <a href="/createChart" ><button className="genChartBtn">Generate Chart!</button></a>
+                    <RenderTable {...dataVars} />
+                </div>
                 : <div></div>}
         </div>
     )
