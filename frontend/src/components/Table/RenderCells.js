@@ -9,11 +9,11 @@ const RenderCells = ({ cols, data, setData }) => {
     const handleEdit = (e) => {
         e.persist()
         // console.log("THIS IS THE EVENT", e)
-        console.log("content", e.target.innerText, e.target.id, e.target.parentNode.id)
+        // console.log("content", e.target.innerText, e.target.id, e.target.parentNode.id)
         let clickedKey = e.target.id
         let clickedIndex = e.target.parentNode.id
         let savedText = e.target.innerText
-        console.log(data[clickedKey], "to", savedText)
+        // console.log(data[clickedKey], "to", savedText)
 
         // setData(data => [...data, data { clickedIndex: savedText }])
         // console.log("NEW DATA IS", data)
@@ -23,7 +23,7 @@ const RenderCells = ({ cols, data, setData }) => {
     }
 
     return cols.map((col, index) => {
-        return <td id={cols[index]} contentEditable='true' suppressContentEditableWarning="true" onBlur={(e) => handleEdit(e)} key={data[col]}>{data[col]}</td>
+        return <td id={cols[index]} contentEditable={cols[index] === 'id' ? 'false' : 'true'} suppressContentEditableWarning="true" onBlur={(e) => handleEdit(e)} key={data[col]}>{data[col]}</td>
     })
 }
 
