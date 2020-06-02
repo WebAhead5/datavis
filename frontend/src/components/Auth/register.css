@@ -136,7 +136,7 @@ box-shadow: 5px 5px 20px var(--color-white);
   
     html {
       /* height: 200%; */
-      background-image: url("../../assets/images/charts.png");
+      /* background-image: url("../../assets/images/charts.png"); */
       background-repeat: repeat-y;
       /* background-repeat: no-repeat; */
       

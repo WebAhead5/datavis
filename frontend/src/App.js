@@ -10,18 +10,18 @@ import "react-toastify/dist/ReactToastify.css";
 
 //components
 
-import Login from "./components/Auth/Login";
+
 import Register from "./components/Auth/Register";
 import Home from "./components/Welcome/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
-import NavBar from "./components/Welcome/NavBar";
+
 import Table from "./components/Table/Table"
 
 
 //for log in & log out pop ups
 toast.configure({
   position: "top-right",
-  autoClose: 2000,
+  autoClose: 1000,
   hideProgressBar: true,
   closeOnClick: true,
   pauseOnHover: true,

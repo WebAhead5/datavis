@@ -20,13 +20,13 @@ export default function UserBar({ name, setLoggedIn }) {
 
         <div>
             <SideBar />
-            <nav class="navbar navbar-expand-md navbar-dark" style={{ backgroundColor: "#47567d" }}>
+            <nav class="navbar navbar-expand-md navbar-dark" style={{ backgroundColor: "#47567d", position:"fixed",top:'0', width:'100%' }}>
 
                 <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                     <ul class="navbar-nav mr-auto">
                         <img />
                         <li class="nav-item">
-                            <a class="nav-link" href="/" style={{ fontSize: "24px" }}>data<b>vis</b></a>
+                            <a class="nav-link" href="/" style={{ fontSize: "24px", paddingLeft:'2rem' }}>Data<b>Vis</b></a>
                         </li>
 
                     </ul>
