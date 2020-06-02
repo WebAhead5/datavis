@@ -18,12 +18,13 @@ const FileUpload = ({ data, setData }) => {
 
     const updateData = (result) => {
         setData(result.data.slice(0, -1))
+        localStorage.setItem("tabledata", JSON.stringify(result.data.slice(0, -1)));
     };
 
     return (
         <div>
 
-            <h2>Import CSV File!</h2>
+            <h2 className="text-center mt-5">Import Table - please upload a CSV file</h2>
             <input
                 className="csv-input"
                 type="file"
