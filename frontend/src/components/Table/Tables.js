@@ -66,6 +66,38 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
     }, []);
 
 
+    const deleteTable = async () => {
+        try {
+            let table_id = selectedTable
+            console.log("del table clicked, id", selectedTable)
+            const body = { table_id };
+            //call API for user infomation for use in dashboard
+            const res = await fetch("http://localhost:4000/table/delete", {
+                method: "POST",
+                headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
+                body: JSON.stringify(body)
+            });
+
+            //result from DB request on backend - will send default info
+            const parseData = await res.json();
+            console.log(parseData)
+
+            //reset page
+            getTables();
+            localStorage.removeItem("tabledata");
+            setData(null)
+
+
+
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+
+
+
+
+
     return (
         <div>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
@@ -87,6 +119,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             {data ?
                 <div>
                     <a href="/createChart" ><button className="genChartBtn">Generate Chart!</button></a>
+                    <button className="delChartBtn" onClick={deleteTable}>Delete Chart</button>
                     <RenderTable {...dataVars} />
                 </div>
                 : <div></div>}
