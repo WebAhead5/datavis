@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from "./components/Auth/Register";
 import Home from "./components/Welcome/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Table from "./components/Table/Table"
+import AddTable from "./components/Table/AddTable"
 import CreateChart from './components/Chart/CreateChart'
 import User from './components/User/User'
 import Tables from './components/Table/Tables'
@@ -121,7 +121,7 @@ function App() {
               render={(props) =>
                 // loggedIn ?
                 (
-                  <Table {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                  <AddTable {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
                 )
                 // : (
                 //   <Redirect to="/" />

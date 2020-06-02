@@ -2,11 +2,11 @@ import React from 'react'
 import RenderTable from './RenderTable'
 import FileUpload from '../FileUpload/FileUpload'
 import UserBar from '../UserBar/UserBar'
-import './Table.css'
+import './addTable.css'
 
 
 
-const Table = ({ props, setLoggedIn, name, setName, data, setData, cols, setCols }) => {
+const AddTable = ({ props, setLoggedIn, name, setName, data, setData, cols, setCols }) => {
 
 
 
@@ -39,4 +39,4 @@ const Table = ({ props, setLoggedIn, name, setName, data, setData, cols, setCols
     );
 }
 
-export default Table;
+export default AddTable;

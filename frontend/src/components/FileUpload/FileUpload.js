@@ -16,9 +16,34 @@ const FileUpload = ({ data, setData }) => {
         });
     };
 
+    const [tableName, setTableName] = React.useState("please enter table name")
+
+    const uploadTable = async (table_name, data) => {
+        try {
+            const body = { table_name, data };
+            //call API for user infomation for use in dashboard
+            const res = await fetch("http://localhost:4000/table/addTable", {
+                method: "POST",
+                headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
+                body: JSON.stringify(body)
+            });
+
+            //result from DB request on backend - will send default info
+            const parseData = await res.json();
+            console.log(parseData)
+
+
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+
     const updateData = (result) => {
-        setData(result.data.slice(0, -1))
-        localStorage.setItem("tabledata", JSON.stringify(result.data.slice(0, -1)));
+        let finalData = result.data.slice(0, -1)
+        setData(finalData)
+        localStorage.setItem("tabledata", finalData);
+        uploadTable(tableName, JSON.stringify(finalData))
+
     };
 
     return (
@@ -36,6 +61,7 @@ const FileUpload = ({ data, setData }) => {
                 onChange={handleChange}
             />
             <p />
+            Table Name:<input tableName={tableName} onChange={e => setTableName(e.target.value)} />
             <button onClick={importCSV}> Upload now!</button>
 
         </div>

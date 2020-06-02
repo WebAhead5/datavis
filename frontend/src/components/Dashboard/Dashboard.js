@@ -37,7 +37,6 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
         getProfile();
     }, []);
 
-    //Logout - deletes JWT token from local storage
 
 
     //render
@@ -46,6 +45,11 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="mt-5 text-center">Dashboard</h1>
             <h2 className="mt-5 text-center">Welcome {name}</h2>
+
+            <h4 className="mt-5 text-center">To start using datavis, please <a href="/addTable" style={{ color: "#47567d", textDecoration: "underline" }}>add a new table</a> of data to begin creating charts.</h4>
+
+
+            <h4 className="mt-5 text-center">or access your exisiting data tables <a href="/tables" style={{ color: "#47567d", textDecoration: "underline" }}>here</a>.</h4>
 
         </div>
     );
