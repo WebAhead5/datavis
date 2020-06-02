@@ -58,7 +58,7 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
         Welcome {name.first_name} {name.last_name}
       </h2>
       <input type="button"  onClick={htmlConverter} value="Download" />
-      <div style={styles} id="capture">
+      <div style={styles}>
         <LineDemo />
       </div>
       {/* </canvas> */}

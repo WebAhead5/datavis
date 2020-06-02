@@ -32,11 +32,11 @@ const data = {
 export default class LineDemo extends Component {
   render() {
     return (
-        <Fragment>
+        <div id="capture">
         <h2 className='ChartTitle' contentEditable='true' >Line Example</h2>
         <Line ref="chart" data={data} />
-      <canvas id="myChart" className = 'canvas'></canvas>
-        </Fragment>
+      {/* <canvas id="myChart" className = 'canvas'></canvas> */}
+        </div>
     );
   }
 
