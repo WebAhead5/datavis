@@ -14,7 +14,7 @@ app.set('port', process.env.PORT || 4000);
 //middleware
 const checkJWT = require("./middleware/checkJWT");
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: '10MB'}));
 
 
 //set API routes (for example /auth/login or /table/43)

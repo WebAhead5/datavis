@@ -10,16 +10,27 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
     const [tableName, setTableName] = useState("");
     const [tableList, setTableList] = useState([1, 2, 3]);
 
-    let dataVars = { cols, data, setData }
+
+
+    const [displayedRows, setDisplayedRows] = useState([]) 
+
+  ///// Pagination statess  /////
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(20);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  /////                     /////
 
 
 
     //select data once table selected
     useEffect(() => {
+        let extractedData = ""
+        let currentSlicedRows;
+    if (selectedTable !== "") {
+        console.log(selectedTable);
+        
 
-        if (selectedTable !== "") {
-
-            let extractedData = ""
             tableList.forEach(row => {
                 if (row.table_id === parseInt(selectedTable)) {
                     extractedData = JSON.parse(row.data)
@@ -28,6 +39,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             
             //   console.log("ex data", extractedData);
             setData(extractedData);
+            console.log('this is the data',data);
             
             localStorage.setItem("tabledata", JSON.stringify(extractedData));
             console.log("table selected is", extractedData);
@@ -38,6 +50,17 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             localStorage.setItem("cols", JSON.stringify(keys));
         }
 
+        if(extractedData){
+            console.log(15555);
+            
+            currentSlicedRows = extractedData.slice(indexOfFirstPost, indexOfLastPost);
+
+            console.log(currentSlicedRows);
+            
+            setDisplayedRows(currentSlicedRows)
+            console.log("displayed rows for table", displayedRows);
+            
+         }
 
         tableList.forEach(row => {
             if (row.table_id === parseInt(selectedTable)) {
@@ -74,8 +97,6 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
     useEffect(() => {
         getTables();
     }, []);
-
-
 
     const deleteTable = async () => {
         try {
@@ -125,8 +146,8 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             <div className="text-center mt-4">
                 <span>Please select a table to work from  </span>
                 <label htmlFor="table"> </label>
-                <select className="" defaultValue onChange={e => setSelectedTable(e.target.value)}>
-                    <option style={{ color: "grey" }}  disabled  >Select</option>
+                <select className="" defaultValue='select' onChange={e => setSelectedTable(e.target.value)}>
+                    <option style={{ color: "grey" }} >Select you table</option>
                     {tableList.map((tableList, index) => (
                         <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
                     ))}
@@ -154,7 +175,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
                         </div>
                     </div>
                     <div className="tableDiv">
-                        <RenderTable {...dataVars} />
+                        <RenderTable data={displayedRows} setData={setData} cols={cols}  />
                     </div>
                 </div>
                 : <div></div>}

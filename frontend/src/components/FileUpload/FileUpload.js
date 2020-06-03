@@ -53,6 +53,7 @@ const FileUpload = ({ data, setData }) => {
     useEffect(() => {
         if (csvFile) {
             importCSV();
+            
         }
     }, [csvFile])
 
