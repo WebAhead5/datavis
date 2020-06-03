@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Papa from 'papaparse'
+import { toast } from "react-toastify";
+import './FileUpload.css'
 
 const FileUpload = ({ data, setData }) => {
 
@@ -16,7 +18,7 @@ const FileUpload = ({ data, setData }) => {
         });
     };
 
-    const [tableName, setTableName] = React.useState("please enter table name")
+    const [tableName, setTableName] = React.useState("table name required")
 
     const uploadTable = async (table_name, data) => {
         try {
@@ -31,38 +33,57 @@ const FileUpload = ({ data, setData }) => {
             //result from DB request on backend - will send default info
             const parseData = await res.json();
             console.log(parseData)
+            toast.info(`${csvFile.name} succesfully uploaded as ${tableName.toUpperCase()}`)
 
 
         } catch (err) {
             console.error(err.message);
+            toast.error(`there has been an error uploading ${tableName}, please try again`)
         }
     };
 
     const updateData = (result) => {
         let finalData = result.data.slice(0, -1)
         setData(finalData)
-        localStorage.setItem("tabledata", finalData);
+        localStorage.setItem("tabledata", JSON.stringify(finalData));
         uploadTable(tableName, JSON.stringify(finalData))
 
     };
 
-    return (
-        <div>
+    useEffect(() => {
+        if (csvFile) {
+            importCSV();
+        }
+    }, [csvFile])
 
-            <h2 className="text-center mt-5">Import Table - please upload a CSV file</h2>
-            <input
-                className="csv-input"
-                type="file"
-                // ref={input => {
-                //     this.filesInput = input;
-                // }}
-                name="file"
-                placeholder={null}
-                onChange={handleChange}
-            />
-            <p />
-            Table Name:<input tableName={tableName} onChange={e => setTableName(e.target.value)} />
-            <button onClick={importCSV}> Upload now!</button>
+    return (
+        <div className="text-center mt-3 fileDiv">
+
+
+            <div className="mt-3">
+                TABLE <b>NAME</b>: <input tableName={tableName} onChange={e => setTableName(e.target.value)} required />
+            </div>
+
+            {tableName != "table name required" && tableName != "" ?
+                <div class="upload-btn-wrapper mt-3">
+                    <button class="btn active">SELECT FILE</button>
+                    <input
+                        className="active"
+                        type="file"
+                        name="file"
+                        placeholder={null}
+                        onChange={handleChange}
+                    />
+                </div>
+
+
+                : <div class="upload-btn-wrapper mt-3 disabled">
+                    <span class="btn disabled notActive ">SELECT FILE</span>
+
+                </div>}
+
+
+
 
         </div>
 

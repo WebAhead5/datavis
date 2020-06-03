@@ -3,10 +3,9 @@
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 10px;
     background-color: #131545;
     border-radius: var(--border-radius);
-    width: 14% !important;
+    width: 13VW !important;
     height: 50px;
     border: solid var(--color-white) thin;
     font-size: large;
@@ -21,3 +20,47 @@ transform: scale(1.05);
 box-shadow: 5px 5px 20px grey;
 
   }
+
+
+  .delChartBtn {
+    color: var(--color-white);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #851111;
+    border-radius: var(--border-radius);
+    width: 13VW !important;
+    height: 50px;
+    border: solid var(--color-white) thin;
+    font-size: large;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+
+    transition: 0.4s ease-out
+  }
+
+  .delChartBtn:hover {
+
+transform: scale(1.05);
+box-shadow: 5px 5px 20px grey;
+
+  }
+
+  .tableButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .delDiv {
+    margin-right: 20px;
+  }
+
+  .genDiv {
+    margin-left: 20px;
+  }
+
+  .tableDiv {
+    margin: 20px;
+  }
+
+

@@ -23,7 +23,7 @@ import History from './components/History/History'
 //for log in & log out pop ups
 toast.configure({
   position: "top-right",
-  autoClose: 2000,
+  autoClose: 2200,
   hideProgressBar: true,
   closeOnClick: true,
   pauseOnHover: true,

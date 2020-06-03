@@ -45,8 +45,27 @@ router.post("/addTable", async (req, res) => {
     }
 });
 
+router.post("/delete", async (req, res) => {
+    try {
 
-module.exports = router
+        const { table_id } = req.body;
+        console.log("delete table route hit, delting table id", table_id)
+
+        const table = await db.query(
+            "DELETE FROM tables WHERE table_id = $1",
+            [table_id]
+        );
+        //return user data matching user ID in JWT token for use in dashboard
+        res.json(`table ${table_id} deleted`);
+
+        //also return table data?
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
+});
+
 
 
 //id routes

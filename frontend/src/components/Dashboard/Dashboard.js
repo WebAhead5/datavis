@@ -43,7 +43,7 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
     return (
         <div>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
-            <h1 className="mt-5 text-center">Dashboard</h1>
+            <h1 className="text-center mt-5">USER<b> DASHBOARD</b></h1>
             <h2 className="mt-5 text-center">Welcome {name}</h2>
 
             <h4 className="mt-5 text-center">To start using datavis, please <a href="/addTable" style={{ color: "#47567d", textDecoration: "underline" }}>add a new table</a> of data to begin creating charts.</h4>
