@@ -24,19 +24,20 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
                 if (row.table_id === parseInt(selectedTable)) {
                     extractedData = JSON.parse(row.data)
                 }
-            })
-
-            console.log("ex data", extractedData)
-            setData(extractedData)
-
+            });
+            
+            //   console.log("ex data", extractedData);
+            setData(extractedData);
+            
             localStorage.setItem("tabledata", JSON.stringify(extractedData));
-            console.log("table selected is", extractedData)
-
+            console.log("table selected is", extractedData);
+            
             let keys = Object.keys(extractedData[0]);
-            setCols(keys)
-            localStorage.setItem("cols", JSON.stringify(keys))
+            // console.log('extea' , extractedData[0]);
+            setCols(keys);
+            localStorage.setItem("cols", JSON.stringify(keys));
         }
-        console.log("DATA FOR TABLE IS", data)
+
 
         tableList.forEach(row => {
             if (row.table_id === parseInt(selectedTable)) {
@@ -67,12 +68,13 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
         } catch (err) {
             console.error(err.message);
         }
-    };
+    }
 
-    //run above code when dashboard loads 
+
     useEffect(() => {
         getTables();
     }, []);
+
 
 
     const deleteTable = async () => {
@@ -123,8 +125,8 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             <div className="text-center mt-4">
                 <span>Please select a table to work from  </span>
                 <label htmlFor="table"> </label>
-                <select className="" onChange={e => setSelectedTable(e.target.value)}>
-                    <option style={{ color: "grey" }}>Select</option>
+                <select className="" defaultValue onChange={e => setSelectedTable(e.target.value)}>
+                    <option style={{ color: "grey" }}  disabled  >Select</option>
                     {tableList.map((tableList, index) => (
                         <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
                     ))}
@@ -159,5 +161,4 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
         </div>
     )
 }
-
 

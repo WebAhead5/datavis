@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { slide as Menu } from "react-burger-menu";
-import './navBar.css'
+import "./navBar.css";
 //icons
 import dashboardIcon from "../../assets/images/customer.png";
 import homeIcon from "../../assets/images/home-page.png";
@@ -9,7 +9,7 @@ import tableIcon from "../../assets/images/table.png";
 import historyIcon from "../../assets/images/time-machine.png";
 ////
 
-const SideContent = props => {
+const SideContent = (props) => {
   return (
     <nav >
       <div className={`sideContent ${props.visible ? 'active' : ''}`}>
@@ -37,6 +37,7 @@ const SideContent = props => {
           <img className='inner-bar-icon' src={dashboardIcon} />
           USER PAGE
         </a>
+
       </div>
     </nav>
   );

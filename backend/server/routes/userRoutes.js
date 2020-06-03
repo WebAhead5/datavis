@@ -1,10 +1,17 @@
 const router = require('express').Router();
-
+const db = require("../../database/db_connection")
 
 
 //default route
-router.get('/', (req, res) => {
-    res.send(`<h1>User Route</h1>`)
+router.post('/', async (req, res) => {
+    console.log('endpoint hit with uer id',req.user.id)
+
+    const email = await db.query(
+        "SELECT email FROM users WHERE user_id = $1",
+        [req.user.id]
+    )
+console.log(email.rows[0].email)
+    res.json(email.rows[0].email);
 })
 
 
