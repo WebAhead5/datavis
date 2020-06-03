@@ -66,9 +66,9 @@ const FileUpload = ({ data, setData }) => {
 
             {tableName != "table name required" && tableName != "" ?
                 <div class="upload-btn-wrapper mt-3">
-                    <button class="btn active">SELECT FILE</button>
+                    <button class="btn activeBtn">SELECT FILE</button>
                     <input
-                        className="active"
+                        className="activeBtn"
                         type="file"
                         name="file"
                         placeholder={null}
