@@ -8,7 +8,7 @@ const RenderCols = ({ cols }) => {
             <th scope="col" key={key}>{key}</th>
         ))
     return (
-        <tr contentEditable="true" suppressContentEditableWarning="true" style={{ textTransform: "uppercase" }}>{listCols}</tr>
+        <tr contentEditable={cols == 'id' ? false : true} suppressContentEditableWarning="true" style={{ textTransform: "uppercase" }}>{listCols}</tr>
     )
 }
 
