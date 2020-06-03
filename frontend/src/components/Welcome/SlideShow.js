@@ -1,9 +1,9 @@
 import React, { fragment, Fragment } from 'react';
 import { Slide } from 'react-slideshow-image';
 import "./Slideshow.css"
-import chart1 from '../../assets/images/slideshow/chart1.jpeg'
-import chart2 from '../../assets/images/slideshow/chart2.png'
-import chart3 from '../../assets/images/slideshow/chart3.png'
+import chart1 from '../../assets/images/slideshow/chart1.jpeg';
+import chart2 from '../../assets/images/slideshow/chart2.png';
+import chart3 from '../../assets/images/slideshow/chart3.png';
 
 
 // const slideImages = [
