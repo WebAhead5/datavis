@@ -7,9 +7,11 @@ import Popup from "reactjs-popup";
 export default function Tables({ name, setName, setLoggedIn, data, setData, cols, setCols }) {
 
     const [selectedTable, setSelectedTable] = useState("");
+    const [tableName, setTableName] = useState("");
     const [tableList, setTableList] = useState([1, 2, 3]);
 
     let dataVars = { cols, data, setData }
+
 
 
     //select data once table selected
@@ -36,6 +38,12 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
         }
         console.log("DATA FOR TABLE IS", data)
 
+        tableList.forEach(row => {
+            if (row.table_id === parseInt(selectedTable)) {
+                setTableName(row.table_name)
+            }
+        })
+
     }, [selectedTable]);
 
 
@@ -54,7 +62,6 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             const parseData = await res.json();
             console.log("table data", parseData)
             setTableList(parseData)
-
 
 
         } catch (err) {
@@ -83,7 +90,15 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             //result from DB request on backend - will send default info
             const parseData = await res.json();
             console.log(parseData)
-            toast.error(`Table: ${selectedTable} has been deleted`)
+
+
+            tableList.forEach(row => {
+                if (row.table_id === parseInt(selectedTable)) {
+                    setTableName(row.table_name)
+                }
+            })
+
+            toast.error(`${tableName.toUpperCase()} table has been deleted`)
 
             //reset page
             getTables();
@@ -114,14 +129,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
                         <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
                     ))}
                 </select>
-
-
-
             </div>
-
-
-
-
 
 
 
@@ -136,7 +144,8 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
                             <Popup trigger={<button className="delChartBtn" >DELETE <b>TABLE</b> </button>} modal
                                 closeOnDocumentClick>
                                 <div className="text-center">
-                                    Are you sure you want to delete this table? Table data cannot be restored
+                                    <b>Are you sure you want to delete {tableName} table?</b>
+                                    <div className="my-3">Table data cannot be restored once deleted</div>
                                     <button className="delChartBtn" onClick={deleteTable}>CONFIRM <b>DELETE</b></button>
                                 </div>
                             </Popup>

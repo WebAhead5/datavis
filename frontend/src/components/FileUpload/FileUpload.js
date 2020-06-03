@@ -9,7 +9,6 @@ const FileUpload = ({ data, setData }) => {
 
     const handleChange = event => {
         setCSV(event.target.files[0])
-
     };
 
     const importCSV = () => {
@@ -34,7 +33,7 @@ const FileUpload = ({ data, setData }) => {
             //result from DB request on backend - will send default info
             const parseData = await res.json();
             console.log(parseData)
-            toast.info(`file ${csvFile.name} succesfully uploaded as ${tableName}`)
+            toast.info(`${csvFile.name} succesfully uploaded as ${tableName.toUpperCase()}`)
 
 
         } catch (err) {
