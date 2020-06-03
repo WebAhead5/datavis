@@ -18,6 +18,7 @@ export const SideBar = () => {
         <div className="toggleButton_line" />
         <div className="toggleButton_line" />
       </button>
+
       <div>{visible && <SideContent visible={visible} />}</div>
     </div>
   );
