@@ -22,7 +22,7 @@ export const SideBar = () => {
 
 
       </div>
-      <div > <SideContent visible={visible} />}</div>
+      <div > <SideContent visible={visible} /></div>
     </Fragment>
   );
 };

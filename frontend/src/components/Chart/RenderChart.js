@@ -3,6 +3,7 @@ import ChartDisplay from './ChartDisplay'
 import CustomizeChart from './CustomizeChart'
 import ChooseData from './ChooseData'
 import Sort from './Sort'
+import './Chart.css'
 
 const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
@@ -162,7 +163,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
 
     return (
-        <div>
+        <div className="chartDiv">
 
             <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 

@@ -11,32 +11,32 @@ import historyIcon from "../../assets/images/time-machine.png";
 
 const SideContent = props => {
   return (
-    <nav>
+    <nav >
       <div className={`sideContent ${props.visible ? 'active' : ''}`}>
         <a className="menu-item" href="/">
           <img className='inner-bar-icon' src={homeIcon} />
-        Dashboard
-      </a>
+          DASHBOARD
+        </a>
 
-        <a className="menu-item" href="/addTable">
+        <a className="menu-item add" href="/addTable">
           <img className='inner-bar-icon' src={addIcon} />
-        Add New Table
-      </a>
+          UPLOAD TABLE
+        </a>
 
-        <a className="menu-item" href="/tables">
+        <a className="menu-item tables" href="/tables">
           <img className='inner-bar-icon' src={tableIcon} />
-        Tables
-      </a>
+          YOUR TABLES
+        </a>
 
-        <a className="menu-item" href="/history">
+        <a className="menu-item history" href="/history">
           <img className='inner-bar-icon' src={historyIcon} />
-        Chart History
-      </a>
+          CHART HISTORY
+        </a>
 
-        <a className="menu-item" href="/user">
+        <a className="menu-item user" href="/user">
           <img className='inner-bar-icon' src={dashboardIcon} />
-        User Page
-      </a>
+          USER PAGE
+        </a>
       </div>
     </nav>
   );

@@ -47,7 +47,7 @@ box-shadow: 5px 5px 20px grey;
 
   .tableButtons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
   }
 
@@ -56,11 +56,12 @@ box-shadow: 5px 5px 20px grey;
   }
 
   .genDiv {
-    margin-left: 20px;
+    margin-right: 10px;
   }
 
   .tableDiv {
-    margin: 20px;
+    margin-left: 100px;
+    margin-right: 20px;
   }
 
 
