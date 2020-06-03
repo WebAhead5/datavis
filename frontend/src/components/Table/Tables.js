@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import UserBar from '../UserBar/UserBar'
 import RenderTable from './RenderTable'
+import { toast } from "react-toastify";
+import Popup from "reactjs-popup";
 
 export default function Tables({ name, setName, setLoggedIn, data, setData, cols, setCols }) {
 
@@ -81,6 +83,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             //result from DB request on backend - will send default info
             const parseData = await res.json();
             console.log(parseData)
+            toast.error(`Table: ${selectedTable} has been deleted`)
 
             //reset page
             getTables();
@@ -88,9 +91,9 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             setData(null)
 
 
-
         } catch (err) {
             console.error(err.message);
+            toast.info(`${selectedTable} could not be deleted!`)
         }
     };
 
@@ -101,11 +104,9 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
     return (
         <div>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
-            <h1 className="text-center mt-5">TABLES</h1>
-            <h3>display exisiting user tables here or in drop down</h3>
-
-            <fieldset>
-                <legend> Select Table</legend>
+            <h1 className="text-center mt-5">YOUR <b>TABLES</b></h1>
+            <div className="text-center mt-4">
+                <span>Please select a table to work from  </span>
                 <label htmlFor="table"> </label>
                 <select className="" onChange={e => setSelectedTable(e.target.value)}>
                     <option style={{ color: "grey" }}>Select</option>
@@ -113,16 +114,41 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
                         <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
                     ))}
                 </select>
-            </fieldset>
+
+
+
+            </div>
+
+
+
+
+
 
 
             {data ?
                 <div>
-                    <a href="/createChart" ><button className="genChartBtn">Generate Chart!</button></a>
-                    <button className="delChartBtn" onClick={deleteTable}>Delete Chart</button>
-                    <RenderTable {...dataVars} />
+                    <div className="tableButtons">
+                        <div className="genDiv">
+                            <a href="/createChart" ><button className="genChartBtn">GENERATE<b> CHART</b></button></a>
+                        </div>
+
+                        <div className="delDiv">
+                            <Popup trigger={<button className="delChartBtn" >DELETE <b>TABLE</b> </button>} modal
+                                closeOnDocumentClick>
+                                <div className="text-center">
+                                    Are you sure you want to delete this table? Table data cannot be restored
+                                    <button className="delChartBtn" onClick={deleteTable}>CONFIRM <b>DELETE</b></button>
+                                </div>
+                            </Popup>
+                        </div>
+                    </div>
+                    <div className="tableDiv">
+                        <RenderTable {...dataVars} />
+                    </div>
                 </div>
                 : <div></div>}
         </div>
     )
 }
+
+
