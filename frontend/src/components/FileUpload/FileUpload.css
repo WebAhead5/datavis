@@ -38,7 +38,7 @@
     align-items: center;
   }
 
-  .active {
+  .activeBtn {
       color: #47567d;
       cursor: pointer; 
       border: solid #47567d 2px;
