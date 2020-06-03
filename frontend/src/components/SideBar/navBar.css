@@ -5,7 +5,6 @@
   position: fixed;
   top: 1.3rem;
   left: 0.9rem;
-  font-size: 1.5VW;
   display: flex;
   align-content: space-between;
   flex-direction: column;
@@ -18,20 +17,25 @@
 .sideContent {
   background-color: black;
   opacity: 0.7;
+  position: fixed;
+  top: 4.25rem;
+  left: -20rem;
   /* animation: sideBarShowing 2s; */
   display: flex;
   flex-direction: column;
   /* left: -; */
-  left: -200px;
   height: 100vh;
-  transform: translateX(-20px) translateY(23px);
+  width: 20vw;
+  max-width: 300px;
+  min-width: 200px;
+  transition: 1s ease-out;
   /* position: relative; */
 }
 
 
 .active{
-  left: 0;
-
+  
+  left: 0.0rem;
   /* position: absolute; */
 }
 
@@ -69,12 +73,15 @@
 }
 
 .menu-item {
-  padding-top: 15px;
+  padding: 20px;
+  font-size: 1.6vw !important;
+  margin-top: 50px;
 }
 
 .inner-bar-icon {
   height: 30px;
   width: 30px;
+  margin-left: 10px;
 }
 
 /* 
