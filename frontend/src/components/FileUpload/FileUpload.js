@@ -3,7 +3,7 @@ import Papa from 'papaparse'
 import { toast } from "react-toastify";
 import './FileUpload.css'
 
-const FileUpload = ({ data, setData }) => {
+const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId }) => {
 
     const [csvFile, setCSV] = React.useState()
 
@@ -18,7 +18,7 @@ const FileUpload = ({ data, setData }) => {
         });
     };
 
-    const [tableName, setTableName] = React.useState("table name required")
+
 
     const uploadTable = async (table_name, data) => {
         try {
@@ -32,7 +32,8 @@ const FileUpload = ({ data, setData }) => {
 
             //result from DB request on backend - will send default info
             const parseData = await res.json();
-            console.log(parseData)
+            console.log("TABLE ID CREATED", parseData)
+            setCurrentTableId(parseData)
             toast.info(`${csvFile.name} succesfully uploaded as ${tableName.toUpperCase()}`)
 
 
