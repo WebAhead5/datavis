@@ -1,33 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import UserBar from '../UserBar/UserBar'
-import RenderTable from './RenderTable'
+
+import React, { useState, useEffect } from "react";
+import UserBar from "../UserBar/UserBar";
+import RenderTable from "./RenderTable";
+
+import Pagination from "./Pagination";
+import PostsPerPage from "./PostsPerPage";
 import TableButtons from './TableButtons'
 import getTables from '../../utils/getTables'
 
-
 export default function Tables({ name, setName, setLoggedIn, data, setData, cols, setCols, tableList, setTableList }) {
+  const [selectedTable, setSelectedTable] = useState("");
+  const [tableName, setTableName] = useState("");
 
-    const [selectedTable, setSelectedTable] = useState("");
-    const [tableName, setTableName] = useState("");
+  const [displayedRows, setDisplayedRows] = useState([]);
+
+  ///// Pagination statess  /////
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(20);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  /////                     /////
+  const paginate = (pageNumber) => setCurrentPage(currentPage);
+
+  //select data once table selected
+  useEffect(() => {
+    let extractedData = "";
+    let currentSlicedRows;
+    if (selectedTable !== "") {
+      console.log(selectedTable);
+
+      tableList.forEach((row) => {
+        if (row.table_id === parseInt(selectedTable)) {
+          extractedData = JSON.parse(row.data)}
+        })
 
 
     let dataVars = { cols, data, setData }
-
-
-
-    //select data once table selected
-    useEffect(() => {
-
-        if (selectedTable !== "") {
-
-            let extractedData = ""
-            tableList.forEach(row => {
-                if (row.table_id === parseInt(selectedTable)) {
-                    extractedData = JSON.parse(row.data)
-                }
-            });
-
-            //   console.log("ex data", extractedData);
+       
             setData(extractedData);
 
             localStorage.setItem("tabledata", JSON.stringify(extractedData));
@@ -40,23 +49,38 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
         }
 
 
-        tableList.forEach(row => {
-            if (row.table_id === parseInt(selectedTable)) {
-                setTableName(row.table_name)
-            }
-        })
 
-    }, [selectedTable]);
+    //if there is data then slice the first slice of rows
+    // that should be displayed according to the posts per page value
+    if (extractedData) {
+      currentSlicedRows = extractedData.slice(
+        indexOfFirstPost,
+        indexOfLastPost
+      );
+
+      //set displayed rows to the new slice 
+            setDisplayedRows(currentSlicedRows);
+            // console.log("displayed rows for table", displayedRows);
+          }
+
+
+    tableList.forEach((row) => {
+      if (row.table_id === parseInt(selectedTable)) {
+        setTableName(row.table_name);
+      }
+    });
 
 
 
+  }, [selectedTable, postsPerPage]);
 
-    useEffect(() => {
+
+ useEffect(() => {
         getTables(setTableList)
     }, []);
 
-
-
+    
+  
 
     return (
         <div>
@@ -76,14 +100,28 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
 
 
             {data && selectedTable ?
+            
                 <div>
                     <TableButtons setData={setData} selectedTable={selectedTable} tableList={tableList} tableName={tableName} setTableName={setTableName} setTableList={setTableList} />
                     <div className="tableDiv">
-                        <RenderTable {...dataVars} />
-                    </div>
-                </div>
-                : <div></div>}
+                        <div className="pagination-container">
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={data.length}
+            paginate={paginate}
+            setDisplayedRows={setDisplayedRows}
+            indexOfFirstPost={indexOfFirstPost}
+            data={data}
+            setPostsPerPage={setPostsPerPage}
+          />
+             </div>
+            <RenderTable data={displayedRows} setData={setData} cols={cols} />
+     
+     
         </div>
-    )
+        </div>
+       : 
+        <div></div>}
+    </div>
+  );
 }
-

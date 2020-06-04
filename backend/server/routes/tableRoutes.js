@@ -23,9 +23,13 @@ router.post("/getTables", async (req, res) => {
 
 
 router.post("/addTable", async (req, res) => {
+
+    
     try {
+        
 
         const { table_name, data } = req.body;
+
 
         const table = await db.query(
             "INSERT INTO tables (table_name, user_id, data) VALUES ($1, $2, $3) RETURNING *",

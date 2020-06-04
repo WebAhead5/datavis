@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS users, tables CASCADE;
 
 CREATE TABLE users(
                        user_id SERIAL PRIMARY KEY,
@@ -21,7 +21,7 @@ VALUES
                        table_id SERIAL PRIMARY KEY,
                        table_name VARCHAR(100) NOT NULL,
                        user_id VARCHAR(100) NOT NULL,
-                       data VARCHAR(10000) NOT NULL
+                       data VARCHAR NOT NULL
                     
 );
 
