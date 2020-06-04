@@ -10,10 +10,11 @@ const Pagination = ({
 
   const pageNumbers = [];
 
-//looping over the total length of the data array (the full data array that was recieved) 
-//and calculating the total number of the pages thats needed to be displayed at the scroll div
+//*looping over the total length of the data array (the full data array that was recieved) 
+//*and calculating the total number of the pages thats needed to be displayed at the scroll div
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
+    
   }
 
   return (
@@ -27,9 +28,10 @@ const Pagination = ({
                 // console.log("first index that should be displayed",FirstDisplayedIndex);
                 // console.log("the data is ", data);
 
-                
-                  //slicing the displayed rows according to 
-                  //the number of the page that was clicked ((page#) * (postsPerPage))
+
+                  //***slicing the displayed rows according to 
+                  //****the number of the page that was clicked ((page#) * (postsPerPage))
+
                 const newDisplayedRows = data.slice(
                   FirstDisplayedIndex,
                   (FirstDisplayedIndex + postsPerPage)

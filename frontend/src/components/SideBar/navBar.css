@@ -81,3 +81,9 @@
     transition: ease-in-out;
   }
 } */
+
+
+
+.page-item{
+  cursor: pointer;
+}

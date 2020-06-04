@@ -55,7 +55,8 @@ export default function Tables({
     }
 
 
-    //if there is data then slice the first slice of rows that should be displayed according to the posts per page value
+    //if there is data then slice the first slice of rows
+    // that should be displayed according to the posts per page value
     if (extractedData) {
       // console.log(15555);
 
