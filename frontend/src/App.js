@@ -173,7 +173,7 @@ function App() {
                 render={(props) =>
                   loggedIn ?
                     (
-                      <User {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                      <User {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} tableList={tableList} setTableList={setTableList} />
                     )
                     : (
                       <Redirect to="/" />
