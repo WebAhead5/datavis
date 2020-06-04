@@ -4,6 +4,8 @@ import RenderTable from "./RenderTable";
 import { toast } from "react-toastify";
 import Popup from "reactjs-popup";
 import Pagination from "./Pagination";
+import PostsPerPage from "./PostsPerPage";
+
 
 export default function Tables({
   name,
@@ -69,7 +71,7 @@ export default function Tables({
       
       //set displayed rows to the new slice 
             setDisplayedRows(currentSlicedRows);
-            console.log("displayed rows for table", displayedRows);
+            // console.log("displayed rows for table", displayedRows);
           }
 
 
@@ -200,8 +202,10 @@ export default function Tables({
             totalPosts={data.length}
             paginate={paginate}
             setDisplayedRows={setDisplayedRows}
+            indexOfFirstPost={indexOfFirstPost}
             data={data}
           />
+          < PostsPerPage />
           </div>
           <div className="tableDiv">
             <RenderTable data={displayedRows} setData={setData} cols={cols} />
