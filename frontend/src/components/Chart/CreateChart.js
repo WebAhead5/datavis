@@ -47,8 +47,9 @@ export default function CreateChart({ setLoggedIn, name, setName, data, setData,
             : 
             <Fragment>         
             <h1 className="text-center mt-5">SHOW <b>CHART</b></h1>
-            <ShowChart />
-            </Fragment>}
+            <ShowChart setCurrentPage={setCurrentPage}/>
+            </Fragment>
+             }
         </div>
     )
 }
