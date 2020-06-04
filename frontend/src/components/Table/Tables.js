@@ -54,19 +54,24 @@ export default function Tables({
       localStorage.setItem("cols", JSON.stringify(keys));
     }
 
+
+    //if there is data then slice the first slice of rows that should be displayed according to the posts per page value
     if (extractedData) {
-      console.log(15555);
+      // console.log(15555);
 
       currentSlicedRows = extractedData.slice(
         indexOfFirstPost,
         indexOfLastPost
       );
+      // console.log(currentSlicedRows);
 
-      console.log(currentSlicedRows);
+      
+      //set displayed rows to the new slice 
+            setDisplayedRows(currentSlicedRows);
+            console.log("displayed rows for table", displayedRows);
+          }
 
-      setDisplayedRows(currentSlicedRows);
-      console.log("displayed rows for table", displayedRows);
-    }
+
 
     tableList.forEach((row) => {
       if (row.table_id === parseInt(selectedTable)) {
@@ -194,16 +199,21 @@ export default function Tables({
             totalPosts={data.length}
             paginate={paginate}
             setDisplayedRows={setDisplayedRows}
+            data={data}
           />
           </div>
           <div className="tableDiv">
             <RenderTable data={displayedRows} setData={setData} cols={cols} />
           </div>
-          {/* <Pagination
+          <div className="pagination-container">
+          <Pagination
             postsPerPage={postsPerPage}
             totalPosts={data.length}
             paginate={paginate}
-          /> */}
+            setDisplayedRows={setDisplayedRows}
+            data={data}
+          />
+          </div>
         </div>
       ) : (
         <div></div>
