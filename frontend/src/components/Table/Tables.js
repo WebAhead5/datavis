@@ -81,7 +81,7 @@ export default function Tables({
         setTableName(row.table_name);
       }
     });
-  }, [selectedTable]);
+  }, [selectedTable, postsPerPage]);
 
   //function to get info for dashboard based on ID in JWT token
   const getTables = async () => {
@@ -211,13 +211,14 @@ export default function Tables({
             <RenderTable data={displayedRows} setData={setData} cols={cols} />
           </div>
           <div className="pagination-container">
-          <Pagination
+          {/* <Pagination
             postsPerPage={postsPerPage}
             totalPosts={data.length}
             paginate={paginate}
             setDisplayedRows={setDisplayedRows}
             data={data}
-          />
+            setPostsPerPage={setPostsPerPage}
+          /> */}
           </div>
         </div>
       ) : (
