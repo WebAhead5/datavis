@@ -93,6 +93,7 @@
   overflow: hidden;
   transition: 0.4s ease-in-out;
   color: black !important;
+  z-index: 999;
 }
 
 .inner-bar-icon {

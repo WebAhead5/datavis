@@ -31,13 +31,12 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
 
       tableList.forEach((row) => {
         if (row.table_id === parseInt(selectedTable)) {
-          extractedData = JSON.parse(row.data);
-
+          extractedData = JSON.parse(row.data)}
+        })
 
 
     let dataVars = { cols, data, setData }
-
-            //   console.log("ex data", extractedData);
+       
             setData(extractedData);
 
             localStorage.setItem("tabledata", JSON.stringify(extractedData));
@@ -47,30 +46,22 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             // console.log('extea' , extractedData[0]);
             setCols(keys);
             localStorage.setItem("cols", JSON.stringify(keys));
-
         }
-      });
-
 
 
 
     //if there is data then slice the first slice of rows
     // that should be displayed according to the posts per page value
     if (extractedData) {
-      // console.log(15555);
-
       currentSlicedRows = extractedData.slice(
         indexOfFirstPost,
         indexOfLastPost
       );
-      // console.log(currentSlicedRows);
 
-      
       //set displayed rows to the new slice 
             setDisplayedRows(currentSlicedRows);
             // console.log("displayed rows for table", displayedRows);
           }
-
 
 
     tableList.forEach((row) => {
@@ -78,7 +69,11 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
         setTableName(row.table_name);
       }
     });
+
+
+
   }, [selectedTable, postsPerPage]);
+
 
  useEffect(() => {
         getTables(setTableList)
@@ -105,6 +100,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
 
 
             {data && selectedTable ?
+            
                 <div>
                     <TableButtons setData={setData} selectedTable={selectedTable} tableList={tableList} tableName={tableName} setTableName={setTableName} setTableList={setTableList} />
                     <div className="tableDiv">
@@ -118,21 +114,14 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             data={data}
             setPostsPerPage={setPostsPerPage}
           />
+             </div>
             <RenderTable data={displayedRows} setData={setData} cols={cols} />
-          <div className="pagination-container">
-          {/* <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={data.length}
-            paginate={paginate}
-            setDisplayedRows={setDisplayedRows}
-            data={data}
-            setPostsPerPage={setPostsPerPage}
-          /> */}
-          </div>
+     
+     
         </div>
-      ) : (
-        <div></div>
-      )}
+        </div>
+       : 
+        <div></div>}
     </div>
   );
 }
