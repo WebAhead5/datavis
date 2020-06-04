@@ -64,4 +64,20 @@ box-shadow: 5px 5px 20px grey;
     margin-right: 20px;
   }
 
+  /* .pagination-link{
+    border-color: black;
+    padding-left:20px;
 
+  }
+
+  .pagination-item{
+    size: 5em;
+    background-color: brown;
+  } */
+
+  .pagination-container{
+    width: 15em;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
