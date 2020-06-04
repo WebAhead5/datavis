@@ -103,7 +103,7 @@
   margin-right: 10px;
 }
 
-.add {
+/* .add {
   margin-top: 100px;
 }
 
@@ -117,16 +117,5 @@
 
 .user {
   margin-top: 100px;
-}
-
-/* 
-@keyframes sideBarShowing {
-  from {
-    transform: translateX(-20deg);
-  }
-
-  to {
-    transform: translateX(20deg);
-    transition: ease-in-out;
-  }
 } */
+

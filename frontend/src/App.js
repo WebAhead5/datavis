@@ -47,6 +47,9 @@ function App() {
   //states for current user
   const [name, setName] = useState("");
 
+  //user tables
+  const [tableList, setTableList] = useState([1, 2, 3]);
+
   //core data for sleected table
   const [data, setData] = React.useState()
   const [cols, setCols] = React.useState([1, 2, 3])
@@ -131,7 +134,7 @@ function App() {
                 render={(props) =>
                   loggedIn ?
                     (
-                      <AddTable {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                      <AddTable {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} tableList={tableList} setTableList={setTableList} {...dataVars} />
                     )
                     : (
                       <Redirect to="/" />
@@ -144,7 +147,7 @@ function App() {
                 render={(props) =>
                   loggedIn ?
                     (
-                      <Tables {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
+                      <Tables {...props} setLoggedIn={setLoggedIn} name={name} setName={setName} tableList={tableList} setTableList={setTableList} {...dataVars} />
                     )
                     : (
                       <Redirect to="/" />

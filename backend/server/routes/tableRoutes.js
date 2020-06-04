@@ -34,8 +34,8 @@ router.post("/addTable", async (req, res) => {
 
         // console.log("table data being returned", table.rows)
 
-        //return user data matching user ID in JWT token for use in dashboard
-        res.json("table added to database");
+        //return table id that has been added
+        res.json(table.rows[0].table_id);
 
         //also return table data?
 
@@ -71,7 +71,7 @@ router.post("/delete", async (req, res) => {
 //id routes
 
 router.get('/:id', (req, res) => {
-    console.log('its the route: ',this.route)
+    console.log('its the route: ', this.route)
     const { id } = req.params;
     res.send(`<h1>sending table data on ID: ${id}.....</h1>`)
 })
