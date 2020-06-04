@@ -26,7 +26,7 @@ export default function Tables({
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   /////                     /////
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(currentPage);
 
   //select data once table selected
   useEffect(() => {
@@ -188,19 +188,22 @@ export default function Tables({
               </Popup>
             </div>
           </div>
+          <div className="pagination-container">
           <Pagination
             postsPerPage={postsPerPage}
             totalPosts={data.length}
             paginate={paginate}
+            setDisplayedRows={setDisplayedRows}
           />
+          </div>
           <div className="tableDiv">
             <RenderTable data={displayedRows} setData={setData} cols={cols} />
           </div>
-          <Pagination
+          {/* <Pagination
             postsPerPage={postsPerPage}
             totalPosts={data.length}
             paginate={paginate}
-          />
+          /> */}
         </div>
       ) : (
         <div></div>
