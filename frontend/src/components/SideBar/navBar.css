@@ -1,30 +1,52 @@
 .navBar {
-  min-width: 20vw;
+  min-width: 1vw;
   /* max-width: 25vw; */
   /* height: 100%; */
   position: fixed;
   top: 1.3rem;
   left: 0.9rem;
+  display: flex;
   align-content: space-between;
+  flex-direction: column;
   overflow: hidden;
   z-index: 1;
+  transition: 2s ease-out;
+  border: none !important;
+ 
+
 }
 
 .sideContent {
-  background-color: black;
-  opacity: 0.7;
+  background-color: white;
+  border-right: solid #47567d;
+  opacity: 0.85;
+  position: fixed;
+  top: 4.25rem;
+  left: 0rem;
   /* animation: sideBarShowing 2s; */
   display: flex;
   flex-direction: column;
   /* left: -; */
-  left: -200px;
   height: 100vh;
+  width: 80px;
+  /* position: relative; */
+  transition: 0.3s ease-in-out;
+
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         4px 10px 10px 5px #ccc;  
+}
+
+.sideContent:hover {
+  width: 250px;
   /* position: relative; */
 }
 
 
 .active{
-  left: 0;
+  
+  width: 250px;
+
   /* position: absolute; */
 }
 
@@ -37,15 +59,18 @@
 }
 
 .sideContent a:hover {
-  padding-left: 2%;
-  transition: 0.2s ease-in-out;
+  padding-left: 3%;
+  background-color: rgba(230, 228, 228, 0.383)
+
+
+  
 }
 
 .toggleButton {
   background-color: transparent;
   width: 30px;
   height: 24px;
-  border: none;
+  border: none !important;
   cursor: pointer;
   /* cursor: auto; */
   display: flex;
@@ -53,6 +78,7 @@
   justify-content: space-around;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 .toggleButton_line {
@@ -62,28 +88,38 @@
 }
 
 .menu-item {
-  padding-top: 15px;
+  padding: 20px;
+  font-size: 18px !important;
+  height: 70px;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+  color: black !important;
 }
 
 .inner-bar-icon {
-  height: 30px;
-  width: 30px;
+  height: 55px;
+  width: 55px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-/* 
-@keyframes sideBarShowing {
-  from {
-    transform: translateX(-20deg);
-  }
+/* .add {
+  margin-top: 100px;
+}
 
-  to {
-    transform: translateX(20deg);
-    transition: ease-in-out;
-  }
+.tables {
+  margin-top: 20px;
+}
+
+.history{
+  margin-top: 400px;
+}
+
+.user {
+  margin-top: 100px;
 } */
-
-
 
 .page-item{
   cursor: pointer;
 }
+

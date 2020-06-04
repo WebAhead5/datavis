@@ -8,7 +8,7 @@
     width: 13VW !important;
     height: 50px;
     border: solid var(--color-white) thin;
-    font-size: large;
+    font-size: 1vw;
     /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
 
     transition: 0.4s ease-out
@@ -32,7 +32,7 @@ box-shadow: 5px 5px 20px grey;
     width: 13VW !important;
     height: 50px;
     border: solid var(--color-white) thin;
-    font-size: large;
+    font-size: 1vw;
     /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
 
     transition: 0.4s ease-out
@@ -47,7 +47,7 @@ box-shadow: 5px 5px 20px grey;
 
   .tableButtons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
   }
 
@@ -56,11 +56,12 @@ box-shadow: 5px 5px 20px grey;
   }
 
   .genDiv {
-    margin-left: 20px;
+    margin-right: 10px;
   }
 
   .tableDiv {
-    margin: 20px;
+    margin-left: 100px;
+    margin-right: 20px;
   }
 
   /* .pagination-link{
