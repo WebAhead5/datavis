@@ -8,7 +8,7 @@
     width: 13VW !important;
     height: 50px;
     border: solid var(--color-white) thin;
-    font-size: large;
+    font-size: 1vw;
     /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
 
     transition: 0.4s ease-out
@@ -32,7 +32,7 @@ box-shadow: 5px 5px 20px grey;
     width: 13VW !important;
     height: 50px;
     border: solid var(--color-white) thin;
-    font-size: large;
+    font-size: 1vw;
     /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
 
     transition: 0.4s ease-out
@@ -64,4 +64,20 @@ box-shadow: 5px 5px 20px grey;
     margin-right: 20px;
   }
 
+  /* .pagination-link{
+    border-color: black;
+    padding-left:20px;
 
+  }
+
+  .pagination-item{
+    size: 5em;
+    background-color: brown;
+  } */
+
+  .pagination-container{
+    width: 15em;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+  }
