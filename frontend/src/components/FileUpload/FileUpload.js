@@ -19,7 +19,6 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
     };
 
 
-
     const uploadTable = async (table_name, data) => {
         try {
             const body = { table_name, data };
