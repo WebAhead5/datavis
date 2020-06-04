@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import UserBar from '../UserBar/UserBar'
 import { parse } from 'papaparse';
 import userImage from '../../assets/images/userimage.svg'
+import getTables from '../../utils/getTables';
+import getTable from '../../utils/getTables'
 
-export default function User({ name, setName, setLoggedIn }) {
+export default function User({ name, setName, setLoggedIn, setTableList, tableList }) {
 
     const [email, setEmail] = useState();
 
@@ -32,6 +34,7 @@ export default function User({ name, setName, setLoggedIn }) {
 
     useEffect(() => {
         getEmail();
+        getTable(setTableList);
     }, []);
 
 
@@ -55,6 +58,9 @@ export default function User({ name, setName, setLoggedIn }) {
                             <li className="list-group-item">
                                 <b>Email: </b>{email}
                             </li>
+                            <li className="list-group-item">
+                                <b>You have {tableList.length} tables uploaded to datavis: </b>{tableList.map((table) => (<li>{table.table_name}</li>))}
+                            </li>
                             <li className="list-group-item" style={{ color: "#47567d" }}>
                                 <u>Try Premium!</u>
                             </li>
@@ -63,7 +69,7 @@ export default function User({ name, setName, setLoggedIn }) {
                             </li>
 
                             <li className="mt-5 text-center"><b>Logout</b></li>
-                            <li className="mt-4 text-center">Delete Account</li>
+                            <li className="my-4 text-center">Delete Account</li>
                         </ul>
                     </div>
                     <div class="col-3">
