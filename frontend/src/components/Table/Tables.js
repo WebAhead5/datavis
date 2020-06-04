@@ -204,8 +204,8 @@ export default function Tables({
             setDisplayedRows={setDisplayedRows}
             indexOfFirstPost={indexOfFirstPost}
             data={data}
+            setPostsPerPage={setPostsPerPage}
           />
-          < PostsPerPage />
           </div>
           <div className="tableDiv">
             <RenderTable data={displayedRows} setData={setData} cols={cols} />

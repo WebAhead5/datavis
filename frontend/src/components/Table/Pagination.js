@@ -1,6 +1,7 @@
 import React from "react";
+import PostsPerPage from "./PostsPerPage"
 
-const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data }) => {
+const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPostsPerPage }) => {
   const pageNumbers = [];
 
   //*looping over the total length of the data array (the full data array that was recieved)
@@ -56,6 +57,13 @@ const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data }) => {
           </li>
         ))}
       </ul>
+      < PostsPerPage  setPostsPerPage={setPostsPerPage}
+        // =>{      
+        //     console.log(postsPerPage);
+            
+        //     setPostsPerPage(postsPerPage)
+        //     }} 
+            />
     </nav>
   );
 };
