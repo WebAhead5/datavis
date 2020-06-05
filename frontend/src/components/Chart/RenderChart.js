@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ChartDisplay from './ChartDisplay'
 import CustomizeChart from './CustomizeChart'
 import ChooseData from './ChooseData'
+import ShowChart from './ShowChart'
 import Sort from './Sort'
 import './Chart.css'
 
@@ -61,6 +62,14 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
     //All customize props to pass into componant
     const customizeProps = { setTheme, gridlines, setGridlines, darkMode, setDarkMode, title, setTitle, xtitle, ytitle, setxTitle, setyTitle }
+
+    const [currentPage, setCurrentPage] = React.useState('createChart')
+
+    const changePage = () => {
+
+        if (currentPage === 'createChart') setCurrentPage('showChart')
+        else setCurrentPage('createChart')
+    }
 
     //make the data object a Canvas so we can use gradients
     const dataObject = canvas => {
@@ -165,15 +174,32 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
     return (
         <div className="chartDiv">
 
-            <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
-            <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />
+            {currentPage === 'createChart' ?
 
-            <CustomizeChart x={x} y={y} {...customizeProps} />
+                <Fragment>
+                    <h1 className="text-center mt-5">GENERATE <b>CHART</b></h1>
+                    <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
-            <div style={{ backgroundColor: bgColor }}>
-                <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
-            </div>
+                    <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />
+
+                    <CustomizeChart x={x} y={y} {...customizeProps} />
+
+                    {chart ? <button onClick={changePage} className="btn btn-info my-4">GENERATE CHART</button> : null}
+
+                    <div style={{ backgroundColor: bgColor }}>
+                        <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+                    </div>
+
+                </Fragment>
+
+                :
+
+                <Fragment>
+                    <h1 className="text-center mt-5">SHOW <b>CHART</b></h1>
+                    <ShowChart setCurrentPage={setCurrentPage} chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+                </Fragment>
+            }
         </div>
     );
 }
