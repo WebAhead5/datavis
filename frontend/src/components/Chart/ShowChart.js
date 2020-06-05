@@ -1,25 +1,27 @@
 import React from "react";
 import htmlConverter from "./h2C/HtmlConverter";
+import ChartDisplay from "./ChartDisplay";
 
-export default function ShowChart({setCurrentPage}) {
+export default function ShowChart({ setCurrentPage, chart, dataObject, optionsObject }) {
   return (
-    <div style={{marginLeft:"30%"}}>
+    <div style={{}}>
 
       <input type="button"
-       onClick={htmlConverter}
-        value="Download"
-         />
+        className="btn btn-info"
+        onClick={htmlConverter}
+        value="Download Chart"
+      />
 
-        <input type="button"
+      <input type="button"
+        className="btn btn-warning ml-3"
         value="Edit"
-        className="ml-3" 
-        onClick={()=> {
-            setCurrentPage('createChart')
-        }}/>
+        onClick={() => {
+          setCurrentPage('createChart')
+        }} />
 
-        <div id="capture" >
-        <b style={{color:'red'}}>Click on Download and take a picture of me</b>
-        </div>
+      <div id="capture" >
+        <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+      </div>
     </div>
   );
 }
