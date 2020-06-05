@@ -21,6 +21,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
 
     const uploadTable = async (table_name, data) => {
         try {
+            
             const body = { table_name, data };
             //call API for user infomation for use in dashboard
             const res = await fetch("http://localhost:4000/table/addTable", {
@@ -65,7 +66,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
                 TABLE <b>NAME</b>: <input tableName={tableName} onChange={e => setTableName(e.target.value)} required />
             </div>
 
-            {tableName != "table name required" && tableName != "" ?
+            {tableName != "table name required" && tableName.trimStart()?
                 <div class="upload-btn-wrapper mt-3">
                     <button class="btn activeBtn">SELECT FILE</button>
                     <input

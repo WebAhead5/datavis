@@ -8,6 +8,7 @@ const RenderRows = ({ data, cols, setData }) => {
         return <tr id={index} key={index}><RenderCells key={index} data={row} cols={cols} setData={setData} /></tr>
     })
 
+
 }
 
 export default RenderRows;

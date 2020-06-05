@@ -8,7 +8,10 @@ router.post("/getTables", async (req, res) => {
             "SELECT table_id, table_name, user_id, data FROM tables WHERE user_id = $1",
             [req.user.id]
         );
+        console.time();
 
+        
+        // console.timeEnd("Time this");
         // console.log("table data being returned", tables.rows)
 
         //return user data matching user ID in JWT token for use in dashboard
@@ -48,6 +51,40 @@ router.post("/addTable", async (req, res) => {
         res.status(500).send("Server error");
     }
 });
+
+
+
+// router.post("/updateTable", async (req, res) => {
+
+//     try {
+        
+
+//         const { table_name, data } = req.body;
+//         console.log('before the query',req.body);
+        
+
+//         const table = await db.query(
+//             "SELECT * FROM TABLE  WHERE table_id=2",
+//             [table_name, req.user.id, data]
+//         );
+//         console.log('after the query',req.body);
+//         console.log('table rows',table.rows);
+
+//         // console.log("table data being returned", table.rows)
+
+//         //return table id that has been added
+//         res.json(table.rows[0].table_id);
+
+//         //also return table data?
+
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send("Server error");
+//     }
+// });
+
+
+
 
 router.post("/delete", async (req, res) => {
     try {
