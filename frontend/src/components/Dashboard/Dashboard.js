@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserBar from '../UserBar/UserBar'
+import chartPreview from '../../assets/images/combo-chart.png'
+import './Dashboard.css'
 
 const Dashboard = ({ setLoggedIn, name, setName }) => {
 
@@ -50,6 +52,8 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
 
 
             <h4 className="mt-5 text-center">or access your exisiting data tables <a href="/tables" style={{ color: "#47567d", textDecoration: "underline" }}>here</a>.</h4>
+
+            <img src={chartPreview} className="chartImgDash mt-5" />
 
         </div>
     );

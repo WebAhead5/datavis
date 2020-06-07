@@ -2,12 +2,18 @@ import React from "react";
 import htmlConverter from "./h2C/HtmlConverter";
 import ChartDisplay from "./ChartDisplay";
 
-export default function ShowChart({ setCurrentPage, chart, dataObject, optionsObject }) {
+export default function ShowChart({ setCurrentPage, chart, dataObject, optionsObject, bgColor }) {
   return (
-    <div style={{}}>
+    <div className="showChart">
 
       <input type="button"
-        className="btn btn-info"
+        className="btn btn-outline-primary"
+        // onClick={}
+        value="Save Chart to History"
+      />
+
+      <input type="button"
+        className="btn btn-outline-info"
         onClick={htmlConverter}
         value="Download Chart"
       />
@@ -19,7 +25,7 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
           setCurrentPage('createChart')
         }} />
 
-      <div id="capture" >
+      <div id="capture" style={{ backgroundColor: bgColor }} >
         <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
       </div>
     </div>

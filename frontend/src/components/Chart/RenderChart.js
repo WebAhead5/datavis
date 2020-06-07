@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import ChartDisplay from './ChartDisplay'
-import CustomizeChart from './CustomizeChart'
+import CustomizeChart from './ChartTheme'
 import ChooseData from './ChooseData'
 import ShowChart from './ShowChart'
 import Sort from './Sort'
+import ChartTitles from './ChartTitles'
 import './Chart.css'
 
 const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
@@ -71,10 +72,23 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
         else setCurrentPage('createChart')
     }
 
+    //Toggle Dark Mode
+    const handleDarkMode = () => {
+        setDarkMode(!darkMode)
+    }
+
+    //Toggle Show Gridlines
+    const handleGridlines = () => {
+        setGridlines(!gridlines)
+    }
+
+
     //make the data object a Canvas so we can use gradients
     const dataObject = canvas => {
         const ctx = canvas.getContext('2d');
         let width = window.innerWidth
+        //adjust gradient for prview mode
+        if (currentPage === "createChart") width = width / 2
         let gradientStroke = ctx.createLinearGradient(0, 0, width, 400);
         gradientStroke.addColorStop(0, theme.color2);
         gradientStroke.addColorStop(1, theme.color1);
@@ -98,7 +112,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
     }
 
     //Set DarkMode options
-    let bgColor = "inherit"
+    let bgColor = "rgb(255,255,255, 0.4)"
     let fColor = "#212529"
     let fStyle = "normal"
     if (darkMode) {
@@ -169,7 +183,8 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                 ]
             } : {} //else no settings for pie & doughtnut
     }
-
+    //Chart type drop down options
+    const chartList = ["bar", "horizontal bar", "line", "line only", "pie", "doughnut"]
 
     return (
         <div className="chartDiv">
@@ -178,17 +193,97 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
             {currentPage === 'createChart' ?
 
                 <Fragment>
-                    <h1 className="text-center mt-5">GENERATE <b>CHART</b></h1>
-                    <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
-                    <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />
+                    <h1 className="text-center mt-5 mb-4">GENERATE <b>CHART</b></h1>
+                    <div class="splitScreen">
+                        <div className="left">
+                            {/* <div>Table Selected: <b>table name </b></div> */}
 
-                    <CustomizeChart x={x} y={y} {...customizeProps} />
+                            <ChartTitles {...customizeProps} />
+                            <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
-                    {chart ? <button onClick={changePage} className="btn btn-info my-4">GENERATE CHART</button> : null}
+                            {/* <div>
+                                <legend> Pick Your Chart Type</legend>
+                                <select className="" onChange={e => setChart(e.target.value)}>
+                                    <option style={{ color: "grey" }}>Select</option>
+                                    {chartList.map((chart, index) => (
+                                        <option value={chart} key={index}>{chart}</option>
+                                    ))}
+                                </select>
 
-                    <div style={{ backgroundColor: bgColor }}>
-                        <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+                            </div> */}
+                            <div >
+                                <legend> Pick Your Chart Type</legend>
+                                <div className="radioBtns" style={{ width: "300px" }}>
+
+                                    {chartList.map((chart, index) => (
+
+                                        <div className="form-check" onChange={e => setChart(e.target.value)}>
+                                            <input key={index} type="radio" className="form-check-input" name="chart" value={chart} />
+                                            <label key={index} className="form-check-label mx-2" for={chart}>{chart}</label>
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <CustomizeChart x={x} y={y} {...customizeProps} />
+                            <div>
+                                {chart && x && y ?
+                                    <Fragment>
+                                        <div>
+                                            <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                        </div>
+                                        <div>
+                                            <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
+                                        </div>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                        <div>
+                                            <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                        </div>
+                                        <div>
+                                            <button className="btn btn-secondary disabled mt-5 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
+                                        </div>
+                                    </Fragment>}
+                            </div>
+
+
+                        </div>
+
+
+                        <div className="right text-center" >
+                            <div>
+                                <div className="chartPreview">
+                                    <div style={{ backgroundColor: bgColor }}>
+                                        <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} x={x} y={y} />
+                                    </div>
+                                </div>
+                                <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />
+
+                                {chart && x && y ?
+                                    <Fragment>
+                                        <button onClick={changePage} className="btn btn-info btn-lg mt-4">GENERATE FINAL CHART</button>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                        <button className="btn btn-outline-info btn-lg mt-4 disabled">GENERATE FINAL CHART</button>
+                                    </Fragment>}
+                                <div className="displayBtns">
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
                 </Fragment>
@@ -197,10 +292,10 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
                 <Fragment>
                     <h1 className="text-center mt-5">SHOW <b>CHART</b></h1>
-                    <ShowChart setCurrentPage={setCurrentPage} chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+                    <ShowChart setCurrentPage={setCurrentPage} chart={chart} dataObject={dataObject} optionsObject={optionsObject} bgColor={bgColor} />
                 </Fragment>
             }
-        </div>
+        </div >
     );
 }
 
