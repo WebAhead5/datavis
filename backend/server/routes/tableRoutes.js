@@ -46,16 +46,21 @@ router.get("/tables", async (req, res) => {
  
  
     try {
-        console.log(1);
-        
-        const changedCell = JSON.parse(localStorage.getItem("changedCell"));
-        const newValueOfCell = changedCell.newValueOfCell;
-        const columnName = changedCell.columnName;
-        console.log(newValueOfCell,'this is the new value from the BE');
-        
-        const updateCell = await db.querey(
-        `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'id')::int = 1  then x.obj || '{$1: $2}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`
-        ,[newValueOfCell, columnName]);
+        if (localStorage.getItem('changedCell') === null) {
+          return;
+
+        } else {
+          
+          const changedCell = JSON.parse(localStorage.getItem("changedCell"));
+          const newValueOfCell = changedCell.newValueOfCell;
+          const columnName = changedCell.columnName;
+          console.log(newValueOfCell,'this is the new value from the BE');
+          
+          const updateCell = await db.querey(
+          `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'id')::int = 1 and table_id=$1 then x.obj || '{$2: $3}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`
+          ,[newValueOfCell, columnName]);
+
+        }
 
   } catch (error) {
     res.status(500).send("Server error");

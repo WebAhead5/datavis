@@ -53,6 +53,7 @@ const RenderCells = ({ cols, data, setData }) => {
           let newValueOfCell = document.getElementById(`${data[col]}`).innerHTML
           let columnName = cols[index]
           
+          console.log(window.localStorage)
           
           EditCell({newValueOfCell, columnName})
           
