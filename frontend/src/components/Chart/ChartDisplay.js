@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Bar, HorizontalBar, Line, Pie, Doughnut } from 'react-chartjs-2';
+import chartPreview from '../../assets/images/combo-chart.png'
+
 
 
 //Render of each chart type based on whats been selected & saved in state
 
-const ChartDisplay = ({ chart, dataObject, optionsObject }) => {
+const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
 
     return (
         <React.Fragment>
@@ -50,7 +52,12 @@ const ChartDisplay = ({ chart, dataObject, optionsObject }) => {
                                         height={50}
                                         options={optionsObject}
                                     />
-                                    : <div></div>
+                                    :
+                                    <Fragment>
+                                        <img src={chartPreview} className="chartImg" />
+                                        <div className="chartPreviewText"></div>
+                                    </Fragment>
+
             }
 
 

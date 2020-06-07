@@ -2,13 +2,20 @@ import React from 'react'
 // import { defaults } from 'react-chartjs-2';
 
 
-const CustomizeChart = ({ x, y, setTheme, gridlines, setGridlines, darkMode, setDarkMode, title, setTitle, ytitle, xtitle, setxTitle, setyTitle }) => {
+const ChartTheme = ({ x, y, setTheme }) => {
 
     //Theme drop down options
     const colorTheme = ["green", "red", "blue", "orange"]
 
     //Object that holds what each theme will look like
     const themeObject = {
+        default: {
+            "color1": "rgba(255,99,132,0.2)",
+            "color2": "rgba(255,99,132,0.8)",
+            "border": "rgba(255,99,132,1)",
+            "hover": "rgba(255,99,132,0.4)",
+            "pieColors": ["rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)"],
+        },
         green: {
             "color1": "green",
             "color2": "darkgreen",
@@ -52,48 +59,23 @@ const CustomizeChart = ({ x, y, setTheme, gridlines, setGridlines, darkMode, set
         })
     }
 
-    //Toggle Dark Mode
-    const handleDarkMode = () => {
-        setDarkMode(!darkMode)
-    }
-
-    //Toggle Show Gridlines
-    const handleGridlines = () => {
-        setGridlines(!gridlines)
-    }
 
     return (
         <React.Fragment>
 
-            {x || y ?
-                <fieldset>
-                    <legend>Pick Colors</legend>
-                    <label htmlFor="chart"> </label>
-                    <select className="" onChange={e => handleThemeChange(e)}>
-                        <option style={{ color: "grey" }}>Select</option>
-                        {colorTheme.map((col, index) => (
-                            <option value={col} key={index}>{col}</option>
-                        ))}
-                    </select>
 
-                    <legend>Dark Mode</legend>
-                    <label htmlFor="chart"> </label>
-                    <button onClick={handleDarkMode}>Dark Mode</button>
-
-                    <legend>Gridlines</legend>
-                    <label htmlFor="chart"> </label>
-                    <button onClick={handleGridlines}>Gridlines</button>
+            <fieldset>
+                <legend>Set Color Theme</legend>
+                <label htmlFor="chart"> </label>
+                <select className="" onChange={e => handleThemeChange(e)}>
+                    <option style={{ color: "grey" }}>default</option>
+                    {colorTheme.map((col, index) => (
+                        <option value={col} key={index}>{col}</option>
+                    ))}
+                </select>
 
 
-                    <legend>Chart Title</legend>
-                    Title:<input title={title} onChange={e => setTitle(e.target.value)} />
-                    X:<input xtitle={xtitle} onChange={e => setxTitle(e.target.value)} />
-                    Y:<input ytitle={ytitle} onChange={e => setyTitle(e.target.value)} />
-                </fieldset>
-
-
-                : <div></div>}
-
+            </fieldset>
 
 
 
@@ -102,4 +84,4 @@ const CustomizeChart = ({ x, y, setTheme, gridlines, setGridlines, darkMode, set
 
 }
 
-export default CustomizeChart
+export default ChartTheme
