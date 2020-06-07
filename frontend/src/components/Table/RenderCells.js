@@ -1,5 +1,5 @@
 import React from "react";
-// import editCell from './EditCell'
+import EditCell from './EditCell'
 
 //function to render each indivdual cell in each row
 const RenderCells = ({ cols, data, setData }) => {
@@ -24,11 +24,15 @@ const RenderCells = ({ cols, data, setData }) => {
 
 
 
-  const editCell = (newValueOfCell) => {
-    setTimeout(() => {
-      console.log(1, newValueOfCell);
-    }, 200); 
-  }
+
+  // const editCell = (newValueOfCell) => {
+  //   setTimeout(() => {
+  //     // console.log(1, newValueOfCell.newValueOfCell);
+  //   }, 200); 
+  // }
+
+
+
   //   const _handleFocus = (text) => {
   //     console.log('Focused with text: ' + data[cols]);
   // }
@@ -47,14 +51,18 @@ const RenderCells = ({ cols, data, setData }) => {
         // onFocusOut={_handleFocusOut}
         onInput={() => {
           let newValueOfCell = document.getElementById(`${data[col]}`).innerHTML
-          editCell({newValueOfCell})
+          let columnName = cols[index]
+          
+          
+          EditCell({newValueOfCell, columnName})
+          
           //need to find unique valid identifier in order to get the element 
           //and get the innerHTML of it after input 
           //ID doesnt have any limitation, compared to classNames, https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute
           console.log(
             "the text first was: ",data[col] + 'at the place ' + cols[index],"{inner html} and after the change it's ", newValueOfCell);
             // document.querySelector(`aa${data[col]}`).innerHTML
-
+            
         }}
         suppressContentEditableWarning="true"
         onBlur={(e) => handleEdit(e)}
