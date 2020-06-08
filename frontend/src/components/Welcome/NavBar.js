@@ -25,7 +25,7 @@ export default function NavBar({ setLoggedIn }) {
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <div class="nav-link pointer" href="">
-                                <Popup trigger={<span><b>Login</b> </span>} position="left top"
+                                <Popup trigger={<span><b>Login</b> </span>} modal position="left top"
                                     closeOnDocumentClick>
                                     <div>
                                         <Login setLoggedIn={setLoggedIn} />
