@@ -24,9 +24,20 @@ router.post("/addTable", async (req, res) => {
   try {
     const { table_name, data } = req.body;
 
+
+
+    let dataIDs = JSON.parse(data).map( (row, index) => {
+   row['uID'] = index
+   return row
+    })
+
+    dataIDs = JSON.stringify(dataIDs)
+    console.log(dataIDs)
+
+
     const table = await db.query(
       "INSERT INTO tables (table_name, user_id, data) VALUES ($1, $2, $3) RETURNING *",
-      [table_name, req.user.id, data]
+      [table_name, req.user.id, dataIDs]
     );
 
     // console.log("table data being returned", table.rows)
@@ -44,21 +55,25 @@ router.post("/addTable", async (req, res) => {
 /* Doooooooont deleeeeeeteee */
 router.get("/tables", async (req, res) => {
  
- 
     try {
         if (localStorage.getItem('changedCell') === null) {
           return;
 
         } else {
           
-          const changedCell = JSON.parse(localStorage.getItem("changedCell"));
+          let changedCell = JSON.parse(localStorage.getItem("changedCell"));
           const newValueOfCell = changedCell.newValueOfCell;
           const columnName = changedCell.columnName;
-          console.log(newValueOfCell,'this is the new value from the BE');
+          const rowNum = changedCell.rowNum;
+          let tableDataForLocalS = JSON.parse(localStorage.getItem('tabledata')) 
+          let tableID = tableDataForLocalS.tableID
+          // consn table_id = .tableID;
+          
+          
           
           const updateCell = await db.querey(
-          `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'id')::int = 1 and table_id=$1 then x.obj || '{$2: $3}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`
-          ,[newValueOfCell, columnName]);
+          `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`
+          ,[rowNum, tableID, newValueOfCell, columnName]);
 
         }
 

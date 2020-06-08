@@ -2,7 +2,7 @@ import React from "react";
 import EditCell from './EditCell'
 
 //function to render each indivdual cell in each row
-const RenderCells = ({ cols, data, setData }) => {
+const RenderCells = ({ cols, data, setData, rowKey }) => {
   //TODO: finsih this function so it works on edit
 
   //Function to save current & changed states and update data state
@@ -46,28 +46,24 @@ const RenderCells = ({ cols, data, setData }) => {
       <td
         id={cols[index]}
         id={data[col]}
+
         contentEditable={cols[index] === "id" ? "false" : "true"}
-        // onFocus={_handleFocus}
-        // onFocusOut={_handleFocusOut}
+
         onInput={() => {
           let newValueOfCell = document.getElementById(`${data[col]}`).innerHTML
           let columnName = cols[index]
+          let rowNum = document.querySelector(`.rowNum${rowKey}`).classList[1]
           
-          console.log(window.localStorage)
-          
-          EditCell({newValueOfCell, columnName})
-          
+          EditCell({newValueOfCell, columnName, rowNum})
           //need to find unique valid identifier in order to get the element 
           //and get the innerHTML of it after input 
           //ID doesnt have any limitation, compared to classNames, https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute
           console.log(
-            "the text first was: ",data[col] + 'at the place ' + cols[index],"{inner html} and after the change it's ", newValueOfCell);
-            // document.querySelector(`aa${data[col]}`).innerHTML
-            
+            "the text first was: ",data[col] + ' at the place ' + cols[index],"{inner html} and after the change it's ", newValueOfCell);
         }}
         suppressContentEditableWarning="true"
         onBlur={(e) => handleEdit(e)}
-        className={`aa${data[col]}`}
+        className={`${data[col]} rowNum${rowKey}`}
         key={data[col]}>
         {data[col]}
       </td>

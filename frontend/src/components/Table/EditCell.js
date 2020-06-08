@@ -1,21 +1,17 @@
 import React from 'react'
 
 
-// const transferToBE = (storageValue) => {
 
-// }
-
-
-export default function EditCell({newValueOfCell, columnName}) {
+export default function EditCell({newValueOfCell, columnName, rowNum}) {
     // console.log(newValueOfCell, 'the newewodwe');
         const dataToSend = {
             newValueOfCell: newValueOfCell,
-            columnName: columnName
+            columnName: columnName,
+            rowNum: rowNum   
         }
 
 
     localStorage.setItem('changedCell',JSON.stringify(dataToSend));
-    // transferToBE(newValueOfCell);
 }
 
 

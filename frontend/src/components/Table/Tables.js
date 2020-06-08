@@ -27,20 +27,27 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
     let extractedData = "";
     let currentSlicedRows;
     if (selectedTable !== "") {
-      console.log(selectedTable);
+      
 
       tableList.forEach((row) => {
+        
         if (row.table_id === parseInt(selectedTable)) {
           extractedData = row.data}
           // extractedData = JSON.parse(row.data)}
+          console.log(parseInt(selectedTable));
         })
-
-
+        
+        
     let dataVars = { cols, data, setData }
        
             setData(extractedData);
 
-            localStorage.setItem("tabledata", JSON.stringify(extractedData));
+            let tableDataForLocalS = {
+              tableID: parseInt(selectedTable),
+              extractedData:extractedData
+            }
+
+            localStorage.setItem("tabledata", JSON.stringify(tableDataForLocalS));
             console.log("table selected is", extractedData);
 
             let keys = Object.keys(extractedData[0]);
