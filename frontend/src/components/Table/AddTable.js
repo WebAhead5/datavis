@@ -34,7 +34,7 @@ const AddTable = ({ props, setLoggedIn, name, setName, data, setData, cols, setC
 
     return (
 
-        <div className="App">
+        <div className="App" style={{ marginTop: "100px" }}>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="text-center mt-5">UPLOAD <b>TABLE</b></h1>
             <div className="text-center mt-4">

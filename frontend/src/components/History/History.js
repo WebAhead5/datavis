@@ -74,20 +74,23 @@ export default function History({ name, setName, setLoggedIn }) {
 
 
     return (
-        <div>
+        <div style={{ marginTop: "100px" }}>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="text-center mt-5">CHART<b> HISTORY</b></h1>
-            <h3>display chart history</h3>
-            {chartHistory.reverse().map((chart) => (
-                <Fragment>
-                    <div className="text-center">
-                        <img className="chartImg" src={chart.jpeg} />
-                        <div className="">CHART ID: {chart.chart_id}</div>
-                        <button className="btn btn-primary mx-2" onClick={() => handleDownload(chart)}>DOWNLOAD CHART</button>
-                        <button className="btn btn-danger mx-2" onClick={() => handleDelete(chart)}>DELETE CHART</button>
-                    </div>
-                </Fragment>
-            ))}
+            {chartHistory.length > 0 ?
+                chartHistory.reverse().map((chart) => (
+                    <Fragment>
+                        <div className="text-center">
+                            <img className="chartImg" src={chart.jpeg} />
+                            <div className="">CHART ID: {chart.chart_id}</div>
+                            <button className="btn btn-primary mx-2" onClick={() => handleDownload(chart)}>DOWNLOAD CHART</button>
+                            <button className="btn btn-danger mx-2" onClick={() => handleDelete(chart)}>DELETE CHART</button>
+                        </div>
+                    </Fragment>
+                ))
+                :
+
+                <h3 className="text-center mt-5" style={{ color: "slategrey" }}>You have no saved charts</h3>}
 
         </div>
     )

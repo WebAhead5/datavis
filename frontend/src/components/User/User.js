@@ -39,7 +39,7 @@ export default function User({ name, setName, setLoggedIn, setTableList, tableLi
 
 
     return (
-        <div>
+        <div style={{ marginTop: "100px" }}>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="text-center mt-5">USER <b>PAGE</b></h1>
             <div class="container">

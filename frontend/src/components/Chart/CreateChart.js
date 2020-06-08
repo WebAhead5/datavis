@@ -17,7 +17,7 @@ export default function CreateChart({ setLoggedIn, name, setName, data, setData,
 
 
     return (
-        <div>
+        <div style={{ marginTop: "100px" }}>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
 
             <RenderChart {...dataVars} {...chartVars} />
