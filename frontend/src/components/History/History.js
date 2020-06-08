@@ -45,7 +45,8 @@ export default function History({ name, setName, setLoggedIn }) {
                     <div className="text-center">
                         <img className="chartImg" src={chart.jpeg} />
                         <div className="">CHART ID: {chart.chart_id}</div>
-                        <button className="btn btn-danger">DELETE CHART</button>
+                        <button className="btn btn-primary mx-2">DOWNLOAD CHART</button>
+                        <button className="btn btn-danger mx-2">DELETE CHART</button>
                     </div>
                 </Fragment>
             ))}
