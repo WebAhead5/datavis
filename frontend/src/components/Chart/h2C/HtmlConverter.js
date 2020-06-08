@@ -15,7 +15,7 @@ const htmlConverter = () => {
       link.click();
 
 
-      toast.info("JPEG download")
+      toast.info("JPEG downloaded")
     })
     .catch((error) => {
       console.error('oops, something went wrong!', error);

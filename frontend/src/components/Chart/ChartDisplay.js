@@ -54,7 +54,7 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
                                     />
                                     :
                                     <Fragment>
-                                        <img src={chartPreview} className="chartImg" />
+                                        <img src={chartPreview} className="chartIcon" />
                                         <div className="chartPreviewText"></div>
                                     </Fragment>
 
