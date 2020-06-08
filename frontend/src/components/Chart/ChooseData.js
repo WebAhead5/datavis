@@ -15,7 +15,7 @@ const ChooseData = ({ cols, setX, setY, setChart }) => {
                             X: <select className="" onChange={e => setX(e.target.value)}>
                                 <option style={{ color: "grey" }}>Select X Axis</option>
                                 {cols.map((col, index) => (
-                                    <option value={col} key={index}>{col}</option>
+                                    col !== "uID" ? <option value={col} key={index}>{col}</option> : null
                                 ))}
                             </select>
 
@@ -24,7 +24,7 @@ const ChooseData = ({ cols, setX, setY, setChart }) => {
                             Y: <select className="" onChange={e => setY(e.target.value)}>
                                 <option style={{ color: "grey" }}>Select Y Axis</option>
                                 {cols.map((col, index) => (
-                                    <option value={col} key={index}>{col}</option>
+                                    col !== "uID" ? <option value={col} key={index}>{col}</option> : null
                                 ))}
                             </select>
                         </div>
