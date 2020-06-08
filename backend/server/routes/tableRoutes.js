@@ -56,9 +56,13 @@ router.post("/editcontent", async (req, res) => {
     
 const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
 
+console.log(req.body);
+console.log(selectedTable);
+
+
     const updateCell = db.querey(
       "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )",
-      [rowNum, selectedTable, newValueOfCell, columnName]
+      [rowNum.slice(6), selectedTable, columnName, newValueOfCells]
     );
 
 

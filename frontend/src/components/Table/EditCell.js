@@ -6,6 +6,7 @@ import React from 'react'
 
     
     try {
+console.log(selectedTable,'selected tablleeeeees');
 
         const res = await fetch("http://localhost:4000/table/editcontent", {
             method: "POST",
