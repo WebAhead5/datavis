@@ -17,6 +17,9 @@ VALUES
       ('Tina', 'Goldweather', 'tinag@gmail.com', 'tina123');
 
 
+
+
+
       CREATE TABLE tables(
                        table_id SERIAL PRIMARY KEY,
                        table_name VARCHAR(100) NOT NULL,
@@ -25,10 +28,27 @@ VALUES
                     
 );
 
-
 INSERT INTO tables (table_name, user_id, data)
 VALUES
       ('Supplier Info', '4', '{name: test1, cost: £100.00}');
+
+
+
+
+
+      CREATE TABLE charts(
+                       chart_id SERIAL PRIMARY KEY,
+                       user_id VARCHAR(100) NOT NULL,
+                       jpeg VARCHAR NOT NULL
+                    
+);
+
+
+INSERT INTO charts (user_id, jpeg)
+VALUES
+      (2, '9ur09w4hg904g40jg4ojkg40gj40jgmj40mb');
+
+
 
 
 COMMIT;
