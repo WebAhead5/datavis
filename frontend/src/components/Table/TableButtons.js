@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Popup from "reactjs-popup";
 import { toast } from "react-toastify";
 import getTables from "../../utils/getTables";
@@ -48,7 +48,7 @@ export default function TableButtons({
     }
   };
   return (
-    <div>
+    <Fragment>
       <div className="tableButtons">
         <div className="genDiv">
           <a href="/createChart">
@@ -79,6 +79,6 @@ export default function TableButtons({
           </Popup>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }

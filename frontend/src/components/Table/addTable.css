@@ -80,4 +80,12 @@ box-shadow: 5px 5px 20px grey;
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
+    margin-left: 100px;
+
+  }
+  
+
+  .tableControls {
+
+    display: flex;
   }
