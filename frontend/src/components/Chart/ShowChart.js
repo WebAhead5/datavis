@@ -62,7 +62,7 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
 
       <input type="button"
         className="btn btn-warning ml-3"
-        value="Edit"
+        value="Edit Chart"
         onClick={() => {
           setCurrentPage('createChart')
         }} />
