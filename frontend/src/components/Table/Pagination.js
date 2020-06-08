@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PostsPerPage from "./PostsPerPage"
 
 const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPostsPerPage }) => {
@@ -11,6 +11,7 @@ const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPosts
   }
 
   return (
+    <Fragment>
     <nav>
       <ul className="pagination">
         {pageNumbers.map((number) => (
@@ -57,14 +58,15 @@ const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPosts
           </li>
         ))}
       </ul>
-      < PostsPerPage  setPostsPerPage={setPostsPerPage}
-        // =>{      
-        //     console.log(postsPerPage);
-            
-        //     setPostsPerPage(postsPerPage)
-        //     }} 
-            />
     </nav>
+    < PostsPerPage  setPostsPerPage={setPostsPerPage}
+      // =>{      
+      //     console.log(postsPerPage);
+          
+      //     setPostsPerPage(postsPerPage)
+      //     }} sss
+          />
+    </Fragment>
   );
 };
 

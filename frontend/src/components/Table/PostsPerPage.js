@@ -10,7 +10,7 @@ const PostsPerPage = ({ setPostsPerPage }) => {
     <div className="postsPerPageCon">
       <label for="postsPerPage">Posts per page:</label>
       <select
-        onClick={handleSelect}
+        onChange={handleSelect}
         name="postsPerPage"
         className="optionsContainer">
         <option value="20">20</option>

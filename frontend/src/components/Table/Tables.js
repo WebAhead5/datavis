@@ -27,11 +27,12 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
     let extractedData = "";
     let currentSlicedRows;
     if (selectedTable !== "") {
-      console.log(selectedTable);
+      
 
       tableList.forEach((row) => {
+        
         if (row.table_id === parseInt(selectedTable)) {
-          extractedData = JSON.parse(row.data)
+          extractedData = row.data
         }
       })
 

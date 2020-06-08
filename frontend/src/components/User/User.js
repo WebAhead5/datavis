@@ -73,7 +73,6 @@ export default function User({ name, setName, setLoggedIn, setTableList, tableLi
                         </ul>
                     </div>
                     <div class="col-3">
-
                     </div>
                 </div>
             </div>

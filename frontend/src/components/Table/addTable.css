@@ -75,7 +75,7 @@ box-shadow: 5px 5px 20px grey;
     background-color: brown;
   } */
 
-  .pagination-container{
+  .pagination{
     width: 15em;
     overflow-x: auto;
     white-space: nowrap;

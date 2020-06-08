@@ -24,14 +24,13 @@ VALUES
                        table_id SERIAL PRIMARY KEY,
                        table_name VARCHAR(100) NOT NULL,
                        user_id VARCHAR(100) NOT NULL,
-                       data VARCHAR NOT NULL
+                       data jsonb
                     
 );
 
 INSERT INTO tables (table_name, user_id, data)
 VALUES
-      ('Supplier Info', '4', '{name: test1, cost: £100.00}');
-
+      ('Supplier Info', 4, '[{"name": "test1", "cost": "£100.00"},{"name": "test1", "cost": "£100.00"}]'::JSON);
 
 
 
