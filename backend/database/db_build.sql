@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, tables CASCADE;
+DROP TABLE IF EXISTS users, tables, charts CASCADE;
 
 CREATE TABLE users(
                        user_id SERIAL PRIMARY KEY,
@@ -39,7 +39,6 @@ VALUES
                        chart_id SERIAL PRIMARY KEY,
                        user_id VARCHAR(100) NOT NULL,
                        jpeg VARCHAR NOT NULL
-                    
 );
 
 
