@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ChartTitles(title, setTitle, ytitle, xtitle, setxTitle, setyTitle) {
+export default function ChartTitles({ title, setTitle, ytitle, xtitle, setxTitle, setyTitle }) {
     return (
         <div>
 
