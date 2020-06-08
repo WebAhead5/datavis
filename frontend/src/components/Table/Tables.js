@@ -91,8 +91,8 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
       <div className="text-center mt-4">
         <span>Please select a table to work from  </span>
         <label htmlFor="table"> </label>
-        <select className="" defaultValue onChange={e => setSelectedTable(e.target.value)}>
-          <option style={{ color: "grey" }} disabled  >Select</option>
+        <select className="" placeholder="select a table please" onChange={e => setSelectedTable(e.target.value)}>
+          <option style={{ color: "grey" }} selected disabled >Select table please</option>
           {tableList.map((tableList, index) => (
             <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
           ))}
