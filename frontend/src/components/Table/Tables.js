@@ -118,7 +118,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             <TableButtons setData={setData} selectedTable={selectedTable} tableList={tableList} tableName={tableName} setTableName={setTableName} setTableList={setTableList} />
           </div>
           <div className="tableDiv">
-            <RenderTable data={displayedRows} setData={setData} cols={cols} />
+            <RenderTable data={displayedRows} selectedTable={selectedTable} setData={setData} cols={cols} />
           </div>
         </Fragment>
 
