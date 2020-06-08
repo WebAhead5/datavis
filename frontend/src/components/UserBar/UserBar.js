@@ -28,7 +28,7 @@ export default function UserBar({ name, setName, setLoggedIn }) {
 
         <div>
 
-            <nav class="navbar navbar-expand-md navbar-dark" style={{ backgroundColor: "#47567d" }}>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top" style={{ backgroundColor: "#47567d" }}>
 
                 <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                     <ul class="navbar-nav mr-auto">
