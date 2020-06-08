@@ -49,7 +49,7 @@ router.post("/addTable", async (req, res) => {
   }
 });
 
-/* Doooooooont deleeeeeeteee */
+
 router.post("/editcontent", async (req, res) => {
 
   try {
@@ -57,15 +57,15 @@ router.post("/editcontent", async (req, res) => {
 const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
 
     const updateCell = db.querey(
-      `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`,
+      "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )",
       [rowNum, selectedTable, newValueOfCell, columnName]
     );
+
+
   } catch (error) {
     res.status(500).send("Server error");
   }
 });
-
-/* Doooooooont deleeeeeeteee */
 
 
 router.post("/delete", async (req, res) => {
