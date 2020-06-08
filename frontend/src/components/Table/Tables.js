@@ -84,7 +84,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
 
 
   return (
-    <div>
+    <div style={{ marginTop: "100px" }}>
       <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
       <h1 className="text-center mt-5">YOUR <b>TABLES</b></h1>
       <div className="text-center mt-4">
