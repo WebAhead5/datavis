@@ -20,7 +20,7 @@ router.post("/save", async (req, res) => {
             [req.user.id, jpeg]
         );
 
-        // res.json(chart.rows[0].table_id);
+        res.json(chart.rows[0].table_id);
 
     } catch (err) {
         console.error(err.message);
@@ -38,6 +38,28 @@ router.post("/history", async (req, res) => {
 
         //return user data matching user ID in JWT token for use in dashboard
         res.json(charts.rows);
+
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
+});
+
+
+
+router.post("/delete", async (req, res) => {
+    try {
+
+        const { chart } = req.body;
+        console.log("delete chart route hit, delting chart id", chart.chart_id)
+
+        const result = await db.query(
+            "DELETE FROM charts WHERE chart_id = $1",
+            [chart.chart_id]
+        );
+
+        res.json(`chart ${chart.chart_id} deleted`);
 
 
     } catch (err) {

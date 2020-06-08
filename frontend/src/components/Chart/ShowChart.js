@@ -1,7 +1,7 @@
 import React from "react";
 import htmlConverter from "./h2C/HtmlConverter";
 import ChartDisplay from "./ChartDisplay";
-import { ToastContainer, toast, ToastPosition } from "react-toastify";
+import { toast } from "react-toastify";
 import htmlToImage from 'html-to-image';
 
 export default function ShowChart({ setCurrentPage, chart, dataObject, optionsObject, bgColor }) {
@@ -27,16 +27,14 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
             },
             body: JSON.stringify(body),
           });
-          // const parseRes = await response.json();
 
-          toast.info("Chart has been saved to your Chart History")
         })
         .catch((error) => {
           console.error('oops, something went wrong with the server!', error);
           toast.error(error)
         });
 
-
+      toast.info("Chart Saved to Chart Hisotry")
     } catch (err) {
 
       console.error(err.message);
