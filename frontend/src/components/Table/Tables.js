@@ -123,7 +123,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
             setPostsPerPage={setPostsPerPage}
           />
              </div>
-            <RenderTable data={displayedRows} setData={setData} cols={cols} />
+            <RenderTable data={displayedRows} selectedTable={selectedTable} setData={setData} cols={cols} />
      
      
         </div>

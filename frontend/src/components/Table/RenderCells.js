@@ -2,7 +2,7 @@ import React from "react";
 import EditCell from './EditCell'
 
 //function to render each indivdual cell in each row
-const RenderCells = ({ cols, data, setData, rowKey }) => {
+const RenderCells = ({ cols, data, setData, rowKey, selectedTable }) => {
   //TODO: finsih this function so it works on edit
 
   //Function to save current & changed states and update data state
@@ -25,22 +25,6 @@ const RenderCells = ({ cols, data, setData, rowKey }) => {
 
 
 
-  // const editCell = (newValueOfCell) => {
-  //   setTimeout(() => {
-  //     // console.log(1, newValueOfCell.newValueOfCell);
-  //   }, 200); 
-  // }
-
-
-
-  //   const _handleFocus = (text) => {
-  //     console.log('Focused with text: ' + data[cols]);
-  // }
-
-  // const _handleFocusOut = (text) => {
-  //     console.log('Left editor with text: ' + text);
-  // }
-
   return cols.map((col, index) => {
     return (
       <td
@@ -54,7 +38,7 @@ const RenderCells = ({ cols, data, setData, rowKey }) => {
           let columnName = cols[index]
           let rowNum = document.querySelector(`.rowNum${rowKey}`).classList[1]
           
-          EditCell({newValueOfCell, columnName, rowNum})
+          EditCell({newValueOfCell, columnName, rowNum, selectedTable})
           //need to find unique valid identifier in order to get the element 
           //and get the innerHTML of it after input 
           //ID doesnt have any limitation, compared to classNames, https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute

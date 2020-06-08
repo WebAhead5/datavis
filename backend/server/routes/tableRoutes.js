@@ -24,16 +24,13 @@ router.post("/addTable", async (req, res) => {
   try {
     const { table_name, data } = req.body;
 
+    let dataIDs = JSON.parse(data).map((row, index) => {
+      row["uID"] = index;
+      return row;
+    });
 
-
-    let dataIDs = JSON.parse(data).map( (row, index) => {
-   row['uID'] = index
-   return row
-    })
-
-    dataIDs = JSON.stringify(dataIDs)
-    console.log(dataIDs)
-
+    dataIDs = JSON.stringify(dataIDs);
+    console.log(dataIDs);
 
     const table = await db.query(
       "INSERT INTO tables (table_name, user_id, data) VALUES ($1, $2, $3) RETURNING *",
@@ -53,36 +50,23 @@ router.post("/addTable", async (req, res) => {
 });
 
 /* Doooooooont deleeeeeeteee */
-router.get("/tables", async (req, res) => {
- 
-    try {
-        if (localStorage.getItem('changedCell') === null) {
-          return;
+router.post("/editcontent", async (req, res) => {
 
-        } else {
-          
-          let changedCell = JSON.parse(localStorage.getItem("changedCell"));
-          const newValueOfCell = changedCell.newValueOfCell;
-          const columnName = changedCell.columnName;
-          const rowNum = changedCell.rowNum;
-          let tableDataForLocalS = JSON.parse(localStorage.getItem('tabledata')) 
-          let tableID = tableDataForLocalS.tableID
-          // consn table_id = .tableID;
-          
-          
-          
-          const updateCell = await db.querey(
-          `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`
-          ,[rowNum, tableID, newValueOfCell, columnName]);
+  try {
+    
+const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
 
-        }
-
+    const updateCell = db.querey(
+      `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`,
+      [rowNum, selectedTable, newValueOfCell, columnName]
+    );
   } catch (error) {
     res.status(500).send("Server error");
   }
 });
 
 /* Doooooooont deleeeeeeteee */
+
 
 router.post("/delete", async (req, res) => {
   try {

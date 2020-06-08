@@ -2,20 +2,37 @@ import React from 'react'
 
 
 
-export default function EditCell({newValueOfCell, columnName, rowNum}) {
-    // console.log(newValueOfCell, 'the newewodwe');
-        const dataToSend = {
-            newValueOfCell: newValueOfCell,
-            columnName: columnName,
-            rowNum: rowNum   
-        }
+ const EditCell = async ({newValueOfCell, columnName, rowNum, selectedTable}) => {
+
+    
+    try {
+
+        const res = await fetch("http://localhost:4000/table/editcontent", {
+            method: "POST",
+            headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
+            body: JSON.stringify({
+                newValueOfCell: newValueOfCell,
+                columnName: columnName,
+                rowNum, rowNum,
+                selectedTable: selectedTable
+            })
+        });
+        
+        
+        const details = await res.json()
+        console.log(details);
+        
+        
+        // setTimeout( localStorage.setItem('changedCell',JSON.stringify(dataToSend)),100)
 
 
-    localStorage.setItem('changedCell',JSON.stringify(dataToSend));
+    } catch (err) {
+        console.error(err.message);
+    }
+
 }
 
-
-
+export default EditCell
 //update query for jsonb column;
 
 /*
