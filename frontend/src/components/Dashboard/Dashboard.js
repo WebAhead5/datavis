@@ -43,7 +43,7 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
 
     //render
     return (
-        <div>
+        <div style={{ marginTop: "100px" }}>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="text-center mt-5">USER<b> DASHBOARD</b></h1>
             <h2 className="mt-5 text-center">Welcome {name}</h2>
