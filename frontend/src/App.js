@@ -92,7 +92,7 @@ function App() {
       {loading ?
         <LoadingPage setLoggedIn={setLoggedIn} name={name} setName={setName} {...dataVars} />
         :
-        <div style={{ height: '100vh' }}>
+        <div style={{ height: '90vh', marginTop: "100px" }}>
           <Router>
             <Switch>
               <Route

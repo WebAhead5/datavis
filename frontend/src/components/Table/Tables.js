@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import UserBar from "../UserBar/UserBar";
 import RenderTable from "./RenderTable";
 
@@ -32,29 +32,23 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
       tableList.forEach((row) => {
         
         if (row.table_id === parseInt(selectedTable)) {
-          extractedData = row.data}
-          // extractedData = JSON.parse(row.data)}
-          console.log(parseInt(selectedTable));
-        })
-        
-        
-    let dataVars = { cols, data, setData }
-       
-            setData(extractedData);
-
-            let tableDataForLocalS = {
-              tableID: parseInt(selectedTable),
-              extractedData:extractedData
-            }
-
-            localStorage.setItem("tabledata", JSON.stringify(tableDataForLocalS));
-            console.log("table selected is", extractedData);
-
-            let keys = Object.keys(extractedData[0]);
-            // console.log('extea' , extractedData[0]);
-            setCols(keys);
-            localStorage.setItem("cols", JSON.stringify(keys));
+          extractedData = row.data
         }
+      })
+
+
+      let dataVars = { cols, data, setData }
+
+      setData(extractedData);
+
+      localStorage.setItem("tabledata", JSON.stringify(extractedData));
+      console.log("table selected is", extractedData);
+
+      let keys = Object.keys(extractedData[0]);
+      // console.log('extea' , extractedData[0]);
+      setCols(keys);
+      localStorage.setItem("cols", JSON.stringify(keys));
+    }
 
 
 
@@ -67,9 +61,9 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
       );
 
       //set displayed rows to the new slice 
-            setDisplayedRows(currentSlicedRows);
-            // console.log("displayed rows for table", displayedRows);
-          }
+      setDisplayedRows(currentSlicedRows);
+      // console.log("displayed rows for table", displayedRows);
+    }
 
 
     tableList.forEach((row) => {
@@ -83,52 +77,52 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
   }, [selectedTable, postsPerPage]);
 
 
- useEffect(() => {
-        getTables(setTableList)
-    }, []);
+  useEffect(() => {
+    getTables(setTableList)
+  }, []);
 
-    
-  
 
-    return (
-        <div>
-            <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
-            <h1 className="text-center mt-5">YOUR <b>TABLES</b></h1>
-            <div className="text-center mt-4">
-                <span>Please select a table to work from  </span>
-                <label htmlFor="table"> </label>
-                <select className="" defaultValue onChange={e => setSelectedTable(e.target.value)}>
-                    <option style={{ color: "grey" }} disabled  >Select</option>
-                    {tableList.map((tableList, index) => (
-                        <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
-                    ))}
-                </select>
+
+
+  return (
+    <div>
+      <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
+      <h1 className="text-center mt-5">YOUR <b>TABLES</b></h1>
+      <div className="text-center mt-4">
+        <span>Please select a table to work from  </span>
+        <label htmlFor="table"> </label>
+        <select className="" defaultValue onChange={e => setSelectedTable(e.target.value)}>
+          <option style={{ color: "grey" }} disabled  >Select</option>
+          {tableList.map((tableList, index) => (
+            <option value={tableList.table_id} key={index}>{tableList.table_name}</option>
+          ))}
+        </select>
+      </div>
+
+
+
+      {data && selectedTable ?
+        <Fragment>
+          <div className="tableControls">
+            <div className="pagination-container">
+              <Pagination
+                postsPerPage={postsPerPage}
+                totalPosts={data.length}
+                paginate={paginate}
+                setDisplayedRows={setDisplayedRows}
+                indexOfFirstPost={indexOfFirstPost}
+                data={data}
+                setPostsPerPage={setPostsPerPage}
+              />
             </div>
+            <TableButtons setData={setData} selectedTable={selectedTable} tableList={tableList} tableName={tableName} setTableName={setTableName} setTableList={setTableList} />
+          </div>
+          <div className="tableDiv">
+            <RenderTable data={displayedRows} setData={setData} cols={cols} />
+          </div>
+        </Fragment>
 
-
-
-            {data && selectedTable ?
-            
-                <div>
-                    <TableButtons setData={setData} selectedTable={selectedTable} tableList={tableList} tableName={tableName} setTableName={setTableName} setTableList={setTableList} />
-                    <div className="tableDiv">
-                        <div className="pagination-container">
-          <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={data.length}
-            paginate={paginate}
-            setDisplayedRows={setDisplayedRows}
-            indexOfFirstPost={indexOfFirstPost}
-            data={data}
-            setPostsPerPage={setPostsPerPage}
-          />
-             </div>
-            <RenderTable data={displayedRows} selectedTable={selectedTable} setData={setData} cols={cols} />
-     
-     
-        </div>
-        </div>
-       : 
+        :
         <div></div>}
     </div>
   );

@@ -2,3 +2,95 @@
 
     margin-left: 100px;
 }
+
+.splitScreen {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    width: 35%;
+    max-height: 80VH;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    max-height: 80VH;
+  
+}
+
+.chartPreview {
+    margin-right: 80px;
+    padding: 20px;
+    min-height: 50VH;
+    border-radius: 20px;
+    border: solid black;
+    
+}
+
+.chartIcon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 16%
+}
+
+
+
+.chartPreviewText {
+
+    font-size: 22px;
+    font-style: italic;
+}
+
+.sort {
+
+    margin-right: 80px;
+
+
+}
+
+.sortBtns {
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+
+}
+
+.btnSize {
+
+    min-width: 20%;
+}
+
+.btnSize2 {
+
+    min-width: 30%;
+}
+
+.radioBtns {
+/* 
+    height: 100px;
+    width: 100px; */
+    display: flex;
+}
+
+
+input[type=radio] {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+

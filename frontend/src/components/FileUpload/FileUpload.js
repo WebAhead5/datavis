@@ -54,7 +54,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
     useEffect(() => {
         if (csvFile) {
             importCSV();
-            
+
         }
     }, [csvFile])
 
@@ -68,7 +68,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
 
             {tableName != "table name required" && tableName.trimStart()?
                 <div class="upload-btn-wrapper mt-3">
-                    <button class="btn activeBtn">SELECT FILE</button>
+                    <button className="btn Filebtn activeBtn">SELECT FILE</button>
                     <input
                         className="activeBtn"
                         type="file"
@@ -80,7 +80,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
 
 
                 : <div class="upload-btn-wrapper mt-3 disabled">
-                    <span class="btn disabled notActive ">SELECT FILE</span>
+                    <span class="btn Filebtn disabled notActive ">SELECT FILE</span>
 
                 </div>}
 
