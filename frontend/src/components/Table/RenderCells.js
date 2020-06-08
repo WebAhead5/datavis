@@ -30,9 +30,7 @@ const RenderCells = ({ cols, data, setData, rowKey, selectedTable }) => {
       <td
         id={cols[index]}
         id={data[col]}
-
         contentEditable={cols[index] === "id" ? "false" : "true"}
-
         onInput={() => {
           let newValueOfCell = document.getElementById(`${data[col]}`).innerHTML
           let columnName = cols[index]
@@ -47,7 +45,7 @@ const RenderCells = ({ cols, data, setData, rowKey, selectedTable }) => {
         }}
         suppressContentEditableWarning="true"
         onBlur={(e) => handleEdit(e)}
-        className={`${data[col]} rowNum${rowKey}`}
+        className={`${data[col]} rowNum${rowKey} ${cols[index] === 'uID' ? 'hiddenCol' : ''}`}
         key={data[col]}>
         {data[col]}
       </td>
