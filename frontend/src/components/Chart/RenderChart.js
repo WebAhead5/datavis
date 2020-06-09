@@ -208,7 +208,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                     <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
 
-                                    <div >
+                                    <div classname="selectChart">
                                         <legend> Pick Your Chart Type</legend>
                                         <div className="radioBtns" style={{ width: "300px" }}>
 
@@ -236,7 +236,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                                     <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button>
                                                 </div>
                                                 <div>
-                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
+                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-5 mb-2 btnSize2" : "btn btn-outline-secondary mt-5 mb-2 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
                                                 </div>
                                             </Fragment>
                                             :
@@ -245,7 +245,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                                     <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button>
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-secondary disabled mt-5 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
+                                                    <button className="btn btn-secondary disabled mt-5 mb-2 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
                                                 </div>
                                             </Fragment>}
                                     </div>
@@ -265,11 +265,11 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
                                         {chart && x && y ?
                                             <Fragment>
-                                                <button onClick={changePage} className="btn btn-info btn-lg mt-4">GENERATE FINAL CHART</button>
+                                                <button onClick={changePage} className="saveChartBtn mt-4">CREATE <b>CHART</b></button>
                                             </Fragment>
                                             :
                                             <Fragment>
-                                                <button className="btn btn-outline-info btn-lg mt-4 disabled">GENERATE FINAL CHART</button>
+                                                <button className="disabledChartBtn mt-4">CREATE <b>CHART</b></button>
                                             </Fragment>}
                                         <div className="displayBtns">
 

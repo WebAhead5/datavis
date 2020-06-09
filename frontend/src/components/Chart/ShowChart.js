@@ -51,26 +51,26 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
       <div classname="showChartBtns">
 
         <span className="savebtns">
-          <input type="button"
-            className="btn btn-outline-primary mr-3"
+          <button
+            className="saveChartBtn mr-3"
             onClick={handleSaveChart}
-            value="SAVE TO CHART HISTORY"
-          />
+            value="SAVE TO CHART HISTORY">
+            SAVE TO <b>CHART HISTORY</b></button>
 
-          <input type="button"
-            className="btn btn-outline-info mr-3"
+          <button
+            className="dlChartBtn mr-3"
             onClick={htmlConverter}
             value="DOWNLOAD CHART"
-          />
+          >DOWNLOAD<b> CHART</b> </button>
         </span>
 
         <span className="editBtn">
-          <input type="button"
-            className="btn btn-warning ml-3"
+          <button
+            className="editChartBtn ml-3"
             value="EDIT CHART"
             onClick={() => {
               setCurrentPage('createChart')
-            }} />
+            }}>EDIT <b>CHART</b></button>
         </span>
 
       </div>

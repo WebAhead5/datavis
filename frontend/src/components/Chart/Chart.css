@@ -103,11 +103,25 @@ justify-content: space-between;
     min-width: 30%;
 }
 
+.selectChart {
+
+    text-align: center;
+}
+
 .radioBtns {
-/* 
-    height: 100px;
-    width: 100px; */
+ 
+    vertical-align: middle;
     display: flex;
+
+}
+
+.form-check {
+    height: 30px;
+}
+
+.form-check-label {
+
+margin-top: 5px;
 }
 
 
@@ -133,6 +147,97 @@ input[type=radio] {
     float: right;
     margin-right: 40px;
 }
+
+
+.editChartBtn {
+    color: var(--color-white);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #851111;
+    border-radius: var(--border-radius);
+    width: 10VW !important;
+    height: 50px;
+    border: solid var(--color-white) thin;
+    font-size: 1vw;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+
+    transition: 0.4s ease-out
+  }
+
+  .editChartBtn:hover {
+
+transform: scale(1.05);
+box-shadow: 5px 5px 20px grey;
+
+  }
+
+
+.saveChartBtn {
+    color: var(--color-white);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #111d85;
+    border-radius: var(--border-radius);
+    width: 15VW !important;
+    height: 50px;
+    border: solid var(--color-white) thin;
+    font-size: 1vw;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+
+    transition: 0.4s ease-out
+  }
+
+  .saveChartBtn:hover {
+
+transform: scale(1.05);
+box-shadow: 5px 5px 20px grey;
+
+  }
+
+
+.dlChartBtn {
+    color: var(--color-white);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #28647c;
+    border-radius: var(--border-radius);
+    width: 15VW !important;
+    height:50px;
+    border: solid var(--color-white) thin;
+    font-size: 1vw;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+
+    transition: 0.4s ease-out
+  }
+
+  .dlChartBtn:hover {
+
+transform: scale(1.05);
+box-shadow: 5px 5px 20px grey;
+
+  }
+
+  .disabledChartBtn {
+
+    color: var(--color-white);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #9c9c9c;
+    border-radius: var(--border-radius);
+    width: 15VW !important;
+    height:50px;
+    border: solid var(--color-white) thin;
+    font-size: 1vw;
+    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
+
+    transition: 0.4s ease-out
+
+
+  }
 
 
 
