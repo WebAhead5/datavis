@@ -10,27 +10,28 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
 
     return (
         <React.Fragment>
+
             {
                 chart === "bar" ?
                     <Bar
                         data={dataObject}
-                        width={100}
-                        height={50}
+                        width={500}
+                        height={350}
                         options={optionsObject}
                     />
                     : chart === "horizontal bar" ?
                         <HorizontalBar
                             data={dataObject}
-                            width={100}
-                            height={50}
+                            width={500}
+                            height={350}
                             options={optionsObject}
                         />
                         : chart === "line" || chart === "line only" ?
 
                             <Line
                                 data={dataObject}
-                                width={100}
-                                height={50}
+                                width={500}
+                                height={350}
                                 options={optionsObject}
                             />
 
@@ -38,8 +39,8 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
 
                                 <Pie
                                     data={dataObject}
-                                    width={100}
-                                    height={50}
+                                    width={500}
+                                    height={350}
                                     options={optionsObject}
                                 />
 
@@ -48,8 +49,8 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
 
                                     <Doughnut
                                         data={dataObject}
-                                        width={100}
-                                        height={50}
+                                        width={500}
+                                        height={350}
                                         options={optionsObject}
                                     />
                                     :

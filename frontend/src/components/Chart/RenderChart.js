@@ -187,115 +187,111 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
     const chartList = ["bar", "horizontal bar", "line", "line only", "pie", "doughnut"]
 
     return (
-        <div className="chartDiv">
+
+        <Fragment>
+            <h1 className="text-center mt-5 mb-4">
+                {currentPage === 'createChart' ? "CREATE" : "YOUR"}<b> CHART</b>
+            </h1>
+
+            <div className="chartDiv">
+                {
+                    currentPage === 'createChart' ?
+
+                        <Fragment>
 
 
-            {currentPage === 'createChart' ?
+                            <div class="splitScreen">
+                                <div className="left">
+                                    {/* <div>Table Selected: <b>table name </b></div> */}
 
-                <Fragment>
+                                    <ChartTitles {...customizeProps} />
+                                    <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
 
-                    <h1 className="text-center mt-5 mb-4">GENERATE <b>CHART</b></h1>
-                    <div class="splitScreen">
-                        <div className="left">
-                            {/* <div>Table Selected: <b>table name </b></div> */}
 
-                            <ChartTitles {...customizeProps} />
-                            <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
+                                    <div >
+                                        <legend> Pick Your Chart Type</legend>
+                                        <div className="radioBtns" style={{ width: "300px" }}>
 
-                            {/* <div>
-                                <legend> Pick Your Chart Type</legend>
-                                <select className="" onChange={e => setChart(e.target.value)}>
-                                    <option style={{ color: "grey" }}>Select</option>
-                                    {chartList.map((chart, index) => (
-                                        <option value={chart} key={index}>{chart}</option>
-                                    ))}
-                                </select>
+                                            {chartList.map((chart, index) => (
 
-                            </div> */}
-                            <div >
-                                <legend> Pick Your Chart Type</legend>
-                                <div className="radioBtns" style={{ width: "300px" }}>
+                                                <div className="form-check" onChange={e => setChart(e.target.value)}>
+                                                    <input key={index} type="radio" className="form-check-input" name="chart" value={chart} />
+                                                    <label key={index} className="form-check-label mx-2" for={chart}>{chart}</label>
+                                                </div>
+                                            ))}
 
-                                    {chartList.map((chart, index) => (
-
-                                        <div className="form-check" onChange={e => setChart(e.target.value)}>
-                                            <input key={index} type="radio" className="form-check-input" name="chart" value={chart} />
-                                            <label key={index} className="form-check-label mx-2" for={chart}>{chart}</label>
                                         </div>
-                                    ))}
+                                    </div>
+
+
+
+
+
+
+                                    <CustomizeChart x={x} y={y} {...customizeProps} />
+                                    <div>
+                                        {chart && x && y ?
+                                            <Fragment>
+                                                <div>
+                                                    <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                                </div>
+                                                <div>
+                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
+                                                </div>
+                                            </Fragment>
+                                            :
+                                            <Fragment>
+                                                <div>
+                                                    <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                                </div>
+                                                <div>
+                                                    <button className="btn btn-secondary disabled mt-5 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
+                                                </div>
+                                            </Fragment>}
+                                    </div>
+
 
                                 </div>
-                            </div>
 
 
-
-
-
-
-                            <CustomizeChart x={x} y={y} {...customizeProps} />
-                            <div>
-                                {chart && x && y ?
-                                    <Fragment>
-                                        <div>
-                                            <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                <div className="right text-center" >
+                                    <div>
+                                        <div className="chartPreview">
+                                            <div className="chartSize" style={{ backgroundColor: bgColor }}>
+                                                <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} x={x} y={y} />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
+                                        <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />
+
+                                        {chart && x && y ?
+                                            <Fragment>
+                                                <button onClick={changePage} className="btn btn-info btn-lg mt-4">GENERATE FINAL CHART</button>
+                                            </Fragment>
+                                            :
+                                            <Fragment>
+                                                <button className="btn btn-outline-info btn-lg mt-4 disabled">GENERATE FINAL CHART</button>
+                                            </Fragment>}
+                                        <div className="displayBtns">
+
+
+
                                         </div>
-                                    </Fragment>
-                                    :
-                                    <Fragment>
-                                        <div>
-                                            <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button>
-                                        </div>
-                                        <div>
-                                            <button className="btn btn-secondary disabled mt-5 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
-                                        </div>
-                                    </Fragment>}
-                            </div>
-
-
-                        </div>
-
-
-                        <div className="right text-center" >
-                            <div>
-                                <div className="chartPreview">
-                                    <div style={{ backgroundColor: bgColor }}>
-                                        <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} x={x} y={y} />
                                     </div>
                                 </div>
-                                <Sort data={data} x={x} y={y} setArrayData={setArrayData} setArrayLabels={setArrayLabels} />
-
-                                {chart && x && y ?
-                                    <Fragment>
-                                        <button onClick={changePage} className="btn btn-info btn-lg mt-4">GENERATE FINAL CHART</button>
-                                    </Fragment>
-                                    :
-                                    <Fragment>
-                                        <button className="btn btn-outline-info btn-lg mt-4 disabled">GENERATE FINAL CHART</button>
-                                    </Fragment>}
-                                <div className="displayBtns">
 
 
-
-                                </div>
                             </div>
-                        </div>
 
+                        </Fragment>
 
-                    </div>
+                        :
 
-                </Fragment>
-
-                :
-
-                <Fragment>
-                    <h1 className="text-center mt-5">SHOW <b>CHART</b></h1>
-                    <ShowChart setCurrentPage={setCurrentPage} chart={chart} dataObject={dataObject} optionsObject={optionsObject} bgColor={bgColor} />
-                </Fragment>
-            }
-        </div >
+                        <Fragment>
+                            <ShowChart setCurrentPage={setCurrentPage} chart={chart} dataObject={dataObject} optionsObject={optionsObject} bgColor={bgColor} />
+                        </Fragment>
+                }
+            </div>
+        </Fragment>
     );
 }
 

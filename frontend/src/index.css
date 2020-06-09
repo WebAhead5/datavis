@@ -1,0 +1,193 @@
+
+  @media only screen and (max-width: 1400px) {
+    body {
+      /* background-color: lightblue !important; */
+    
+    }
+
+    .nav-link {
+
+        font-size: 12 !important;
+        padding: 1px;
+    }
+
+    .navbar {
+        padding: 2px;
+    }
+
+    .formContainer {
+      margin-top: 80px;
+    }
+
+    .tagline {
+
+      font-size: 20px !important;
+    }
+
+
+    .each-slide span {
+    
+      font-size: 16px !important;
+   
+    }
+
+  
+
+    .firstName,
+    .lastName,
+    .password,
+    .confirmPassword,
+    .email {
+      height: 30px !important;
+      font-size: 14px !important;
+      padding-left: 6px;;
+    }
+
+    .sideContent {
+      top: 2.60rem !important;
+    }
+
+    .inner-bar-icon {
+height: 45px !important;
+width: 45px !important;
+
+    }
+
+    .menu-item {
+      height: 60px !important;
+      font-size: 15px !important;
+    }
+
+    .sideContent {
+      width: 72px !important;
+    }
+
+    .sideContent:hover {
+      width: 210px !important;
+    }
+
+    .sideContent a:hover {
+      padding-left: 2% !important;
+    }
+
+    .activeSB {
+      width: 210px !important;
+    }
+
+    .toggleButton_line {
+      width: 24px !important;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    .chartImgDash {
+      width: 120px !important;
+      height: 120px !important;
+    }
+
+    .mt-5 {
+
+      margin-top: 2em !important;
+    }
+
+
+    .Filebtn {
+
+      font-size: 16px !important;
+   
+    }
+
+    body {
+      font-size: 12px;
+    }
+
+    .userImg {
+    
+      width: 100px !important;;
+      height: 160px !important;;
+      
+      }
+
+      .list-group-item {
+
+        padding: 10px !important;;
+      }
+
+      .imgList {
+        padding: 0% !important;
+        
+        }
+        
+        .chartImg {
+            height:280px !important;;
+            width: 480px !important;;
+            margin-top: 30px !important;
+        }
+        
+        .btn {
+            padding: 6px;
+            font-size: 12px!important;
+        }
+
+        .historyBtns {
+        margin-top: 5px;
+        margin-bottom: 45px !important;
+        }
+
+        .middleUser {
+
+          max-width: 80%;
+        }
+
+
+.left {
+  
+  margin-left: 12px !important;
+
+}
+
+.chartPreview {
+
+  border: solid black 2px !important;
+}
+
+.chartPreview, .sort {
+
+  margin-right: 40px !important;
+  margin-left: 20px !important;
+  margin-bottom: 20px !important;
+  padding: 2px !important;
+}
+
+legend {
+
+  font-size: 16px !important;
+}
+
+.sort {
+margin-top: 5px !important;
+margin-bottom: 5px !important;
+
+}
+
+.sortlegend {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+
+
+  }
+  
+
+

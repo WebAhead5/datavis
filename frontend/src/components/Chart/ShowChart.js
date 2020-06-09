@@ -67,7 +67,7 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
           setCurrentPage('createChart')
         }} />
 
-      <div id="capture" style={{ backgroundColor: bgColor }} >
+      <div className="finalSize" id="capture" style={{ backgroundColor: bgColor }} >
         <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
       </div>
     </div>

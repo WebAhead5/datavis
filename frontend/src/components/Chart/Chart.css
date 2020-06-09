@@ -19,21 +19,45 @@
 
 
 .right {
+    width: 65%;
     display: flex;
     flex-direction: column;
-    width: 65%;
     max-height: 80VH;
   
 }
 
+.chartSize {
+    
+    width: 65%; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.finalSize {
+
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .chartPreview {
-    margin-right: 80px;
     padding: 20px;
     min-height: 50VH;
     border-radius: 20px;
     border: solid black;
     
 }
+
+.chartPreview, .sort {
+
+    margin-right: 80px ;
+    margin-left: 20px ;
+    margin-bottom: 20px ;
+
+  }
 
 .chartIcon {
     display: block;
@@ -51,12 +75,11 @@
     font-style: italic;
 }
 
-.sort {
 
-    margin-right: 80px;
-
-
-}
+.sortlegend {
+    margin-top: 1rem;
+    margin-bottom: 1rem; 
+  }
 
 .sortBtns {
 
