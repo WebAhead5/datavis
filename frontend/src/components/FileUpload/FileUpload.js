@@ -2,26 +2,69 @@ import React, { useEffect } from 'react'
 import Papa from 'papaparse'
 import { toast } from "react-toastify";
 import './FileUpload.css'
+import XLSX from "xlsx"
+import ReactTooltip from 'react-tooltip'
 
 const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId }) => {
 
-    const [csvFile, setCSV] = React.useState()
+    const [file, setFile] = React.useState()
 
     const handleChange = event => {
-        setCSV(event.target.files[0])
+        setFile(event.target.files[0])
     };
 
-    const importCSV = () => {
-        Papa.parse(csvFile, {
-            complete: updateData,
-            header: true
-        });
+    const importFile = () => {
+
+        console.log("FILE INFO", file)
+
+        if (file.type === "text/csv") {
+            Papa.parse(file, {
+                complete: extractJsonData,
+                header: true
+            });
+        } else if (file.type === "application/json") {
+
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                let jsonData = event.target.result
+                uploadTable(tableName, jsonData)
+                setData(JSON.parse(jsonData))
+                localStorage.setItem("tabledata", jsonData);
+            };
+            reader.readAsText(file);
+
+        } else if (file.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ) {
+
+            var fileReader = new FileReader();
+            fileReader.onload = function (event) {
+                var data = event.target.result;
+
+                var workbook = XLSX.read(data, {
+                    type: "binary"
+                });
+                workbook.SheetNames.forEach(sheet => {
+                    let xlsData = XLSX.utils.sheet_to_row_object_array(
+                        workbook.Sheets[sheet]
+                    );
+                    console.log(JSON.stringify(xlsData));
+                    uploadTable(tableName, JSON.stringify(xlsData))
+                    setData(xlsData)
+                    localStorage.setItem("tabledata", JSON.stringify(xlsData));
+
+                });
+            };
+            fileReader.readAsBinaryString(file);
+
+        } else {
+            toast.error(`file type ${file.type} is not currently supported on datavis`)
+        }
     };
 
 
     const uploadTable = async (table_name, data) => {
         try {
-            
+
             const body = { table_name, data };
             //call API for user infomation for use in dashboard
             const res = await fetch("http://localhost:4000/table/addTable", {
@@ -34,7 +77,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
             const parseData = await res.json();
             console.log("TABLE ID CREATED", parseData)
             setCurrentTableId(parseData)
-            toast.info(`${csvFile.name} succesfully uploaded as ${tableName.toUpperCase()}`)
+            toast.info(`${file.name} succesfully uploaded as ${tableName.toUpperCase()}`)
 
 
         } catch (err) {
@@ -43,7 +86,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
         }
     };
 
-    const updateData = (result) => {
+    const extractJsonData = (result) => {
         let finalData = result.data.slice(0, -1)
         setData(finalData)
         localStorage.setItem("tabledata", JSON.stringify(finalData));
@@ -52,21 +95,23 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
     };
 
     useEffect(() => {
-        if (csvFile) {
-            importCSV();
-
+        if (file) {
+            importFile();
         }
-    }, [csvFile])
+    }, [file])
 
     return (
         <div className="text-center mt-3 fileDiv">
 
 
             <div className="mt-3">
-                TABLE <b>NAME</b>: <input tableName={tableName} onChange={e => setTableName(e.target.value)} required />
+                <a data-tip="supporting CSV, JSON & XLSX"> TABLE <b>NAME</b>: <input tableName={tableName} onChange={e => setTableName(e.target.value)} required />
+                </a>
+
+                <ReactTooltip place="right" type="dark" effect="solid" />
             </div>
 
-            {tableName != "table name required" && tableName.trimStart()?
+            {tableName != "table name required" && tableName.trimStart() ?
                 <div class="upload-btn-wrapper mt-3">
                     <button className="btn Filebtn activeBtn">SELECT FILE</button>
                     <input

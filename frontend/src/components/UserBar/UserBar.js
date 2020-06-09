@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { toast } from "react-toastify";
 import { SideBar } from '../SideBar/SideBar'
 
+
 // import logo from "../assets/images/logo1.png"
 
 export default function UserBar({ name, setName, setLoggedIn }) {
