@@ -9,10 +9,10 @@ export default function ChartTitles({ title, setTitle, ytitle, xtitle, setxTitle
                 <input Placeholder="Chart title" title={title} onChange={e => setTitle(e.target.value)} />
             </div>
             <div>
-                <input Placeholder="x axis title" xtitle={xtitle} onChange={e => setxTitle(e.target.value)} />
+                <input Placeholder="X axis title" xtitle={xtitle} onChange={e => setxTitle(e.target.value)} />
             </div>
             <div>
-                <input Placeholder="x axis title" ytitle={ytitle} onChange={e => setyTitle(e.target.value)} />
+                <input Placeholder="Y axis title" ytitle={ytitle} onChange={e => setyTitle(e.target.value)} />
             </div>
 
         </div>
