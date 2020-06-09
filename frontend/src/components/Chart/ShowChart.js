@@ -48,27 +48,38 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
   return (
     <div className="showChart">
 
-      <input type="button"
-        className="btn btn-outline-primary mr-3"
-        onClick={handleSaveChart}
-        value="Save Chart to History"
-      />
+      <div classname="showChartBtns">
 
-      <input type="button"
-        className="btn btn-outline-info mr-3"
-        onClick={htmlConverter}
-        value="Download Chart"
-      />
+        <span className="savebtns">
+          <button
+            className="saveChartBtn mr-3"
+            onClick={handleSaveChart}
+            value="SAVE TO CHART HISTORY">
+            SAVE TO <b>CHART HISTORY</b></button>
 
-      <input type="button"
-        className="btn btn-warning ml-3"
-        value="Edit Chart"
-        onClick={() => {
-          setCurrentPage('createChart')
-        }} />
+          <button
+            className="dlChartBtn mr-3"
+            onClick={htmlConverter}
+            value="DOWNLOAD CHART"
+          >DOWNLOAD<b> CHART</b> </button>
+        </span>
 
-      <div id="capture" style={{ backgroundColor: bgColor }} >
-        <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+        <span className="editBtn">
+          <button
+            className="editChartBtn ml-3"
+            value="EDIT CHART"
+            onClick={() => {
+              setCurrentPage('createChart')
+            }}>EDIT <b>CHART</b></button>
+        </span>
+
+      </div>
+      <div className="finalChart">
+        <div className="finalSize" style={{ backgroundColor: bgColor }} >
+          <div id="capture">
+            <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+          </div>
+        </div>
       </div>
     </div>
   );

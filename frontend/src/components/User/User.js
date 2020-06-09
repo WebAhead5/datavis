@@ -4,6 +4,7 @@ import { parse } from 'papaparse';
 import userImage from '../../assets/images/userimage.svg'
 import getTables from '../../utils/getTables';
 import getTable from '../../utils/getTables'
+import './user.css'
 
 export default function User({ name, setName, setLoggedIn, setTableList, tableList }) {
 
@@ -39,18 +40,18 @@ export default function User({ name, setName, setLoggedIn, setTableList, tableLi
 
 
     return (
-        <div style={{ marginTop: "100px" }}>
+        <div className="container" style={{ marginTop: "100px" }}>
             <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
             <h1 className="text-center mt-5">USER <b>PAGE</b></h1>
-            <div class="container">
+            <div class="container middleUser">
                 <div class="row">
                     <div class="col-3">
 
                     </div>
                     <div class="col-6">
                         <ul className="list-group mt-5" style={{ listStyle: "none" }}>
-                            <li className="text-center list-group-item">
-                                <img src={userImage} style={{ width: "200px", height: "250px" }} />
+                            <li className="text-center list-group-item imgList">
+                                <img src={userImage} className="userImg" />
                             </li>
                             <li className="list-group-item">
                                 <b>Name: </b>{name}

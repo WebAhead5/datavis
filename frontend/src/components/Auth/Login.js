@@ -57,7 +57,7 @@ const Login = ({ setLoggedIn }) => {
 
             <div className="login">
                 <h1 className="mt-1 text-center">Login</h1>
-                <form onSubmit={onSubmitForm} className="mt-1 mx-1">
+                <form onSubmit={onSubmitForm} className="mt-1 mx-1 ">
                     <input
                         type="text"
                         name="email"

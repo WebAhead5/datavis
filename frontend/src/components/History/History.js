@@ -83,8 +83,10 @@ export default function History({ name, setName, setLoggedIn }) {
                         <div className="text-center">
                             <img className="chartImg" src={chart.jpeg} />
                             <div className="">CHART ID: {chart.chart_id}</div>
-                            <button className="btn btn-primary mx-2" onClick={() => handleDownload(chart)}>DOWNLOAD CHART</button>
-                            <button className="btn btn-danger mx-2" onClick={() => handleDelete(chart)}>DELETE CHART</button>
+                            <div className="historyBtns">
+                                <button className="btn btn-primary mx-2" onClick={() => handleDownload(chart)}>DOWNLOAD CHART</button>
+                                <button className="btn btn-danger mx-2" onClick={() => handleDelete(chart)}>DELETE CHART</button>
+                            </div>
                         </div>
                     </Fragment>
                 ))

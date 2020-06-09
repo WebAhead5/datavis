@@ -10,46 +10,47 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
 
     return (
         <React.Fragment>
+
             {
-                chart === "bar" ?
+                chart === "Bar" ?
                     <Bar
                         data={dataObject}
-                        width={100}
-                        height={50}
+                        width={500}
+                        height={350}
                         options={optionsObject}
                     />
-                    : chart === "horizontal bar" ?
+                    : chart === "HorizontalBar" ?
                         <HorizontalBar
                             data={dataObject}
-                            width={100}
-                            height={50}
+                            width={500}
+                            height={350}
                             options={optionsObject}
                         />
-                        : chart === "line" || chart === "line only" ?
+                        : chart === "Area" || chart === "Line" ?
 
                             <Line
                                 data={dataObject}
-                                width={100}
-                                height={50}
+                                width={500}
+                                height={350}
                                 options={optionsObject}
                             />
 
-                            : chart === "pie" ?
+                            : chart === "Pie" ?
 
                                 <Pie
                                     data={dataObject}
-                                    width={100}
-                                    height={50}
+                                    width={500}
+                                    height={350}
                                     options={optionsObject}
                                 />
 
 
-                                : chart === "doughnut" ?
+                                : chart === "Doughnut" ?
 
                                     <Doughnut
                                         data={dataObject}
-                                        width={100}
-                                        height={50}
+                                        width={500}
+                                        height={350}
                                         options={optionsObject}
                                     />
                                     :
