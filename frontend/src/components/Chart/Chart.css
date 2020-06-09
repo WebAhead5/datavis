@@ -235,9 +235,12 @@ box-shadow: 5px 5px 20px grey;
     /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
 
     transition: 0.4s ease-out
-
-
   }
+
+
+  .form-check-input{
+    outline: none;
+}
 
 
 
