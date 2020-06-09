@@ -4,10 +4,7 @@ import React from 'react'
 
  const EditCell = async ({newValueOfCell, columnName, rowNum, selectedTable}) => {
 
-    
     try {
-console.log(selectedTable,'selected tablleeeeees');
-
         const res = await fetch("http://localhost:4000/table/editcontent", {
             method: "POST",
             headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
@@ -18,15 +15,8 @@ console.log(selectedTable,'selected tablleeeeees');
                 selectedTable: selectedTable
             })
         });
-        
-        
+
         const details = await res.json()
-        console.log(details);
-        
-        
-        // setTimeout( localStorage.setItem('changedCell',JSON.stringify(dataToSend)),100)
-
-
     } catch (err) {
         console.error(err.message);
     }

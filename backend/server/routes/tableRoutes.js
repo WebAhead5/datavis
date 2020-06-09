@@ -54,16 +54,22 @@ router.post("/editcontent", async (req, res) => {
 
   try {
     
-const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
+    const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
 
-console.log(req.body);
-console.log(selectedTable);
+    console.log(req.body,55555555555);
+    
 
-
-    const updateCell = db.querey(
+    const updateCell = db.query(
       "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )",
-      [rowNum.slice(6), selectedTable, columnName, newValueOfCells]
-    );
+      [parseInt(rowNum.slice(6)),parseInt(selectedTable), columnName, newValueOfCell], (err, res) => {
+        if (err) {
+          console.log(err,'this is the err');
+          
+        }
+        console.log(res,'this is the11 err');
+      });
+
+
 
 
   } catch (error) {
@@ -82,7 +88,6 @@ router.post("/delete", async (req, res) => {
     ]);
     //return user data matching user ID in JWT token for use in dashboard
     res.json(`table ${table_id} deleted`);
-
     //also return table data?
   } catch (err) {
     console.error(err.message);

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PostsPerPage from "./PostsPerPage"
 
-const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPostsPerPage }) => {
+const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPostsPerPage, indexOfLastPost }) => {
   const pageNumbers = [];
 
   //*looping over the total length of the data array (the full data array that was recieved)
