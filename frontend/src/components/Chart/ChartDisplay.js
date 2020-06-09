@@ -12,21 +12,21 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
         <React.Fragment>
 
             {
-                chart === "bar" ?
+                chart === "Bar" ?
                     <Bar
                         data={dataObject}
                         width={500}
                         height={350}
                         options={optionsObject}
                     />
-                    : chart === "horizontal bar" ?
+                    : chart === "HorizontalBar" ?
                         <HorizontalBar
                             data={dataObject}
                             width={500}
                             height={350}
                             options={optionsObject}
                         />
-                        : chart === "line" || chart === "line only" ?
+                        : chart === "Area" || chart === "Line" ?
 
                             <Line
                                 data={dataObject}
@@ -35,7 +35,7 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
                                 options={optionsObject}
                             />
 
-                            : chart === "pie" ?
+                            : chart === "Pie" ?
 
                                 <Pie
                                     data={dataObject}
@@ -45,7 +45,7 @@ const ChartDisplay = ({ chart, dataObject, optionsObject, x, y }) => {
                                 />
 
 
-                                : chart === "doughnut" ?
+                                : chart === "Doughnut" ?
 
                                     <Doughnut
                                         data={dataObject}

@@ -184,7 +184,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
             } : {} //else no settings for pie & doughtnut
     }
     //Chart type drop down options
-    const chartList = ["bar", "horizontal bar", "line", "line only", "pie", "doughnut"]
+    const chartList = ["Bar", "HorizontalBar", "Area", "Line", "Pie", "Doughnut"]
 
     return (
 

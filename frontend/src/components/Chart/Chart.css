@@ -6,6 +6,7 @@
 .splitScreen {
     display: flex;
     width: 100%;
+    margin-top: 40px;
 }
 
 .left {
@@ -28,7 +29,7 @@
 
 .chartSize {
     
-    width: 65%; 
+    width: 70%; 
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -37,10 +38,11 @@
 
 .finalSize {
 
-    width: 70%;
+    width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
 }
 
 .chartPreview {
@@ -56,6 +58,7 @@
     margin-right: 80px ;
     margin-left: 20px ;
     margin-bottom: 20px ;
+ 
 
   }
 
@@ -113,6 +116,23 @@ input[type=radio] {
     height: 20px;
 }
 
+.finalChart {
+
+    margin-right: 120px;
+}
+
+.showChartBtns {
+
+
+    flex-direction: column
+}
+
+.editBtn {
+
+
+    float: right;
+    margin-right: 40px;
+}
 
 
 
