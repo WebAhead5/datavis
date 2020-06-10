@@ -108,7 +108,7 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
               <Pagination
                 postsPerPage={postsPerPage}
                 totalPosts={data.length}
-                paginate={paginate}
+                // paginate={paginate}
                 setDisplayedRows={setDisplayedRows}
                 indexOfFirstPost={indexOfFirstPost}
                 data={data}
@@ -123,7 +123,8 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
         </Fragment>
 
         :
-        <div></div>}
+        <div>
+          </div>}
     </div>
   );
 }
