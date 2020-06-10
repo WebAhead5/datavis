@@ -1,8 +1,9 @@
 .chartImg {
 
-    width: 800px;
+    width: 740px;
     height: 400px;
     padding: 0%;
     margin-top: 5%;
+    border-radius: 2px;
 
 }

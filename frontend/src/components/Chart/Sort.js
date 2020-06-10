@@ -58,7 +58,7 @@ const Sort = ({ data, x, y, setArrayData, setArrayLabels }) => {
 
     return (
         <div className="my-4 sort">
-            <legend className="my-3" > Sort Data</legend>
+            <legend className=" sortLegend" > Sort Data</legend>
             <div className="sortBtns">
                 {x ?
                     <React.Fragment>

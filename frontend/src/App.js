@@ -8,6 +8,7 @@ import {
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 //components
 
 import Register from "./components/Auth/Register";

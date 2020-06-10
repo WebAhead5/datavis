@@ -12,7 +12,7 @@ import historyIcon from "../../assets/images/time-machine.png";
 const SideContent = (props) => {
   return (
     <nav >
-      <div className={`sideContent ${props.visible ? 'active' : ''}`}>
+      <div className={`sideContent ${props.visible ? 'activeSB' : ''}`}>
         <a className="menu-item" href="/">
           <img className='inner-bar-icon' src={homeIcon} />
           DASHBOARD
