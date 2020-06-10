@@ -44,7 +44,6 @@ const RenderCells = ({ cols, data, setData, rowKey, selectedTable }) => {
             "the text first was: ", data[col] + ' at the place ' + cols[index], "{inner html} and after the change it's ", newValueOfCell);
         }}
         suppressContentEditableWarning="true"
-        // onBlur={(e) => handleEdit(e)}
         className={`${data[col]} rowNum${rowKey} ${cols[index] === 'uID' ? 'hiddenCol' : ''}`}
         key={data[col]}>
         {data[col]}
