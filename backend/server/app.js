@@ -19,7 +19,7 @@ const createProxy =  createProxyMiddleware(options)
 
 //middleware
 const checkJWT = require("./middleware/checkJWT");
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json({limit: '10MB'}));
 
