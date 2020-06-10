@@ -12,7 +12,7 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
         try {
 
             //call API for user infomation for use in dashboard
-            const res = await fetch( process.env.REACT_APP_API_URL + "/dashboard/", {
+            const res = await fetch(process.env.REACT_APP_API_URL + "/dashboard/", {
                 method: "POST",
                 headers: { jwt_token: localStorage.token }
             });
