@@ -51,7 +51,6 @@ router.post("/addTable", async (req, res) => {
 
 
 router.post("/editcontent", async (req, res) => {
-
   try {
 
     const { newValueOfCell, columnName, rowNum, selectedTable } = req.body;

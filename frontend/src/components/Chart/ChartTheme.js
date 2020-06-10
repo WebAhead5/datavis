@@ -1,11 +1,12 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip'
 // import { defaults } from 'react-chartjs-2';
 
 
 const ChartTheme = ({ x, y, setTheme }) => {
 
     //Theme drop down options
-    const colorTheme = ["green", "red", "blue", "orange"]
+    const colorTheme = ["EmeraldGreen", "FireRed", "OceanBlue", "ElectricOrange"]
 
     //Object that holds what each theme will look like
     const themeObject = {
@@ -16,28 +17,28 @@ const ChartTheme = ({ x, y, setTheme }) => {
             "hover": "rgba(255,99,132,0.4)",
             "pieColors": ["rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)"],
         },
-        green: {
+        EmeraldGreen: {
             "color1": "green",
             "color2": "darkgreen",
             "border": "darkgreen",
             "hover": "lightgreen",
             "pieColors": ["green", "teal", "lightgreen", "green", "teal", "lightgreen", "green", "teal", "lightgreen", "green", "teal", "lightgreen", "green", "teal", "lightgreen"],
         },
-        red: {
+        FireRed: {
             "color1": "orange",
             "color2": "red",
             "border": "darkred",
             "hover": "pink",
             "pieColors": [],
         },
-        blue: {
+        OceanBlue: {
             "color1": "lightblue",
             "color2": "darkblue",
             "border": "royalblue",
             "hover": "skyblue",
             "pieColors": [],
         },
-        orange: {
+        ElectricOrange: {
             "color1": "yellow",
             "color2": "darkorange",
             "border": "crimson",
@@ -67,12 +68,13 @@ const ChartTheme = ({ x, y, setTheme }) => {
             <fieldset>
                 <legend>Set Color Theme</legend>
                 <label htmlFor="chart"> </label>
-                <select className="" onChange={e => handleThemeChange(e)}>
-                    <option style={{ color: "grey" }}>default</option>
-                    {colorTheme.map((col, index) => (
-                        <option value={col} key={index}>{col}</option>
-                    ))}
-                </select>
+                <a data-tip="Set the colors for your chart from the pre-set themes available in the drop down menu">
+                    <select className="select-css" onChange={e => handleThemeChange(e)}>
+                        <option style={{ color: "grey" }}>default</option>
+                        {colorTheme.map((col, index) => (
+                            <option value={col} key={index}>{col}</option>
+                        ))}
+                    </select> </a>
 
 
             </fieldset>

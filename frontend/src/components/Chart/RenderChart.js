@@ -6,6 +6,7 @@ import ShowChart from './ShowChart'
 import Sort from './Sort'
 import ChartTitles from './ChartTitles'
 import './Chart.css'
+import ReactTooltip from 'react-tooltip'
 
 const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
@@ -210,17 +211,21 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
 
                                     <div classname="selectChart">
                                         <legend> Pick Your Chart Type</legend>
+
                                         <div className="radioBtns" style={{ width: "300px" }}>
 
-                                            {chartList.map((chart, index) => (
 
-                                                <div className="form-check" onChange={e => setChart(e.target.value)}>
-                                                    <input key={index} type="radio" className="form-check-input" name="chart" value={chart} />
-                                                    <label key={index} className="form-check-label mx-2" for={chart}>{chart}</label>
-                                                </div>
+                                            {chartList.map((chart, index) => (
+                                                <a data-tip="Pick the type of chart you would like to use to display your data">
+                                                    <div className="form-check" onChange={e => setChart(e.target.value)}>
+                                                        <input key={index} type="radio" className="form-check-input" name="chart" value={chart} />
+                                                        <label key={index} className="form-check-label mx-2" for={chart}>{chart}</label>
+                                                    </div>
+                                                </a>
                                             ))}
 
                                         </div>
+                                        <ReactTooltip place="right" type="dark" effect="solid" />
                                     </div>
 
 
@@ -232,20 +237,21 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                     <div>
                                         {chart && x && y ?
                                             <Fragment>
-                                                <div>
-                                                    <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                                <div><a data-tip="Dark Mode turns the background a darker colour and the text a lighter color, click to toggle">
+                                                    <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button></a>
                                                 </div>
-                                                <div className="gridDiv">
-                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-3 mb-2 btnSize2" : "btn btn-outline-secondary mt-3 mb-2 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
+                                                <div className="gridDiv"><a data-tip="Turn the gridlines in the background on and off, click to toggle">
+                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-3 mb-2 btnSize2" : "btn btn-outline-secondary mt-3 mb-2 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button></a>
                                                 </div>
                                             </Fragment>
                                             :
                                             <Fragment>
-                                                <div>
-                                                    <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button>
+                                                <div><a data-tip="Dark Mode turns the background a darker colour and the text a lighter color, click to toggle">
+                                                    <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button></a>
                                                 </div>
                                                 <div className="gridDiv">
-                                                    <button className="btn btn-secondary disabled mt-3 mb-2 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
+                                                    <a data-tip="Turn the gridlines in the background on and off, click to toggle">
+                                                        <button className="btn btn-secondary disabled mt-3 mb-2 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button></a>
                                                 </div>
                                             </Fragment>}
                                     </div>
@@ -291,7 +297,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                         </Fragment>
                 }
             </div>
-        </Fragment>
+        </Fragment >
     );
 }
 
