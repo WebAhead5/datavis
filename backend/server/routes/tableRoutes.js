@@ -51,20 +51,16 @@ router.post("/addTable", async (req, res) => {
 
 
 router.post("/editcontent", async (req, res) => {
-
   try {
-    
-const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
+    const { newValueOfCell, columnName, rowNum, selectedTable } = req.body;
+    console.log(req.body);
+    console.log(selectedTable);
 
-console.log(req.body);
-console.log(selectedTable);
+    const updateCell = await db.query(
+      "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{'$3': '$4'}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) ) RETURNING *",
+      [rowNum.slice(6), selectedTable, columnName, newValueOfCells])
 
-
-    const updateCell = db.querey(
-      "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )",
-      [rowNum.slice(6), selectedTable, columnName, newValueOfCells]
-    );
-
+    console.log("cell updated", updateCell)
 
   } catch (error) {
     res.status(500).send("Server error");
