@@ -66,6 +66,7 @@
     font-size: larger;
     border: none;
     border-radius: 5px;
+    padding-left: 10px;
   }
   
   .email {
@@ -77,6 +78,8 @@
     font-size: larger;
     border: none;
     border-radius: 5px;
+    padding-left: 10px;
+  
   }
   
   .firstName,

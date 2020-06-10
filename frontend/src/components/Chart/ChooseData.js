@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip'
 
 const ChooseData = ({ cols, setX, setY, setChart }) => {
 
@@ -11,22 +12,23 @@ const ChooseData = ({ cols, setX, setY, setChart }) => {
                     <fieldset>
                         <div>
                             <legend> Pick The Data You Want To Use</legend>
-                            <label htmlFor="axis"> </label>
-                            X: <select className="" onChange={e => setX(e.target.value)}>
-                                <option style={{ color: "grey" }}>Select X Axis</option>
-                                {cols.map((col, index) => (
-                                    col !== "uID" ? <option value={col} key={index}>{col}</option> : null
-                                ))}
-                            </select>
+                            <a data-tip="Data to use for X axis (at the bottom of the chart)"><label htmlFor="axis"> </label>
+                                <select className="select-css" onChange={e => setX(e.target.value)}>
+                                    <option style={{ color: "grey" }}>Select X Axis</option>
+                                    {cols.map((col, index) => (
+                                        col !== "uID" ? <option value={col} key={index}>{col}</option> : null
+                                    ))}
+                                </select></a>
 
                         </div>
                         <div>
-                            Y: <select className="" onChange={e => setY(e.target.value)}>
+                            <a data-tip="Data to use for Y axis (at the left side of the chart)"><select className="select-css" onChange={e => setY(e.target.value)}>
                                 <option style={{ color: "grey" }}>Select Y Axis</option>
                                 {cols.map((col, index) => (
                                     col !== "uID" ? <option value={col} key={index}>{col}</option> : null
                                 ))}
-                            </select>
+                            </select></a>
+                            <ReactTooltip place="right" type="dark" effect="solid" />
                         </div>
 
 

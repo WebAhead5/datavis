@@ -21,7 +21,10 @@ const Register = ({ setLoggedIn }) => {
 
   
   //get varibles from input state
-  const { email, password, first_name, last_name, confirm_password } = inputs;
+  let { email, password, first_name, last_name, confirm_password } = inputs;
+
+  first_name = first_name.charAt(0).toUpperCase() + first_name.slice(1);
+  last_name = last_name.charAt(0).toUpperCase() + last_name.slice(1);
 
   //function to change state based on current inputs in form
   const onChange = (e) =>
