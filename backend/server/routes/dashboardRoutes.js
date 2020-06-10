@@ -17,8 +17,6 @@ router.post("/", async (req, res) => {
         //     [req.user.id]
         // );
 
-        console.log("data being returned", user.rows)
-
         //return user data matching user ID in JWT token for use in dashboard
         res.json(user.rows[0]);
 

@@ -9,8 +9,6 @@ router.post("/getTables", async (req, res) => {
     );
     console.time();
 
-    // console.timeEnd("Time this");
-    // console.log("table data being returned", tables.rows)
 
     //return user data matching user ID in JWT token for use in dashboard
     res.json(tables.rows);
@@ -30,14 +28,11 @@ router.post("/addTable", async (req, res) => {
     });
 
     dataIDs = JSON.stringify(dataIDs);
-    console.log(dataIDs);
 
     const table = await db.query(
       "INSERT INTO tables (table_name, user_id, data) VALUES ($1, $2, $3) RETURNING *",
       [table_name, req.user.id, dataIDs]
     );
-
-    // console.log("table data being returned", table.rows)
 
     //return table id that has been added
     res.json(table.rows[0].table_id);
@@ -55,7 +50,6 @@ router.post("/editcontent", async (req, res) => {
 
     const { newValueOfCell, columnName, rowNum, selectedTable } = req.body;
 
-    console.log(req.body);
 
     let selRowNum = rowNum.slice(6)
     let selTable = parseInt(selectedTable)
@@ -84,7 +78,7 @@ router.post("/editcontent", async (req, res) => {
 router.post("/delete", async (req, res) => {
   try {
     const { table_id } = req.body;
-    console.log("delete table route hit, delting table id", table_id);
+
 
     const table = await db.query("DELETE FROM tables WHERE table_id = $1", [
       table_id,
@@ -101,7 +95,6 @@ router.post("/delete", async (req, res) => {
 //id routes
 
 router.get("/:id", (req, res) => {
-  console.log("its the route: ", this.route);
   const { id } = req.params;
   res.send(`<h1>sending table data on ID: ${id}.....</h1>`);
 });

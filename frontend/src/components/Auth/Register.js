@@ -5,7 +5,6 @@ import "./register.css";
 // import { useForm } from "../Dashboard/useForm";
 import NavBar from "../Welcome/NavBar";
 import Footer from '../Welcome/Footer';
-import PasswordAuth from "./passwordAuth";
 
 
 const Register = ({ setLoggedIn }) => {

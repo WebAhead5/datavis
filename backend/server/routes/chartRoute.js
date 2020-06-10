@@ -4,15 +4,12 @@ const db = require('../../database/db_connection')
 //default route
 
 router.get('/', (req, res) => {
-    console.log("chart route hit", req.body)
     res.send(`<h1>Chart Route</h1>`)
 })
 
 router.post("/save", async (req, res) => {
 
     try {
-        // console.log("chart save route hit", req.body)
-
         const { jpeg } = req.body;
 
         const chart = await db.query(
@@ -52,7 +49,6 @@ router.post("/delete", async (req, res) => {
     try {
 
         const { chart } = req.body;
-        console.log("delete chart route hit, delting chart id", chart.chart_id)
 
         const result = await db.query(
             "DELETE FROM charts WHERE chart_id = $1",

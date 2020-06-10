@@ -35,10 +35,6 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
         setCols(JSON.parse(localStorage.getItem("cols")))
     }, [])
 
-    React.useEffect(() => {
-        console.log("data is currently", data, "cols currently", cols)
-    }, [data])
-
     //Map ther correct data to the Axis in the right format for chart JS (on x or y axis change)
     React.useEffect(() => {
         if (data && y && x) {
@@ -48,7 +44,6 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
             setArrayData(mappedData);
             setArrayLabels(mappedLabels)
 
-            console.log("array data", arrayData, "label data", arrayLabels)
         }
     }, [data, x, y]);
 
