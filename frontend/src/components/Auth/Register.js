@@ -40,7 +40,7 @@ const Register = ({ setLoggedIn }) => {
       }
       //send request to server to register
       const body = { email, password, first_name, last_name };
-      const response = await fetch('/auth/register', {
+      const response = await fetch( process.env.REACT_APP_API_URL + '/auth/register', {
         method: "POST",
         headers: {
           "Content-type": "application/json",

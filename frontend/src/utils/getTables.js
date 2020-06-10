@@ -4,7 +4,7 @@ const getTables = async (setTableList) => {
     try {
 
         //call API for user infomation for use in tables page
-        const res = await fetch("/table/getTables", {
+        const res = await fetch( process.env.REACT_APP_API_URL + "/table/getTables", {
             method: "POST",
             headers: { jwt_token: localStorage.token }
         });

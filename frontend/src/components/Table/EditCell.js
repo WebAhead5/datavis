@@ -6,7 +6,7 @@ import { toast, ToastPosition } from "react-toastify";
 const EditCell = async ({ newValueOfCell, columnName, rowNum, selectedTable }) => {
     
     try {
-        const res = await fetch("http://localhost:4000/table/editcontent", {
+        const res = await fetch( process.env.REACT_APP_API_URL + "/table/editcontent", {
             method: "POST",
             headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
             body: JSON.stringify({

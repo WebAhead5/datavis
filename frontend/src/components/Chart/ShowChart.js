@@ -19,7 +19,7 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
 
           const body = { jpeg };
 
-          const response = await fetch("/chart/save", {
+          const response = await fetch( process.env.REACT_APP_API_URL + "/chart/save", {
             method: "POST",
             headers: {
               jwt_token: localStorage.token,

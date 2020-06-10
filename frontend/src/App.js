@@ -57,13 +57,14 @@ function App() {
 
   const dataVars = { data, setData, cols, setCols }
 
+  console.log(process.env)
 
   //Function to check if user has a valid JWT token already
   const CheckLoggedIn = async () => {
     try {
       console.log("checkAuthRun");
       //Send JWT to server to check if valid
-      const res = await fetch("/auth/verify", {
+      const res = await fetch(process.env.REACT_APP_API_URL + "/auth/verify", {
         method: "POST",
         headers: { jwt_token: localStorage.token },
       });
