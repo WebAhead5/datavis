@@ -11,7 +11,10 @@ const app = express();
 app.set('port', process.env.PORT || 4000);
 
 
-const createProxy =  createProxyMiddleware({ target: 'https://datavisbackend.herokuapp.com/', changeOrigin: true })
+const options = { target: 'https://datavisbackend.herokuapp.com/', changeOrigin: true }
+
+
+const createProxy =  createProxyMiddleware(options)
 
 
 //middleware
