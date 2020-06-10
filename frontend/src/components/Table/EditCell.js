@@ -1,8 +1,9 @@
 import React from 'react'
+import { toast, ToastPosition } from "react-toastify";
 
 
 
- const EditCell = async ({newValueOfCell, columnName, rowNum, selectedTable}) => {
+const EditCell = async ({ newValueOfCell, columnName, rowNum, selectedTable }) => {
 
     try {
         const res = await fetch("http://localhost:4000/table/editcontent", {
@@ -17,8 +18,9 @@ import React from 'react'
         });
 
         const details = await res.json()
+        toast.info(details);
     } catch (err) {
-        console.error(err.message);
+        toast.error(err.message);
     }
 
 }
@@ -27,16 +29,16 @@ export default EditCell
 //update query for jsonb column;
 
 /*
-update tables t 
- set data = ( 
-     select  
-         jsonb_agg( 
-             case when (x.obj ->> 'id')::int = 1  
-                 then x.obj || '{"first_name": "Marcus"}' 
-                 else x.obj 
-             end 
-             order by x.ord 
-         ) new_data 
-     from jsonb_array_elements(t.data) with ordinality x(obj, ord) 
- );  
+update tables t
+ set data = (
+     select
+         jsonb_agg(
+             case when (x.obj ->> 'id')::int = 1
+                 then x.obj || '{"first_name": "Marcus"}'
+                 else x.obj
+             end
+             order by x.ord
+         ) new_data
+     from jsonb_array_elements(t.data) with ordinality x(obj, ord)
+ );
 */

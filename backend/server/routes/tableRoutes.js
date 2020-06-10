@@ -53,25 +53,29 @@ router.post("/addTable", async (req, res) => {
 router.post("/editcontent", async (req, res) => {
 
   try {
-    
-    const {newValueOfCell, columnName, rowNum, selectedTable} = req.body;
 
-    console.log(req.body,55555555555);
-    
+    const { newValueOfCell, columnName, rowNum, selectedTable } = req.body;
+
+    console.log(req.body);
+
+    let selRowNum = rowNum.slice(6)
+    let selTable = parseInt(selectedTable)
+    let selcolumnName = '"' + columnName + '"'
+
+
+    //WORKING QUERY
+    // "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = 0 and table_id = 2 then x.obj || '{'Transactions': 50}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )",
 
     const updateCell = db.query(
-      "update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = $1 and table_id=$2 then x.obj || '{$3: $4}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )",
-      [parseInt(rowNum.slice(6)),parseInt(selectedTable), columnName, newValueOfCell], (err, res) => {
+      `update tables t set data = (select jsonb_agg( case when (x.obj ->> 'uID')::int = ${selRowNum} and table_id = ${selTable} then x.obj || '{${selcolumnName}: "${newValueOfCell}"}' else x.obj end order by x.ord ) new_data from jsonb_array_elements(t.data) with ordinality x(obj, ord) )`, (err, res) => {
         if (err) {
-          console.log(err,'this is the err');
-          
+          // res.status(500).send("Database did not update");
+          console.log(err)
         }
-        console.log(res,'this is the11 err');
+        // res.send(`table ${selTable}, row ${selRowNum} updated`);
+        console.log(res)
+
       });
-
-
-
-
   } catch (error) {
     res.status(500).send("Server error");
   }
