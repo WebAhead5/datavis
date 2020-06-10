@@ -4,7 +4,10 @@ import { toast } from "react-toastify";
 import "./register.css";
 // import { useForm } from "../Dashboard/useForm";
 import NavBar from "../Welcome/NavBar";
-import Footer from '../Welcome/Footer'
+import Footer from '../Welcome/Footer';
+import PasswordAuth from "./passwordAuth";
+
+const corsDataVis = "https://cors-anywhere.herokuapp.com/https://datavisbackend.herokuapp.com/"
 
 const Register = ({ setLoggedIn }) => {
   //state for current inuts in register fields
@@ -33,10 +36,11 @@ const Register = ({ setLoggedIn }) => {
       }
       //send request to server to register
       const body = { email, password, first_name, last_name };
-      const response = await fetch("http://localhost:4000/auth/register", {
+      const response = await fetch(`${corsDataVis}/auth/register`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
+          'origin': 'x-requested-with'
         },
         body: JSON.stringify(body),
       });
@@ -101,6 +105,7 @@ const Register = ({ setLoggedIn }) => {
             name="password"
             className="password"
             placeholder="Password"
+            password={password}
             value={password}
             onChange={(e) => onChange(e)}
           />

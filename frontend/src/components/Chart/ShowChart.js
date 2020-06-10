@@ -19,7 +19,7 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
 
           const body = { jpeg };
 
-          const response = await fetch("http://localhost:4000/chart/save", {
+          const response = await fetch("/chart/save", {
             method: "POST",
             headers: {
               jwt_token: localStorage.token,

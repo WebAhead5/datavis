@@ -63,7 +63,7 @@ function App() {
     try {
       console.log("checkAuthRun");
       //Send JWT to server to check if valid
-      const res = await fetch("http://localhost:4000/auth/verify", {
+      const res = await fetch("/auth/verify", {
         method: "POST",
         headers: { jwt_token: localStorage.token },
       });
