@@ -9,8 +9,7 @@
   "scripts": {
     "start": "NODE_ENV=production nodemon ./server/server.js",
     "dev": "NODE_ENV=development nodemon ./server/server.js",
-    "test": "NODE_ENV=development nodemon ./server/test/*.test.js | tap-spec",
-    "build": "node src/database/db_build.js"
+    "test": "NODE_ENV=development nodemon ./server/test/*.test.js | tap-spec"
   },
   "author": "",
   "license": "ISC",
