@@ -15,7 +15,6 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
 
     const importFile = () => {
 
-        console.log("FILE INFO", file)
 
         if (file.type === "text/csv") {
             Papa.parse(file, {
@@ -47,7 +46,6 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
                     let xlsData = XLSX.utils.sheet_to_row_object_array(
                         workbook.Sheets[sheet]
                     );
-                    console.log(JSON.stringify(xlsData));
                     uploadTable(tableName, JSON.stringify(xlsData))
                     setData(xlsData)
                     localStorage.setItem("tabledata", JSON.stringify(xlsData));
@@ -75,7 +73,6 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
 
             //result from DB request on backend - will send default info
             const parseData = await res.json();
-            console.log("TABLE ID CREATED", parseData)
             setCurrentTableId(parseData)
             toast.info(`${file.name} succesfully uploaded as ${tableName.toUpperCase()}`)
 

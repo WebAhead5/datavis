@@ -6,7 +6,6 @@ import htmlToImage from 'html-to-image';
 
 export default function ShowChart({ setCurrentPage, chart, dataObject, optionsObject, bgColor }) {
 
-  console.log("DATA OB IS", dataObject)
 
 
   const handleSaveChart = async () => {

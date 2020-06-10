@@ -21,8 +21,7 @@ const Sort = ({ data, x, y, setArrayData, setArrayLabels }) => {
 
         //Call back function for sort
         function compareValues(key, order = 'asc') {
-            console.log("SORTING kEY IS", key)
-            console.log("TYPE OF KEY IS", typeof key)
+
             return function innerSort(a, b) {
                 if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
                     // property doesn't exist on either object

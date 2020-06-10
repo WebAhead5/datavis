@@ -22,7 +22,6 @@ export default function User({ name, setName, setLoggedIn, setTableList, tableLi
             //result from DB request on backend - will send default info
             const parseData = await res.json();
 
-            console.log("email data", parseData)
 
             //use info to set states - such as name
             setEmail(parseData)

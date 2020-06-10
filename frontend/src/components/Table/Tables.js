@@ -42,10 +42,8 @@ export default function Tables({ name, setName, setLoggedIn, data, setData, cols
       setData(extractedData);
 
       localStorage.setItem("tabledata", JSON.stringify(extractedData));
-      console.log("table selected is", extractedData);
 
       let keys = Object.keys(extractedData[0]);
-      // console.log('extea' , extractedData[0]);
       setCols(keys);
       localStorage.setItem("cols", JSON.stringify(keys));
     }

@@ -14,7 +14,6 @@ export default function TableButtons({
   const deleteTable = async () => {
     try {
       let table_id = selectedTable;
-      console.log("del table clicked, id", selectedTable);
       const body = { table_id };
       //call API for user infomation for use in dashboard
       const res = await fetch( process.env.REACT_APP_API_URL + "/table/delete", {
@@ -28,7 +27,6 @@ export default function TableButtons({
 
       //result from DB request on backend - will send default info
       const parseData = await res.json();
-      console.log(parseData);
 
       tableList.forEach((row) => {
         if (row.table_id === parseInt(selectedTable)) {

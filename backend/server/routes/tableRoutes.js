@@ -7,7 +7,6 @@ router.post("/getTables", async (req, res) => {
       "SELECT table_id, table_name, user_id, data FROM tables WHERE user_id = $1",
       [req.user.id]
     );
-    console.time();
 
 
     //return user data matching user ID in JWT token for use in dashboard

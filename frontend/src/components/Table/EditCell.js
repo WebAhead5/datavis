@@ -15,6 +15,7 @@ const EditCell = async ({ newValueOfCell, columnName, rowNum, selectedTable }) =
                 rowNum, rowNum,
                 selectedTable: selectedTable
             })
+
         });
         
         

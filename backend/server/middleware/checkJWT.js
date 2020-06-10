@@ -18,7 +18,6 @@ module.exports = function (req, res, next) {
 
         //set user to user ID inside the JWT
         req.user = verify.user;
-        console.log("info held on user in req.user:", req.user)
 
         next();
 

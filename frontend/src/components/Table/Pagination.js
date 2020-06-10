@@ -25,7 +25,6 @@ const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPosts
                 //***slicing the displayed rows according to
                 //****the number of the page that was clicked ((page#) * (postsPerPage))
                 let newDisplayedRows=[];
-                console.log('totalPosts % postsPerPage === 0', totalPosts % postsPerPage === 0)
 
                 if (totalPosts % postsPerPage === 0) {
                   
@@ -39,15 +38,11 @@ const Pagination = ({ postsPerPage, totalPosts, setDisplayedRows, data, setPosts
                 // console.log('totalPosts % postsPerPage !== 0', totalPosts % postsPerPage !== 0)
                 
                 if (totalPosts % postsPerPage !== 0) {
-                  console.log('akwa no3',FirstDisplayedIndex);
                   newDisplayedRows = data.slice(
                     FirstDisplayedIndex,
                     FirstDisplayedIndex ? totalPosts + (totalPosts - FirstDisplayedIndex) : postsPerPage
                     )
                   }
-
-                console.log("new displayed rows", newDisplayedRows);
-
                 setDisplayedRows(newDisplayedRows);
               }}
               //   href="!#"

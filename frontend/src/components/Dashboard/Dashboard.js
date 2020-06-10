@@ -19,7 +19,6 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
 
             //result from DB request on backend - will send default info
             const parseData = await res.json();
-            console.log("dashboard data", parseData)
 
             //use info to set states - such as name
 

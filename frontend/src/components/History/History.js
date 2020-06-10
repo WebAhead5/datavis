@@ -29,7 +29,6 @@ export default function History({ name, setName, setLoggedIn }) {
     }
 
     const handleDownload = (chart) => {
-        console.log("handle download fired")
 
         var link = document.createElement('a');
         link.download = `myChart-id${chart.chart_id}.jpeg`;
@@ -41,7 +40,6 @@ export default function History({ name, setName, setLoggedIn }) {
 
     const handleDelete = async (chart) => {
         try {
-            console.log("del chart clicked, id", chart.chart_id);
             const body = { chart };
             //call API for user infomation for use in dashboard
             const res = await fetch( process.env.REACT_APP_API_URL + "/chart/delete", {
@@ -55,7 +53,6 @@ export default function History({ name, setName, setLoggedIn }) {
 
             //result from DB request on backend - will send default info
             const parseData = await res.json();
-            console.log(parseData);
 
             toast.error(`Chart has been deleted from Chart History`);
 
