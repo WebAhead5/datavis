@@ -100,7 +100,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
             datasets: [
                 {
                     label: y,
-                    backgroundColor: chart === "pie" || chart === "doughtnut" ? theme.pieColors : gradientStroke,
+                    backgroundColor: chart === "Pie" || chart === "Doughnut" ? theme.pieColors : gradientStroke,
                     borderColor: chart === "line only" ? gradientStroke : theme.border,
                     borderWidth: chart === "line only" ? 5 : 1,
                     hoverBackgroundColor: theme.hover,
@@ -147,7 +147,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
             fontSize: 28,
         },
         scales:
-            chart !== "pie" && chart !== "doughnut" ? {
+            chart !== "Pie" && chart !== "Doughnut" ? {
                 yAxes: [
                     {
                         ticks: {
@@ -297,7 +297,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                         </Fragment>
                 }
             </div>
-        </Fragment >
+        </Fragment>
     );
 }
 

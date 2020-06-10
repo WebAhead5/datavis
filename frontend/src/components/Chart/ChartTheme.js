@@ -10,7 +10,7 @@ const ChartTheme = ({ x, y, setTheme }) => {
 
     //Object that holds what each theme will look like
     const themeObject = {
-        default: {
+        BrightPink: {
             "color1": "rgba(255,99,132,0.2)",
             "color2": "rgba(255,99,132,0.8)",
             "border": "rgba(255,99,132,1)",
@@ -70,7 +70,7 @@ const ChartTheme = ({ x, y, setTheme }) => {
                 <label htmlFor="chart"> </label>
                 <a data-tip="Set the colors for your chart from the pre-set themes available in the drop down menu">
                     <select className="select-css" onChange={e => handleThemeChange(e)}>
-                        <option style={{ color: "grey" }}>default</option>
+                        <option style={{ color: "grey" }}>BrightPink</option>
                         {colorTheme.map((col, index) => (
                             <option value={col} key={index}>{col}</option>
                         ))}
