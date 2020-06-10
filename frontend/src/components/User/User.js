@@ -14,7 +14,7 @@ export default function User({ name, setName, setLoggedIn, setTableList, tableLi
         try {
 
             //call API for user infomation for use in dashboard
-            const res = await fetch("http://localhost:4000/user/", {
+            const res = await fetch("/user/", {
                 method: "POST",
                 headers: { jwt_token: localStorage.token }
             });

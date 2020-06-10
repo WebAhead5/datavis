@@ -17,7 +17,7 @@ export default function TableButtons({
       console.log("del table clicked, id", selectedTable);
       const body = { table_id };
       //call API for user infomation for use in dashboard
-      const res = await fetch("http://localhost:4000/table/delete", {
+      const res = await fetch("/table/delete", {
         method: "POST",
         headers: {
           jwt_token: localStorage.token,

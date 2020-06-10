@@ -12,7 +12,7 @@ export default function History({ name, setName, setLoggedIn }) {
         try {
 
             //call API for user infomation for use in tables page
-            const res = await fetch("http://localhost:4000/chart/history", {
+            const res = await fetch("/chart/history", {
                 method: "POST",
                 headers: { jwt_token: localStorage.token }
             });
@@ -44,7 +44,7 @@ export default function History({ name, setName, setLoggedIn }) {
             console.log("del chart clicked, id", chart.chart_id);
             const body = { chart };
             //call API for user infomation for use in dashboard
-            const res = await fetch("http://localhost:4000/chart/delete", {
+            const res = await fetch("/chart/delete", {
                 method: "POST",
                 headers: {
                     jwt_token: localStorage.token,

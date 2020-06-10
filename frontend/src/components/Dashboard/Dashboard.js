@@ -12,7 +12,7 @@ const Dashboard = ({ setLoggedIn, name, setName }) => {
         try {
 
             //call API for user infomation for use in dashboard
-            const res = await fetch("http://localhost:4000/dashboard/", {
+            const res = await fetch("/dashboard/", {
                 method: "POST",
                 headers: { jwt_token: localStorage.token }
             });

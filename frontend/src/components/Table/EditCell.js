@@ -8,7 +8,7 @@ import React from 'react'
     try {
 console.log(selectedTable,'selected tablleeeeees');
 
-        const res = await fetch("http://localhost:4000/table/editcontent", {
+        const res = await fetch("/table/editcontent", {
             method: "POST",
             headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
             body: JSON.stringify({

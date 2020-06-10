@@ -24,7 +24,7 @@ const FileUpload = ({ data, setData, tableName, setTableName, setCurrentTableId 
             
             const body = { table_name, data };
             //call API for user infomation for use in dashboard
-            const res = await fetch("http://localhost:4000/table/addTable", {
+            const res = await fetch("/table/addTable", {
                 method: "POST",
                 headers: { jwt_token: localStorage.token, "Content-type": "application/json" },
                 body: JSON.stringify(body)
