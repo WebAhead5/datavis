@@ -104,7 +104,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                     borderWidth: chart === "line only" ? 5 : 1,
                     hoverBackgroundColor: theme.hover,
                     hoverBorderColor: 'rgba(255,99,132,1)',
-                    fill: chart === "line only" ? false : true,
+                    fill: chart === "LineFgrid" ? false : true,
                     data: arrayData
                 }
             ]
@@ -203,9 +203,9 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                             <div class="splitScreen">
                                 <div className="left">
                                     {/* <div>Table Selected: <b>table name </b></div> */}
-
-                                    <ChartTitles {...customizeProps} />
                                     <ChooseData cols={cols} setX={setX} setY={setY} setChart={setChart} />
+
+
 
 
                                     <div classname="selectChart">
@@ -224,7 +224,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                     </div>
 
 
-
+                                    <ChartTitles {...customizeProps} />
 
 
 
@@ -235,8 +235,8 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                                 <div>
                                                     <button onClick={handleDarkMode} className={darkMode ? "btn btn-dark mt-5 btnSize2" : "btn btn-outline-secondary mt-5 btnSize2"} data-toggle="button" >Dark Mode {darkMode ? "On" : "Off"}</button>
                                                 </div>
-                                                <div>
-                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-5 mb-2 btnSize2" : "btn btn-outline-secondary mt-5 mb-2 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
+                                                <div className="gridDiv">
+                                                    <button onClick={handleGridlines} className={gridlines ? "btn btn-secondary mt-3 mb-2 btnSize2" : "btn btn-outline-secondary mt-3 mb-2 btnSize2"} data-toggle="button"  >Gridlines {gridlines ? "On" : "Off"} </button>
                                                 </div>
                                             </Fragment>
                                             :
@@ -244,8 +244,8 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                                                 <div>
                                                     <button className="btn btn-secondary disabled mt-5 btnSize2" >Dark Mode {darkMode ? "On" : "Off"}</button>
                                                 </div>
-                                                <div>
-                                                    <button className="btn btn-secondary disabled mt-5 mb-2 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
+                                                <div className="gridDiv">
+                                                    <button className="btn btn-secondary disabled mt-3 mb-2 btnSize2 " >Gridlines {gridlines ? "On" : "Off"}</button>
                                                 </div>
                                             </Fragment>}
                                     </div>
