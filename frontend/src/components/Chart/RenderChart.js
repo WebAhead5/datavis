@@ -105,7 +105,7 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                     borderWidth: chart === "line only" ? 5 : 1,
                     hoverBackgroundColor: theme.hover,
                     hoverBorderColor: 'rgba(255,99,132,1)',
-                    fill: chart === "LineFgrid" ? false : true,
+                    fill: chart === "Line" ? false : true,
                     data: arrayData
                 }
             ]
