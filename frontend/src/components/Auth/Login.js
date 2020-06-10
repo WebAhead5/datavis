@@ -4,6 +4,10 @@ import { Link, Redirect } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
+const corsDataVis = "https://cors-anywhere.herokuapp.com/https://datavisbackend.herokuapp.com/"
+
+
+
 const Login = ({ setLoggedIn }) => {
     //states for current inputs in login field
     const [inputs, setInputs] = useState({
@@ -23,10 +27,11 @@ const Login = ({ setLoggedIn }) => {
         e.preventDefault();
         try {
             const body = { email, password };
-            const response = await fetch("/auth/login", {
+            const response = await fetch(`${corsDataVis}/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
+                    'origin': 'x-requested-with'
                 },
                 body: JSON.stringify(body),
             });

@@ -4,7 +4,7 @@ import { toast, ToastPosition } from "react-toastify";
 
 
 const EditCell = async ({ newValueOfCell, columnName, rowNum, selectedTable }) => {
-
+    
     try {
         const res = await fetch("http://localhost:4000/table/editcontent", {
             method: "POST",
@@ -16,9 +16,12 @@ const EditCell = async ({ newValueOfCell, columnName, rowNum, selectedTable }) =
                 selectedTable: selectedTable
             })
         });
-
+        
+        
+        // e.target.style.borderWidth = '5px';
         const details = await res.json()
-        toast.info(details);
+        
+        
     } catch (err) {
         toast.error(err.message);
     }
