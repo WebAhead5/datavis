@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { slide as Menu } from "react-burger-menu";
+
 import "./navBar.css";
 //icons
 import dashboardIcon from "../../assets/images/customer.png";

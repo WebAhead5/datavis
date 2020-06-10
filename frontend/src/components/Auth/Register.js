@@ -7,7 +7,6 @@ import NavBar from "../Welcome/NavBar";
 import Footer from '../Welcome/Footer';
 import PasswordAuth from "./passwordAuth";
 
-const corsDataVis = "https://cors-anywhere.herokuapp.com/https://datavisbackend.herokuapp.com/"
 
 const Register = ({ setLoggedIn }) => {
   //state for current inuts in register fields
@@ -19,6 +18,8 @@ const Register = ({ setLoggedIn }) => {
     confirm_password: "",
   });
 
+
+  
   //get varibles from input state
   const { email, password, first_name, last_name, confirm_password } = inputs;
 
@@ -36,7 +37,7 @@ const Register = ({ setLoggedIn }) => {
       }
       //send request to server to register
       const body = { email, password, first_name, last_name };
-      const response = await fetch(`${corsDataVis}/auth/register`, {
+      const response = await fetch('/auth/register', {
         method: "POST",
         headers: {
           "Content-type": "application/json",
