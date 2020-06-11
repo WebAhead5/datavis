@@ -11,7 +11,7 @@ const RenderCols = ({ cols }) => {
     <tr
       contentEditable={cols == "id" ? false : true}
       suppressContentEditableWarning="true"
-      style={{ textTransform: "uppercase" }}>
+      style={{ textTransform: "uppercase"}}>
       {listCols}
     </tr>
   );

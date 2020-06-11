@@ -1,11 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./register.css";
 // import { useForm } from "../Dashboard/useForm";
 import NavBar from "../Welcome/NavBar";
-import Footer from '../Welcome/Footer';
-
+import Footer from "../Welcome/Footer";
 
 const Register = ({ setLoggedIn }) => {
   //state for current inuts in register fields
@@ -17,8 +16,7 @@ const Register = ({ setLoggedIn }) => {
     confirm_password: "",
   });
 
-
-  
+  const [passPhrase, setPassPhrase] = useState("");
   //get varibles from input state
   let { email, password, first_name, last_name, confirm_password } = inputs;
 
@@ -26,8 +24,22 @@ const Register = ({ setLoggedIn }) => {
   last_name = last_name.charAt(0).toUpperCase() + last_name.slice(1);
 
   //function to change state based on current inputs in form
-  const onChange = (e) =>
+  const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+
+  useEffect(() => {
+    if (password.length > 0 && password.length < 6) {
+      setPassPhrase("Password must contain at least 6 letters/digits");
+    } else if (!(password.match(/[A-Z]/)) && password.length >= 6) {
+      setPassPhrase("Password must contain at least 1 upper case");
+    } else if (!(password.match(/[0-9][!@#$%^&*()_+=]/) )&& password.length >= 6) {
+      setPassPhrase("Password must contain at least 1 digit and 1 special character");
+    } else setPassPhrase("");
+  }, [password]);
+
+
 
   //function to submit register form
   const onSubmitForm = async (e) => {
@@ -39,14 +51,17 @@ const Register = ({ setLoggedIn }) => {
       }
       //send request to server to register
       const body = { email, password, first_name, last_name };
-      const response = await fetch( process.env.REACT_APP_API_URL + '/auth/register', {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          'origin': 'x-requested-with'
-        },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_URL + "/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            origin: "x-requested-with",
+          },
+          body: JSON.stringify(body),
+        }
+      );
 
       //if successful, server will respond with valid JWT token
       const parseRes = await response.json();
@@ -69,9 +84,10 @@ const Register = ({ setLoggedIn }) => {
 
   return (
     <div className="bg">
-
       <NavBar setLoggedIn={setLoggedIn} />
-      <h1 className="mt-5 text-center title">Register a Free Account with <b>datavis</b></h1>
+      <h1 className="mt-5 text-center title">
+        Register a Free Account with <b>datavis</b>
+      </h1>
       <form className="formContainer" onSubmit={onSubmitForm}>
         <div className="names">
           <label htmlFor="firstName" />
@@ -122,10 +138,21 @@ const Register = ({ setLoggedIn }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
+        <div
+          id="passMsgContainer"
+          className="passMsgContainer"
+          setPassPhrase={setPassPhrase}>
+          {passPhrase}
+        </div>
         <label htmlFor="submit" />
         <input type="submit" className="submit my-4" value="Register" />
       </form>
-      <div className="text-center mt-4"><span><Link to="/">Already have an account?</Link>  <Link to="/"> | To Homepage</Link></span></div>
+      <div className="text-center mt-4">
+        <span>
+          <Link to="/">Already have an account?</Link>{" "}
+          <Link to="/"> | To Homepage</Link>
+        </span>
+      </div>
       <Footer />
     </div>
   );
