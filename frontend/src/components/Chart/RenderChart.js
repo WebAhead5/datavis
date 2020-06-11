@@ -28,6 +28,15 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
     const [xtitle, setxTitle] = React.useState("")
     const [ytitle, setyTitle] = React.useState("")
 
+    //Theme of Chart state - defaults below
+    const [theme, setTheme] = React.useState({
+        color1: "rgba(255,99,132,0.2)",
+        color2: "rgba(255,99,132,0.8)",
+        border: "rgba(255,99,132,1)",
+        hover: "rgba(255,99,132,0.4)",
+        pieColors: ["rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)"],
+    })
+
 
     //get current table data
     React.useEffect(() => {
@@ -45,16 +54,9 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
             setArrayLabels(mappedLabels)
 
         }
-    }, [data, x, y]);
+    }, [data, x, y, theme]);
 
-    //Theme of Chart state - defaults below
-    const [theme, setTheme] = React.useState({
-        color1: "rgba(255,99,132,0.2)",
-        color2: "rgba(255,99,132,0.8)",
-        border: "rgba(255,99,132,1)",
-        hover: "rgba(255,99,132,0.4)",
-        pieColors: ["rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)", "rgba(255,99,132,0.6)", "rgba(255,99,132,0.8)", "rgba(255,99,132,0.4)"],
-    })
+
 
 
     //All customize props to pass into componant
@@ -87,7 +89,8 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
         if (currentPage === "createChart") width = width / 2
         let gradientStroke = ctx.createLinearGradient(0, 0, width, 400);
         gradientStroke.addColorStop(0, theme.color2);
-        gradientStroke.addColorStop(1, theme.color1);
+        gradientStroke.addColorStop(0.65, theme.color1);
+        gradientStroke.addColorStop(1, "white");
 
         //Data Object for CHART JS
         return {
@@ -96,12 +99,12 @@ const RenderChart = ({ data, setData, cols, setCols, x, y, setX, setY }) => {
                 {
                     label: y,
                     backgroundColor: chart === "Pie" || chart === "Doughnut" ? theme.pieColors : gradientStroke,
-                    borderColor: chart === "line only" ? gradientStroke : theme.border,
-                    borderWidth: chart === "line only" ? 5 : 1,
+                    borderColor: chart === "Line" ? gradientStroke : theme.border,
+                    borderWidth: chart === "Line" ? 5 : 1,
                     hoverBackgroundColor: theme.hover,
-                    hoverBorderColor: 'rgba(255,99,132,1)',
+                    hoverBorderColor: theme.color1,
                     fill: chart === "Line" ? false : true,
-                    data: arrayData
+                    data: arrayData,
                 }
             ]
         };
