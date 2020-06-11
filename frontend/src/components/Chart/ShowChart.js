@@ -18,7 +18,7 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
 
           const body = { jpeg };
 
-          const response = await fetch( process.env.REACT_APP_API_URL + "/chart/save", {
+          const response = await fetch(process.env.REACT_APP_API_URL + "/chart/save", {
             method: "POST",
             headers: {
               jwt_token: localStorage.token,
@@ -74,9 +74,11 @@ export default function ShowChart({ setCurrentPage, chart, dataObject, optionsOb
 
       </div>
       <div className="finalChart">
-        <div className="finalSize" style={{ backgroundColor: bgColor }} >
-          <div id="capture">
-            <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+        <div className="finalSize"  >
+          <div id="capture" >
+            <div style={{ backgroundColor: bgColor }}>
+              <ChartDisplay chart={chart} dataObject={dataObject} optionsObject={optionsObject} />
+            </div>
           </div>
         </div>
       </div>
