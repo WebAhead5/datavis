@@ -122,7 +122,7 @@ const Register = ({ setLoggedIn }) => {
           <input
             type="password"
             name="password"
-            className="password"
+            className={`password ${passPhrase ? 'passErr' : ''}`}
             placeholder="Password"
             password={password}
             value={password}
