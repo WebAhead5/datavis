@@ -42,7 +42,6 @@
   
   
   form {
-    /* animation: formAnimation 1s; */
     margin-top: 150px;
     overflow: hidden;
     float: none;
@@ -89,14 +88,12 @@
   
   .submit {
     color: var(--color-white);
-  
     background-color: #131545;
     border-radius: var(--border-radius);
     width: 12% !important;
     height: 50px;
     border: solid var(--color-white) thin;
     font-size: large;
-    /* box-shadow: 0.7px 0.7px 0.7px 0.7px; */
 
     margin-top: 55px;
     transition: 0.4s ease-out
@@ -109,20 +106,13 @@ box-shadow: 5px 5px 20px var(--color-white);
 
   }
   
-  /* Form animation */
-  @keyframes formAnimation {
-    from {
-      transform: scaleY(0);
-      overflow: hidden;
-    }
-    to {
-      transition: ease-in;
-    }
+  
+  .passMsgContainer{
+    color: white;
+    font-size: 1rem;
   }
-  /*//////*/
-  
-  
-  
+
+
   @media only screen and (max-width: 850px) {
     .email {
       width: 41.5% !important;
