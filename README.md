@@ -1,20 +1,30 @@
 # datavis
 
+@JakePowis @MoradAbed
 
-### Project Presentation
+
+## What is datavis?
+
+A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data
+
+
+
+![](https://i.imgur.com/TlGa7lL.png)
+
+
+
+## Project Presentation
 
 https://hackmd.io/p/p6vGm9C8SDKQR8p8ATiKTQ
 
-### Project Link
+## Project Link
 
 https://datavis-jm.netlify.app
 
-### Sample Data to use with our app
+Sample Data to use with our app:
 
-[Sample CSV Data - click to download](files/MOCK_DATA_datavis.csv)
+[Sample CSV Data - click to download](https://filesend.standardnotes.org/send/elKql9yZW8jSA3DQxfZo#YjI0YzNhNjE0MzVkMGE1ZDQ1MGY1)
 
 
-### datavis Team
 
-@JakePowis @MoradAbed
 
