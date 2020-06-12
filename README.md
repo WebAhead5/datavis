@@ -21,9 +21,16 @@ https://hackmd.io/p/p6vGm9C8SDKQR8p8ATiKTQ
 
 https://datavis-jm.netlify.app
 
-Sample Data to use with our app:
+Please register, uplaod some data (csv, json, xlsx) and start creating some beautiful charts.
+
+#### Sample Data to use with our app:
 
 [Sample CSV Data - click to download](https://filesend.standardnotes.org/send/elKql9yZW8jSA3DQxfZo#YjI0YzNhNjE0MzVkMGE1ZDQ1MGY1)
+
+### Chart example built with datavis
+
+
+![](https://i.imgur.com/WlQLz9V.jpg)
 
 
 
