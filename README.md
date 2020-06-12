@@ -11,10 +11,10 @@ https://datavis-jm.netlify.app
 
 ### Sample Data to use with our app
 
-[Sample CSV Data - click to download](files/MOCK_DATA_datavis.csv
+[Sample CSV Data - click to download](files/MOCK_DATA_datavis.csv)
 
 
-### Team
+### datavis Team
 
-Jake Powis
-Morad Abeb
+@JakePowis @MoradAbed
+
