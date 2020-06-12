@@ -27,7 +27,7 @@ Please register, uplaod some data (csv, json, xlsx) and start creating some beau
 
 [Sample CSV Data - click to download](https://filesend.standardnotes.org/send/elKql9yZW8jSA3DQxfZo#YjI0YzNhNjE0MzVkMGE1ZDQ1MGY1)
 
-### Chart example built with datavis
+## Chart example built with datavis
 
 
 ![](https://i.imgur.com/WlQLz9V.jpg)
