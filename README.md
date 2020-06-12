@@ -8,9 +8,7 @@
 A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data
 
 
-
 ![](https://i.imgur.com/TlGa7lL.png)
-
 
 
 ## Project Presentation
@@ -21,7 +19,7 @@ https://hackmd.io/p/p6vGm9C8SDKQR8p8ATiKTQ
 
 https://datavis-jm.netlify.app
 
-Please register, uplaod some data (csv, json, xlsx) and start creating some beautiful charts.
+Please register, uplaod some data (csv, json, xlsx) and start creating some beautiful charts. Charts can then either be downloaded as JPEGS, or saved in your Chart History.
 
 #### Sample Data to use with our app:
 
