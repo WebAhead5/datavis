@@ -5,7 +5,7 @@
 
 ## What is datavis?
 
-A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data
+A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data.
 
 
 ![](https://i.imgur.com/TlGa7lL.png)
