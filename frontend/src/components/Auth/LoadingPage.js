@@ -25,7 +25,7 @@ export default function LoadingPage({ name, setName, setLoggedIn }) {
                     <div style={style}>
                         <BeatLoader
                             css={override}
-                            size={15}
+                            size={20}
                             color={"white"}
                         />
                     </div>
@@ -35,12 +35,12 @@ export default function LoadingPage({ name, setName, setLoggedIn }) {
                 :
                 <Fragment>
                     <UserBar name={name} setName={setName} setLoggedIn={setLoggedIn} />
-                    <div style={style}>
+                    {/* <div style={style}>
                         <BeatLoader
                             css={override}
                             size={15}
                             color={"#9013FE"} />
-                    </div>
+                    </div> */}
                 </Fragment>}
 
 
