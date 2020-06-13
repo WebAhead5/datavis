@@ -12,6 +12,7 @@ export default function UserBar({ name, setName, setLoggedIn }) {
         try {
             localStorage.removeItem("token");
             localStorage.removeItem("username");
+            setName(null)
             setLoggedIn(false);
             toast.info("Logout successfully");
         } catch (err) {
