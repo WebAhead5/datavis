@@ -11,6 +11,7 @@ const checkJWT = require("../middleware/checkJWT");
 router.post("/login", validInfo, async (req, res) => {
     const { email, password } = req.body;
 
+    //nm
     try {
 
         //check if email is in our DB
