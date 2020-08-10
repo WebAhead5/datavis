@@ -2,13 +2,23 @@
 
 @JakePowis @MoradAbed
 
+![](https://i.imgur.com/TlGa7lL.png)
+
 
 ## What is datavis?
 
 A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data.
 
 
-![](https://i.imgur.com/TlGa7lL.png)
+
+
+#### Example: Upload Data Page
+
+![](https://i.ibb.co/CBmkvLc/data2.png)
+
+#### Example: Create Chart Page
+
+![](https://i.ibb.co/d0gGhTP/data3.png)
 
 
 ## Project Presentation
