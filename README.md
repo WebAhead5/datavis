@@ -7,13 +7,14 @@
 
 ## What is datavis?
 
-A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data. Create a free accoutn @ https://datavis-jm.netlify.app.
+A platform that allows businesses to quickly and easily create charts and graphs to visualise their business data. Create a free account @ https://datavis-jm.netlify.app.
 
 
 ## Project Presentation
 
 https://hackmd.io/p/p6vGm9C8SDKQR8p8ATiKTQ
 
+## The Site
 
 #### Example: Upload Data Page
 
