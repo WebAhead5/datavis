@@ -35,8 +35,9 @@ https://hackmd.io/p/p6vGm9C8SDKQR8p8ATiKTQ
 
 
 
-## Chart example built with datavis
+## Final product example:
 
+<i>built with datavis<i>
 
 ![](https://i.imgur.com/WlQLz9V.jpg)
 
